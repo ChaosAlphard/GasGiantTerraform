@@ -78,10 +78,6 @@ district_irs_skycity_leisure = {
 
   allow = {
     uses_district_set = irs_skycity_set
-    exists = owner
-    owner = {
-      NOT = { has_civic = civic_dystopian_society }
-    }
   }
 
   conversion_ratio = 1
@@ -132,6 +128,7 @@ district_irs_skycity_research = {
 
   conversion_ratio = 1
   convert_to = {
+    district_irs_skyworld_research
     district_irs_skyland_research
   }
 
@@ -151,58 +148,9 @@ district_irs_skycity_research = {
     planet_housing_add = 6
   }
 
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = { is_regular_empire = yes }
-    }
-    modifier = {
-      job_researcher_add = 6
-    }
-  }
-
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = { is_hive_empire = yes }
-    }
-    modifier = {
-      job_brain_drone_add = 6
-    }
-  }
-
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = { is_machine_empire = yes }
-    }
-    modifier = {
-      job_calculator_add = 6
-    }
-  }
-
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = { is_regular_empire = yes }
-    }
-    text = job_researcher_effect_desc
-  }
-
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = { is_hive_empire = yes }
-    }
-    text = job_brain_drone_effect_desc
-  }
-
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = { is_machine_empire = yes }
-    }
-    text = job_calculator_effect_desc
+  inline_script = {
+    script = irs_gtt/jobs/researcher
+    AMOUNT = 6
   }
 }
 
@@ -250,27 +198,18 @@ district_irs_skycity_administrative = {
 
   allow = {
     uses_district_set = irs_skycity_set
-    exists = owner
-    owner = {
-      OR = {
-        AND = {
-          is_gestalt = yes
-          NOT = { has_civic = civic_machine_servitor }
-        }
-        AND = {
-          is_regular_empire = yes
-          is_spiritualist = no
-          has_make_spiritualist_perk = no
-        }
-      }
-    }
   }
 
   conversion_ratio = 1
   convert_to = {
+    district_irs_skyworld_administrative
     district_irs_skyland_administrative
+    district_irs_skyworld_religious
     district_irs_skycity_religious
+    district_irs_skyland_religious
+    district_irs_skyworld_organic_housing
     district_irs_skycity_organic_housing
+    district_irs_skyland_organic_housing
   }
 
   resources = {
@@ -289,128 +228,14 @@ district_irs_skycity_administrative = {
     planet_housing_add = 6
   }
 
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = {
-        is_regular_empire = yes
-        is_megacorp = no
-        is_worker_coop_empire = no
-      }
-    }
-    modifier = {
-      job_bureaucrat_add = 6
-    }
-  }
-
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = {
-        is_megacorp = yes
-        is_spiritualist = no
-        is_worker_coop_empire = no
-      }
-    }
-    modifier = {
-      job_manager_add = 6
-    }
-  }
-
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = {
-        is_spiritualist = no
-        is_worker_coop_empire = yes
-      }
-    }
-    modifier = {
-      job_steward_add = 6
-    }
-  }
-
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = {
-        is_hive_empire = yes
-      }
-    }
-    modifier = {
-      job_synapse_drone_add = 6
-    }
-  }
-
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = {
-        is_machine_empire = yes
-      }
-    }
-    modifier = {
-      job_coordinator_add = 6
-    }
-  }
-
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = {
-        is_regular_empire = yes
-        is_megacorp = no
-        is_worker_coop_empire = no
-      }
-    }
-    text = job_bureaucrat_effect_desc
-  }
-
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = {
-        is_megacorp = yes
-        is_spiritualist = no
-        is_worker_coop_empire = no
-      }
-    }
-    text = job_manager_effect_desc
-  }
-
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = {
-        is_spiritualist = no
-        is_worker_coop_empire = yes
-      }
-    }
-    text = job_steward_effect_desc
-  }
-
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = {
-        is_hive_empire = yes
-      }
-    }
-    text = job_synapse_drone_effect_desc
-  }
-
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = {
-        is_machine_empire = yes
-      }
-    }
-    text = job_coordinator_effect_desc
+  inline_script = {
+    script = irs_gtt/jobs/bureaucrat
+    AMOUNT = 6
+    AMOUNT_TR_VIR4 = 2
   }
 }
 
-# 教会区划
+# 教会区划 TODO
 district_irs_skycity_religious = {
   is_capped_by_modifier = no
   icon = district_irs_skycity_administrative
@@ -442,21 +267,18 @@ district_irs_skycity_religious = {
 
   allow = {
     uses_district_set = irs_skycity_set
-    exists = owner
-    owner = {
-      is_regular_empire = yes
-      OR = {
-        is_spiritualist = yes
-        has_make_spiritualist_perk = yes
-      }
-    }
   }
 
   conversion_ratio = 1
   convert_to = {
+    district_irs_skyworld_religious
     district_irs_skyland_religious
+    district_irs_skyworld_administrative
     district_irs_skycity_administrative
+    district_irs_skyland_administrative
+    district_irs_skyworld_organic_housing
     district_irs_skycity_organic_housing
+    district_irs_skyland_organic_housing
   }
 
   resources = {
@@ -635,17 +457,18 @@ district_irs_skycity_organic_housing = {
 
   allow = {
     uses_district_set = irs_skycity_set
-    exists = owner
-    owner = {
-      has_civic = civic_machine_servitor
-    }
   }
 
   conversion_ratio = 1
   convert_to = {
+    district_irs_skyworld_organic_housing
     district_irs_skyland_organic_housing
+    district_irs_skyworld_administrative
     district_irs_skycity_administrative
+    district_irs_skyland_administrative
+    district_irs_skyworld_religious
     district_irs_skycity_religious
+    district_irs_skyland_religious
   }
 
   resources = {
