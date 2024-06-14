@@ -899,18 +899,15 @@ district_irs_skyworld_commercial = {
 
   allow = {
     uses_district_set = irs_skyworld_set
-    exists = owner
-    owner = {
-      is_gestalt = no
-      is_fallen_empire = no
-    }
   }
 
   conversion_ratio = 1
   convert_to = {
     district_irs_skycity_commercial
+    district_irs_skyland_commercial
     district_irs_skyworld_generator
     district_irs_skycity_generator
+    district_irs_skyland_generator
   }
 
   resources = {
@@ -925,17 +922,14 @@ district_irs_skyworld_commercial = {
     }
   }
 
-  planet_modifier = {
-    trade_value_mult = 0.01
-    planet_housing_add = 10
-  }
-
   inline_script = {
-    script = irs_gtt/jobs/trader_clerk
+    script = irs_gtt/jobs/district_commercial
+    TRADE_VALUE = 0.01
+    HOUSE = 10
     TRADER = 4
-    TRADER_FROM_TRADITION = 2
     CLERK = 6
-    CLERK_FROM_TRADITION = 6
+    TRADER_TR_COMMERCIAL = 2
+    CLERK_TR_VIR4 = 6
   }
 }
 
@@ -964,7 +958,7 @@ district_irs_skyworld_generator = {
   }
 
   resources = {
-    category = planet_districts
+    category = planet_districts_generator
     cost = {
       alloys = @skyworld_base_cost
       rare_crystals = @skyworld_sr_cost
@@ -977,6 +971,7 @@ district_irs_skyworld_generator = {
 
   inline_script = {
     script = irs_gtt/jobs/district_generator
+    ENERGY_PRODUCE = 0.01
     HOUSE = 10
     TECHNICIAN = 10
     TECHNICIAN_DRONE = 15
@@ -1023,6 +1018,7 @@ district_irs_skyworld_mining = {
 
   inline_script = {
     script = irs_gtt/jobs/district_mining
+    MINERALS_PRODUCE = 0.01
     HOUSE = 10
     MINER = 10
     MINER_DRONE = 15
@@ -1069,6 +1065,7 @@ district_irs_skyworld_farming = {
 
   inline_script = {
     script = irs_gtt/jobs/district_farming
+    FOOD_PRODUCE = 0.01
     HOUSE = 10
     FARMER = 10
     ANGLER = 10
@@ -1100,6 +1097,7 @@ district_irs_skyworld_navy = {
   conversion_ratio = 1
   convert_to = {
     district_irs_skycity_navy
+    district_irs_skyland_navy
   }
 
   resources = {
@@ -1165,7 +1163,7 @@ district_irs_skyworld_sr_gases = {
 
   planet_modifier = {
     planet_jobs_exotic_gases_produces_mult = 0.01
-    planet_housing_add = 2
+    planet_housing_add = 4
   }
 
   inline_script = {

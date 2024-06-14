@@ -888,16 +888,13 @@ district_irs_skycity_commercial = {
 
   allow = {
     uses_district_set = irs_skycity_set
-    exists = owner
-    owner = {
-      is_gestalt = no
-      is_fallen_empire = no
-    }
   }
 
   conversion_ratio = 1
   convert_to = {
+    district_irs_skyworld_commercial
     district_irs_skyland_commercial
+    district_irs_skyworld_generator
     district_irs_skycity_generator
     district_irs_skyland_generator
   }
@@ -914,16 +911,13 @@ district_irs_skycity_commercial = {
     }
   }
 
-  planet_modifier = {
-    planet_housing_add = 6
-  }
-
   inline_script = {
-    script = irs_gtt/jobs/trader_clerk
+    script = irs_gtt/jobs/district_commercial
+    HOUSE = 6
     TRADER = 2
-    TRADER_FROM_TRADITION = 2
     CLERK = 4
-    CLERK_FROM_TRADITION = 6
+    TRADER_TR_COMMERCIAL = 2
+    CLERK_TR_VIR4 = 6
   }
 }
 
@@ -952,7 +946,7 @@ district_irs_skycity_generator = {
   }
 
   resources = {
-    category = planet_districts
+    category = planet_districts_generator
     cost = {
       minerals = @skycity_base_cost
       rare_crystals = @skycity_sr_cost

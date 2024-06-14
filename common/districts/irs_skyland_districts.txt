@@ -1529,18 +1529,15 @@ district_irs_skyland_commercial = {
 
   allow = {
     uses_district_set = irs_skyland_set
-    exists = owner
-    owner = {
-      is_gestalt = no
-      is_fallen_empire = no
-    }
   }
 
   conversion_ratio = 0.5
   convert_to = {
     district_irs_skycity_commercial
+    district_irs_skyworld_commercial
     district_irs_skyland_generator
     district_irs_skycity_generator
+    district_irs_skyworld_generator
   }
 
   resources = {
@@ -1553,16 +1550,13 @@ district_irs_skyland_commercial = {
     }
   }
 
-  planet_modifier = {
-    planet_housing_add = 2
-  }
-
   inline_script = {
-    script = irs_gtt/jobs/trader_clerk
+    script = irs_gtt/jobs/district_commercial
+    HOUSE = 2
     TRADER = 1
-    TRADER_FROM_TRADITION = 1
     CLERK = 2
-    CLERK_FROM_TRADITION = 2
+    TRADER_TR_COMMERCIAL = 1
+    CLERK_TR_VIR4 = 2
   }
 }
 
@@ -1754,6 +1748,7 @@ district_irs_skyland_navy = {
   conversion_ratio = 0.5
   convert_to = {
     district_irs_skycity_navy
+    district_irs_skyworld_navy
   }
 
   resources = {
@@ -1770,39 +1765,8 @@ district_irs_skyland_navy = {
     planet_housing_add = 2
   }
 
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = { is_gestalt = no }
-    }
-    modifier = {
-      job_soldier_add = 2
-    }
-  }
-
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = { is_gestalt = yes }
-    }
-    modifier = {
-      job_warrior_drone_add = 2
-    }
-  }
-
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = { is_gestalt = no }
-    }
-    text = job_soldier_effect_desc
-  }
-
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = { is_gestalt = yes }
-    }
-    text = job_warrior_drone_effect_desc
+  inline_script = {
+    script = irs_gtt/jobs/soldier
+    AMOUNT = 2
   }
 }

@@ -1,3 +1,8 @@
+planet_modifier = {
+  trade_value_mult = $TRADE_VALUE$
+  planet_housing_add = $HOUSE$
+}
+
 triggered_planet_modifier = {
   potential = {
     exists = owner
@@ -21,7 +26,7 @@ triggered_planet_modifier = {
     }
   }
   modifier = {
-    job_trader_add = $TRADER_FROM_TRADITION$
+    job_trader_add = $TRADER_TR_COMMERCIAL$
   }
 }
 
@@ -32,7 +37,7 @@ triggered_planet_modifier = {
     owner = { has_active_tradition = tr_virtuality_4 }
   }
   modifier = {
-    job_clerk_add = $CLERK_FROM_TRADITION$
+    job_clerk_add = $CLERK_TR_VIR4$
   }
 }
 
