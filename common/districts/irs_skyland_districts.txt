@@ -1,0 +1,2040 @@
+@skyland_base_cost = 300
+@skyland_city_cost = 500
+@skyland_city_build_time = 360
+@skyland_base_build_time = 180
+
+# 城市区划
+district_irs_skyland_city = {
+  exempt_from_ai_planet_specialization = yes
+  is_capped_by_modifier = no
+  icon = district_irs_skyland_city
+  base_buildtime = @skyland_city_build_time
+
+  show_on_uncolonized = {
+    uses_district_set = irs_skyland_set
+  }
+
+  potential = {
+    uses_district_set = irs_skyland_set
+  }
+
+  allow = {
+    uses_district_set = irs_skyland_set
+    NOT = { has_modifier = resort_colony }
+    NOT = { has_modifier = slave_colony }
+  }
+
+  conversion_ratio = 0.5
+  convert_to = {
+    district_irs_skycity_city
+    district_irs_skyworld_city
+  }
+
+  resources = {
+    category = planet_districts_cities
+    cost = {
+      minerals = @skyland_city_cost
+    }
+    upkeep = {
+      energy = 2
+    }
+  }
+
+  inline_script = {
+    script = irs_gtt/jobs/district_city
+    HOUSE = 12
+    HOUSE_TR_PUBLIC_WORKS = 3
+    HOUSE_CI_AGRARIAN_IDYLL = -2
+    ENFORCER = 2
+    PATROL = 2
+    CLERK = 2
+    CLERK_FROM_TRADITION = 2
+    MAINTENANCE = 2
+    MAINTENANCE_FROM_TRADITION = 2
+  }
+}
+
+# 休闲区划
+district_irs_skyland_leisure = {
+  is_capped_by_modifier = no
+  icon = district_irs_skyland_leisure
+  base_buildtime = @skyland_city_build_time
+
+  show_on_uncolonized = {
+    uses_district_set = irs_skyland_set
+    exists = from
+    from = {
+      NOT = { has_civic = civic_dystopian_society }
+    }
+  }
+
+  potential = {
+    uses_district_set = irs_skyland_set
+    exists = owner
+    owner = {
+      NOT = { has_civic = civic_dystopian_society }
+    }
+  }
+
+  allow = {
+    uses_district_set = irs_skyland_set
+    NOT = { has_modifier = slave_colony }
+    NOT = { has_modifier = penal_colony }
+    exists = owner
+    owner = {
+      NOT = { has_civic = civic_dystopian_society }
+    }
+  }
+
+  conversion_ratio = 0.5
+  convert_to = {
+    district_irs_skycity_leisure
+    district_irs_skyworld_leisure
+  }
+
+  resources = {
+    category = planet_districts
+    cost = {
+      minerals = @skyland_city_cost
+    }
+    upkeep = {
+      energy = 2
+    }
+  }
+
+  inline_script = {
+    script = irs_gtt/jobs/district_leisure
+    HOUSE = 2
+    ENTERTAINER = 2
+    DUELIST = 2
+    MAINTENANCE = 4
+    AMENITIES_VALUE = 10
+  }
+}
+
+# 研究区划
+district_irs_skyland_research = {
+  is_capped_by_modifier = no
+  icon = district_irs_skycity_research
+  base_buildtime = @skyland_city_build_time
+
+  prerequisites = {
+    tech_basic_science_lab_1
+  }
+
+  show_on_uncolonized = {
+    uses_district_set = irs_skyland_set
+  }
+
+  potential = {
+    uses_district_set = irs_skyland_set
+  }
+
+  allow = {
+    uses_district_set = irs_skyland_set
+    NOT = { has_modifier = resort_colony }
+    NOT = { has_modifier = penal_colony }
+    NOT = { has_modifier = slave_colony }
+  }
+
+  conversion_ratio = 0.5
+  convert_to = {
+    district_irs_skycity_research
+  }
+
+  resources = {
+    category = planet_districts
+    cost = {
+      minerals = @skyland_city_cost
+    }
+    upkeep = {
+      energy = 2
+    }
+  }
+
+  planet_modifier = {
+    planet_housing_add = 2
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = { is_regular_empire = yes }
+    }
+    modifier = {
+      job_researcher_add = 2
+    }
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = { is_hive_empire = yes }
+    }
+    modifier = {
+      job_brain_drone_add = 2
+    }
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = { is_machine_empire = yes }
+    }
+    modifier = {
+      job_calculator_add = 2
+    }
+  }
+
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = { is_regular_empire = yes }
+    }
+    text = job_researcher_effect_desc
+  }
+
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = { is_hive_empire = yes }
+    }
+    text = job_brain_drone_effect_desc
+  }
+
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = { is_machine_empire = yes }
+    }
+    text = job_calculator_effect_desc
+  }
+}
+
+# 行政区划
+district_irs_skyland_administrative = {
+  is_capped_by_modifier = no
+  icon = district_irs_skycity_administrative
+  base_buildtime = @skyland_city_build_time
+
+  show_on_uncolonized = {
+    uses_district_set = irs_skyland_set
+    exists = from
+    from = {
+      OR = {
+        AND = {
+          is_gestalt = yes
+          NOT = { has_civic = civic_machine_servitor }
+        }
+        AND = {
+          is_regular_empire = yes
+          is_spiritualist = no
+          has_make_spiritualist_perk = no
+        }
+      }
+    }
+  }
+
+  potential = {
+    uses_district_set = irs_skyland_set
+    exists = owner
+    owner = {
+      OR = {
+        AND = {
+          is_gestalt = yes
+          NOT = { has_civic = civic_machine_servitor }
+        }
+        AND = {
+          is_regular_empire = yes
+          is_spiritualist = no
+          has_make_spiritualist_perk = no
+        }
+      }
+    }
+  }
+
+  allow = {
+    uses_district_set = irs_skyland_set
+    exists = owner
+    owner = {
+      OR = {
+        AND = {
+          is_gestalt = yes
+          NOT = { has_civic = civic_machine_servitor }
+        }
+        AND = {
+          is_regular_empire = yes
+          is_spiritualist = no
+          has_make_spiritualist_perk = no
+        }
+      }
+    }
+  }
+
+  conversion_ratio = 0.5
+  convert_to = {
+    district_irs_skycity_administrative
+    district_irs_skyland_religious
+    district_irs_skyland_organic_housing
+  }
+
+  resources = {
+    category = planet_districts
+    cost = {
+      minerals = @skyland_city_cost
+    }
+    upkeep = {
+      energy = 2
+    }
+  }
+
+  planet_modifier = {
+    planet_housing_add = 2
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = {
+        is_regular_empire = yes
+        is_megacorp = no
+        is_worker_coop_empire = no
+      }
+    }
+    modifier = {
+      job_bureaucrat_add = 2
+    }
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = {
+        is_megacorp = yes
+        is_spiritualist = no
+        is_worker_coop_empire = no
+      }
+    }
+    modifier = {
+      job_manager_add = 2
+    }
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = {
+        is_spiritualist = no
+        is_worker_coop_empire = yes
+      }
+    }
+    modifier = {
+      job_steward_add = 2
+    }
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = {
+        is_hive_empire = yes
+      }
+    }
+    modifier = {
+      job_synapse_drone_add = 2
+    }
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = {
+        is_machine_empire = yes
+      }
+    }
+    modifier = {
+      job_coordinator_add = 2
+    }
+  }
+
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = {
+        is_regular_empire = yes
+        is_megacorp = no
+        is_worker_coop_empire = no
+      }
+    }
+    text = job_bureaucrat_effect_desc
+  }
+
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = {
+        is_megacorp = yes
+        is_spiritualist = no
+      }
+    }
+    text = job_manager_effect_desc
+  }
+
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = {
+        is_spiritualist = no
+        is_worker_coop_empire = yes
+      }
+    }
+    text = job_steward_effect_desc
+  }
+
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = {
+        is_hive_empire = yes
+      }
+    }
+    text = job_synapse_drone_effect_desc
+  }
+
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = {
+        is_machine_empire = yes
+      }
+    }
+    text = job_coordinator_effect_desc
+  }
+}
+
+# 教会区划
+district_irs_skyland_religious = {
+  is_capped_by_modifier = no
+  icon = district_irs_skycity_administrative
+  base_buildtime = @skyland_city_build_time
+
+  show_on_uncolonized = {
+    uses_district_set = irs_skyland_set
+    exists = from
+    from = {
+      is_regular_empire = yes
+      OR = {
+        is_spiritualist = yes
+        has_make_spiritualist_perk = yes
+      }
+    }
+  }
+
+  potential = {
+    uses_district_set = irs_skyland_set
+    exists = owner
+    owner = {
+      is_regular_empire = yes
+      OR = {
+        is_spiritualist = yes
+        has_make_spiritualist_perk = yes
+      }
+    }
+  }
+
+  allow = {
+    uses_district_set = irs_skyland_set
+    exists = owner
+    owner = {
+      is_regular_empire = yes
+      OR = {
+        is_spiritualist = yes
+        has_make_spiritualist_perk = yes
+      }
+    }
+  }
+
+  conversion_ratio = 0.5
+  convert_to = {
+    district_irs_skycity_religious
+    district_irs_skyland_administrative
+    district_irs_skyland_organic_housing
+  }
+
+  resources = {
+    category = planet_districts
+    cost = {
+      minerals = @skyland_city_cost
+    }
+    upkeep = {
+      energy = 2
+    }
+  }
+
+  planet_modifier = {
+    planet_housing_add = 2
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = {
+        is_megacorp = no
+        is_death_cult_empire = no
+      }
+    }
+    modifier = {
+      # Megacorp NO, Death Cult NO.
+      job_priest_add = 2
+    }
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = {
+        is_megacorp = yes
+        is_death_cult_empire = no
+        is_worker_coop_empire = no
+      }
+    }
+    modifier = {
+      # Megacorp YES, Death Cult NO.
+      job_priest_add = 1
+      job_manager_add = 1
+    }
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = {
+        is_megacorp = yes
+        is_death_cult_empire = no
+        is_worker_coop_empire = yes
+      }
+    }
+    modifier = {
+      job_priest_add = 1
+      job_steward_add = 1
+    }
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = {
+        is_death_cult_empire = yes
+      }
+    }
+    modifier = {
+      job_death_priest_add = 1
+      job_mortal_initiate_add = 1
+    }
+  }
+
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = {
+        is_megacorp = no
+        is_death_cult_empire = no
+      }
+    }
+    text = job_priest_effect_desc
+  }
+
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = {
+        is_megacorp = yes
+        is_death_cult_empire = no
+        is_worker_coop_empire = no
+      }
+    }
+    text = job_manager_effect_desc
+  }
+
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = {
+        is_megacorp = yes
+        is_death_cult_empire = no
+        is_worker_coop_empire = yes
+      }
+    }
+    text = job_steward_effect_desc
+  }
+
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = {
+        is_death_cult_empire = yes
+      }
+    }
+    text = jobs_death_priest_and_mortal_initiate_effect_desc
+  }
+}
+
+# 庇护所区划
+district_irs_skyland_organic_housing = {
+  is_capped_by_modifier = no
+  icon = district_irs_skycity_organic_housing
+  base_buildtime = @skyland_city_build_time
+
+  show_on_uncolonized = {
+    uses_district_set = irs_skyland_set
+    exists = from
+    from = {
+      has_civic = civic_machine_servitor
+    }
+  }
+
+  potential = {
+    uses_district_set = irs_skyland_set
+    exists = owner
+    owner = {
+      has_civic = civic_machine_servitor
+    }
+  }
+
+  allow = {
+    uses_district_set = irs_skyland_set
+    exists = owner
+    owner = {
+      has_civic = civic_machine_servitor
+    }
+  }
+
+  conversion_ratio = 0.5
+  convert_to = {
+    district_irs_skycity_organic_housing
+    district_irs_skyland_administrative
+    district_irs_skyland_religious
+  }
+
+  resources = {
+    category = planet_districts
+    cost = {
+      minerals = @skyland_city_cost
+    }
+    upkeep = {
+      energy = 2
+    }
+  }
+
+  planet_modifier = {
+    job_bio_trophy_add = 10
+  }
+
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = { has_valid_civic = civic_machine_servitor }
+    }
+    text = job_bio_trophy_effect_desc
+  }
+}
+
+# 铸造区划
+district_irs_skyland_foundry = {
+  is_capped_by_modifier = no
+  icon = district_irs_skyland_foundry
+  base_buildtime = @skyland_city_build_time
+
+  prerequisites = {
+    tech_basic_industry
+  }
+
+  show_on_uncolonized = {
+    uses_district_set = irs_skyland_set
+  }
+
+  potential = {
+    uses_district_set = irs_skyland_set
+  }
+
+  allow = {
+    uses_district_set = irs_skyland_set
+    NOT = { has_modifier = resort_colony }
+    NOT = { has_modifier = slave_colony }
+  }
+
+  conversion_ratio = 0.5
+  convert_to = {
+    district_irs_skyworld_foundry
+    district_irs_skycity_foundry
+    district_irs_skyworld_factory
+    district_irs_skycity_factory
+    district_irs_skyland_factory
+  }
+
+  resources = {
+    category = planet_districts_industrial
+    cost = {
+      minerals = @skyland_city_cost
+    }
+    upkeep = {
+      energy = 2
+    }
+
+    upkeep = {
+      trigger = {
+        exists = owner
+        owner = {
+          has_edict = industrial_maintenance
+        }
+      }
+      energy = 2
+    }
+  }
+
+  planet_modifier = {
+    planet_housing_add = 2
+  }
+
+  # 能工巧匠获得1贸易额
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = { is_crafter_empire = yes }
+    }
+    modifier = {
+      trade_value_add = 1
+    }
+  }
+
+  # 普政获得2合金岗位
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = {
+        OR = {
+          is_regular_empire = yes
+          has_origin = origin_fear_of_the_dark
+        }
+        is_catalytic_empire = no
+      }
+    }
+    modifier = {
+      job_foundry_add = 2
+    }
+  }
+
+  # 普政 催化加工获得2合金岗位
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = {
+        is_regular_empire = yes
+        is_catalytic_empire = yes
+      }
+    }
+    modifier = {
+      job_catalytic_technician_add = 2
+    }
+  }
+
+  # 格式塔 催化加工获得2合金岗位
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = {
+        is_gestalt = yes
+        is_catalytic_empire = yes
+      }
+    }
+    modifier = {
+      job_catalytic_drone_add = 2
+    }
+  }
+
+  # 蜂巢获得2合金岗位
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = {
+        is_hive_empire = yes
+        is_catalytic_empire = no
+      }
+    }
+    modifier = {
+      job_alloy_drone_add = 2
+    }
+  }
+
+  # 智械获得2合金岗位
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = {
+        is_machine_empire = yes
+        is_catalytic_empire = no
+      }
+    }
+    modifier = {
+      job_fabricator_add = 2
+    }
+  }
+
+  # 殖民地规划 工厂
+  # 普政 +2工匠
+  triggered_planet_modifier = {
+    potential = {
+      OR = {
+        has_designation = col_factory
+        has_designation = col_capital_factory
+      }
+
+      exists = owner
+      owner = {
+        is_regular_empire = yes
+        is_crafter_empire = no
+      }
+    }
+    modifier = {
+      job_artisan_add = 2
+    }
+  }
+
+  # 普政 能工巧匠 +2熟练技工
+  triggered_planet_modifier = {
+    potential = {
+      OR = {
+        has_designation = col_factory
+        has_designation = col_capital_factory
+      }
+
+      exists = owner
+      owner = {
+        is_regular_empire = yes
+        is_crafter_empire = yes
+      }
+    }
+    modifier = {
+      job_artificer_add = 2
+    }
+  }
+
+  # 普政 -2冶金师
+  triggered_planet_modifier = {
+    potential = {
+      OR = {
+        has_designation = col_factory
+        has_designation = col_capital_factory
+      }
+
+      exists = owner
+      owner = {
+        is_regular_empire = yes
+        is_catalytic_empire = no
+      }
+    }
+    modifier = {
+      job_foundry_add = -2
+    }
+  }
+
+  # 普政 催化加工 -2催化技师
+  triggered_planet_modifier = {
+    potential = {
+      OR = {
+        has_designation = col_factory
+        has_designation = col_capital_factory
+      }
+
+      exists = owner
+      owner = {
+        is_regular_empire = yes
+        is_catalytic_empire = yes
+      }
+    }
+    modifier = {
+      job_catalytic_technician_add = -2
+    }
+  }
+
+  # 智械 使用消费品的智械(机仆) -2合金岗+2消费品岗
+  triggered_planet_modifier = {
+    potential = {
+      OR = {
+        has_designation = col_factory
+        has_designation = col_mac_factory
+        has_designation = col_capital_factory
+      }
+      exists = owner
+      owner = {
+        is_machine_empire = yes
+        country_uses_consumer_goods = yes
+        is_catalytic_empire = no
+      }
+    }
+    modifier = {
+      job_artisan_drone_add = 2
+      job_fabricator_add = -2
+    }
+  }
+
+  # 智械 催化加工 使用消费品的智械(机仆) -2合金岗+2消费品岗
+  triggered_planet_modifier = {
+    potential = {
+      OR = {
+        has_designation = col_factory
+        has_designation = col_mac_factory
+        has_designation = col_capital_factory
+      }
+      exists = owner
+      owner = {
+        is_machine_empire = yes
+        country_uses_consumer_goods = yes
+        is_catalytic_empire = yes
+      }
+    }
+    modifier = {
+      job_artisan_drone_add = 2
+      job_catalytic_drone_add = -2
+    }
+  }
+
+  # 岗位说明
+  # 有工厂星球规划 添加工匠岗位说明
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = {
+        is_regular_empire = yes
+        is_crafter_empire = no
+      }
+      has_designation = col_factory
+    }
+    text = job_artisan_effect_desc
+  }
+
+  # 有工厂星球规划 添加熟练技工岗位说明
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = {
+        is_regular_empire = yes
+        is_crafter_empire = yes
+      }
+      has_designation = col_factory
+    }
+    text = job_artificer_effect_desc
+  }
+
+  # 没有工厂星球规划 添加冶金师岗位说明
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = {
+        is_regular_empire = yes
+        is_catalytic_empire = no
+      }
+      NOT = { has_designation = col_factory }
+    }
+    text = job_foundry_effect_desc
+  }
+
+  # 没有工厂星球规划 添加催化技师岗位说明
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = {
+        is_regular_empire = yes
+        is_catalytic_empire = yes
+      }
+      NOT = { has_designation = col_factory }
+    }
+    text = job_catalytic_technician_effect_desc
+  }
+
+  # 有工厂星球规划 添加工匠子个体说明
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = {
+        is_machine_empire = yes
+        country_uses_consumer_goods = yes
+      }
+      OR = {
+        has_designation = col_factory
+        has_designation = col_mac_factory
+        has_designation = col_capital_factory
+      }
+    }
+    text = job_artisan_drone_effect_desc
+  }
+
+  # 没有工厂星球规划 添加制造者说明
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = {
+        is_machine_empire = yes
+        country_uses_consumer_goods = yes
+        is_catalytic_empire = no
+      }
+      NOR = {
+        has_designation = col_factory
+        has_designation = col_mac_factory
+        has_designation = col_capital_factory
+      }
+    }
+    text = job_fabricator_effect_desc
+  }
+
+  # 没有工厂星球规划 添加催化子个体说明
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = {
+        is_machine_empire = yes
+        country_uses_consumer_goods = yes
+        is_catalytic_empire = yes
+      }
+      NOR = {
+        has_designation = col_factory
+        has_designation = col_mac_factory
+        has_designation = col_capital_factory
+      }
+    }
+    text = job_catalytic_drone_effect_desc
+  }
+
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = {
+        is_machine_empire = yes
+        country_uses_consumer_goods = no
+        is_catalytic_empire = no
+      }
+    }
+    text = job_fabricator_effect_desc
+  }
+
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = {
+        is_hive_empire = yes
+        is_catalytic_empire = no
+      }
+    }
+    text = job_alloy_drone_effect_desc
+  }
+
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = {
+        is_gestalt = yes
+        country_uses_consumer_goods = no
+        is_catalytic_empire = yes
+      }
+    }
+    text = job_catalytic_drone_effect_desc
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = {
+        is_machine_empire = yes
+        has_edict = industrial_maintenance
+      }
+    }
+    modifier = {
+      job_maintenance_drone_add = 1
+    }
+  }
+
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = {
+        is_machine_empire = yes
+        has_edict = industrial_maintenance
+      }
+    }
+    text = job_maintenance_drone_effect_desc
+  }
+}
+
+# 工厂区划
+district_irs_skyland_factory = {
+  is_capped_by_modifier = no
+  icon = district_irs_skyland_factory
+  base_buildtime = @skyland_city_build_time
+
+  prerequisites = {
+    tech_basic_industry
+  }
+
+  show_on_uncolonized = {
+    uses_district_set = irs_skyland_set
+    exists = from
+    from = {
+      OR = {
+        is_regular_empire = yes
+        AND = {
+          is_gestalt = yes
+          country_uses_consumer_goods = yes
+        }
+      }
+    }
+  }
+
+  potential = {
+    uses_district_set = irs_skyland_set
+    exists = owner
+    owner = {
+      OR = {
+        is_regular_empire = yes
+        AND = {
+          is_gestalt = yes
+          country_uses_consumer_goods = yes
+        }
+      }
+    }
+  }
+
+  allow = {
+    uses_district_set = irs_skyland_set
+    NOT = { has_modifier = resort_colony }
+    NOT = { has_modifier = slave_colony }
+  }
+
+  conversion_ratio = 0.5
+  convert_to = {
+    district_irs_skyworld_factory
+    district_irs_skycity_factory
+    district_irs_skyworld_foundry
+    district_irs_skycity_foundry
+    district_irs_skyland_foundry
+  }
+
+  resources = {
+    category = planet_districts_industrial
+    cost = {
+      minerals = @skyland_city_cost
+    }
+    upkeep = {
+      energy = 2
+    }
+
+    upkeep = {
+      trigger = {
+        exists = owner
+        owner = {
+          has_edict = industrial_maintenance
+        }
+      }
+      energy = 2
+    }
+  }
+
+  planet_modifier = {
+    planet_housing_add = 2
+  }
+
+  # 能工巧匠获得2消费品岗位和1贸易额
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = { is_crafter_empire = yes }
+    }
+    modifier = {
+      trade_value_add = 1
+      job_artificer_add = 2
+    }
+  }
+
+  # 普政获得2消费品岗位
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = {
+        OR = {
+          is_regular_empire = yes
+          has_origin = origin_fear_of_the_dark
+        }
+        is_crafter_empire = no
+      }
+    }
+    modifier = {
+      job_artisan_add = 2
+    }
+  }
+
+  # 格式塔 使用消费品(机仆) 获得2消费品岗
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = {
+        is_gestalt = yes
+        country_uses_consumer_goods = yes
+      }
+    }
+    modifier = {
+      job_artisan_drone_add = 2
+    }
+  }
+
+  # 蜂巢获得2合金岗位
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = {
+        is_hive_empire = yes
+        country_uses_consumer_goods = no
+        is_catalytic_empire = no
+      }
+    }
+    modifier = {
+      job_alloy_drone_add = 2
+    }
+  }
+
+  # 智械获得2合金岗位
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = {
+        is_machine_empire = yes
+        country_uses_consumer_goods = no
+        is_catalytic_empire = no
+      }
+    }
+    modifier = {
+      job_fabricator_add = 2
+    }
+  }
+
+  # 格式塔 催化加工 获得2合金岗位
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = {
+        is_gestalt = yes
+        country_uses_consumer_goods = no
+        is_catalytic_empire = yes
+      }
+    }
+    modifier = {
+      job_catalytic_drone_add = 2
+    }
+  }
+
+  # 殖民地规划 铸造
+  # 普政 -2工匠
+  triggered_planet_modifier = {
+    potential = {
+      OR = {
+        has_designation = col_foundry
+        has_designation = col_capital_foundry
+      }
+      exists = owner
+      owner = {
+        is_regular_empire = yes
+        is_crafter_empire = no
+      }
+    }
+    modifier = {
+      job_artisan_add = -2
+    }
+  }
+
+  # 普政 能工巧匠 -2熟练技工
+  triggered_planet_modifier = {
+    potential = {
+      OR = {
+        has_designation = col_foundry
+        has_designation = col_capital_foundry
+      }
+      exists = owner
+      owner = {
+        is_regular_empire = yes
+        is_crafter_empire = yes
+      }
+    }
+    modifier = {
+      job_artificer_add = -2
+    }
+  }
+
+  # 普政 +2冶金师
+  triggered_planet_modifier = {
+    potential = {
+      OR = {
+        has_designation = col_foundry
+        has_designation = col_capital_foundry
+      }
+      exists = owner
+      owner = {
+        is_regular_empire = yes
+        is_catalytic_empire = no
+      }
+    }
+    modifier = {
+      job_foundry_add = 2
+    }
+  }
+
+  # 普政 催化加工 +2催化技师
+  triggered_planet_modifier = {
+    potential = {
+      OR = {
+        has_designation = col_foundry
+        has_designation = col_capital_foundry
+      }
+      exists = owner
+      owner = {
+        is_regular_empire = yes
+        is_catalytic_empire = yes
+      }
+    }
+    modifier = {
+      job_catalytic_technician_add = 2
+    }
+  }
+
+  # 智械 使用消费品(机仆) -2工匠子个体 +2制造者
+  triggered_planet_modifier = {
+    potential = {
+      OR = {
+        has_designation = col_foundry
+        has_designation = col_capital_foundry
+      }
+      exists = owner
+      owner = {
+        is_machine_empire = yes
+        country_uses_consumer_goods = yes
+        is_catalytic_empire = no
+      }
+    }
+    modifier = {
+      job_artisan_drone_add = -2
+      job_fabricator_add = 2
+    }
+  }
+
+  # 格式塔 催化加工 使用消费品(机仆) -2工匠子个体 +2催化子个体
+  triggered_planet_modifier = {
+    potential = {
+      OR = {
+        has_designation = col_foundry
+        has_designation = col_capital_foundry
+      }
+      exists = owner
+      owner = {
+        is_machine_empire = yes
+        country_uses_consumer_goods = yes
+        is_catalytic_empire = yes
+      }
+    }
+    modifier = {
+      job_artisan_drone_add = -2
+      job_catalytic_drone_add = 2
+    }
+  }
+
+  # 岗位说明
+  # 没有铸造星球规划 添加工匠岗位说明
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = {
+        is_regular_empire = yes
+        is_crafter_empire = no
+      }
+      NOT = { has_designation = col_foundry }
+    }
+    text = job_artisan_effect_desc
+  }
+
+  # 没有铸造星球规划 添加熟练技工岗位说明
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = {
+        is_regular_empire = yes
+        is_crafter_empire = yes
+      }
+      NOT = { has_designation = col_foundry }
+    }
+    text = job_artificer_effect_desc
+  }
+
+  # 有铸造星球规划 添加冶金师岗位说明
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = {
+        is_regular_empire = yes
+        is_catalytic_empire = no
+      }
+      has_designation = col_foundry
+    }
+    text = job_foundry_effect_desc
+  }
+
+  # 有铸造星球规划 添加催化技师岗位说明
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = {
+        is_regular_empire = yes
+        is_catalytic_empire = yes
+      }
+      has_designation = col_foundry
+    }
+    text = job_catalytic_technician_effect_desc
+  }
+
+  # 没有铸造星球规划 添加工匠子个体说明
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = {
+        is_machine_empire = yes
+        country_uses_consumer_goods = yes
+      }
+      NOR = {
+        has_designation = col_foundry
+        has_designation = col_mac_foundry
+        has_designation = col_capital_foundry
+      }
+    }
+    text = job_artisan_drone_effect_desc
+  }
+
+  # 有铸造星球规划 添加制造者说明
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = {
+        is_machine_empire = yes
+        country_uses_consumer_goods = yes
+      }
+      OR = {
+        has_designation = col_foundry
+        has_designation = col_mac_foundry
+        has_designation = col_capital_foundry
+      }
+    }
+    text = job_fabricator_effect_desc
+  }
+
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = {
+        is_machine_empire = yes
+        country_uses_consumer_goods = no
+        is_catalytic_empire = no
+      }
+    }
+    text = job_fabricator_effect_desc
+  }
+
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = {
+        is_hive_empire = yes
+        is_catalytic_empire = no
+      }
+    }
+    text = job_alloy_drone_effect_desc
+  }
+
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = {
+        is_gestalt = yes
+        country_uses_consumer_goods = no
+        is_catalytic_empire = yes
+      }
+    }
+    text = job_catalytic_drone_effect_desc
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = {
+        is_machine_empire = yes
+        has_edict = industrial_maintenance
+      }
+    }
+    modifier = {
+      job_maintenance_drone_add = 1
+    }
+  }
+
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = {
+        is_machine_empire = yes
+        has_edict = industrial_maintenance
+      }
+    }
+    text = job_maintenance_drone_effect_desc
+  }
+}
+
+# 商业区划
+district_irs_skyland_commercial = {
+  is_capped_by_modifier = no
+  icon = district_irs_skycity_commercial
+  base_buildtime = @skyland_city_build_time
+
+  prerequisites = {
+    tech_interplanetary_commerce
+  }
+
+  show_on_uncolonized = {
+    uses_district_set = irs_skyland_set
+    exists = from
+    from = {
+      is_gestalt = no
+      is_fallen_empire = no
+    }
+  }
+
+  potential = {
+    uses_district_set = irs_skyland_set
+    exists = owner
+    owner = {
+      is_gestalt = no
+      is_fallen_empire = no
+    }
+  }
+
+  allow = {
+    uses_district_set = irs_skyland_set
+    exists = owner
+    owner = {
+      is_gestalt = no
+      is_fallen_empire = no
+    }
+  }
+
+  conversion_ratio = 0.5
+  convert_to = {
+    district_irs_skycity_commercial
+    district_irs_skyland_generator
+    district_irs_skycity_generator
+  }
+
+  resources = {
+    category = planet_districts
+    cost = {
+      minerals = @skyland_city_cost
+    }
+    upkeep = {
+      energy = 2
+    }
+  }
+
+  planet_modifier = {
+    planet_housing_add = 2
+  }
+
+  inline_script = {
+    script = irs_gtt/jobs/trader_clerk
+    TRADER = 1
+    TRADER_FROM_TRADITION = 1
+    CLERK = 2
+    CLERK_FROM_TRADITION = 2
+  }
+}
+
+# 发电区划
+district_irs_skyland_generator = {
+  is_capped_by_modifier = no
+  icon = district_irs_skycity_generator
+  base_buildtime = @skyland_base_build_time
+
+  # 在未殖民行星上显示
+  show_on_uncolonized = {
+    uses_district_set = irs_skyland_set
+  }
+
+  # 在已殖民行星上显示
+  potential = {
+    uses_district_set = irs_skyland_set
+  }
+
+  # 允许建造
+  allow = {
+    # 不能是旅游行星
+    uses_district_set = irs_skyland_set
+    NOT = { has_modifier = resort_colony }
+  }
+
+  conversion_ratio = 0.5
+  convert_to = {
+    district_irs_skycity_generator
+  }
+
+  resources = {
+    category = planet_districts_generator
+    cost = {
+      minerals = @skyland_base_cost
+    }
+    upkeep = {
+      energy = 1
+    }
+  }
+
+  planet_modifier = {
+    planet_housing_add = 2
+  }
+
+  # 田园牧歌国策获得1额外住房与岗位
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = { has_valid_civic = civic_agrarian_idyll }
+    }
+    modifier = {
+      planet_housing_add = 1
+      job_technician_add = 1
+    }
+  }
+
+  # 格式塔获得3发电岗
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = { is_gestalt = yes }
+    }
+    modifier = {
+      job_technician_drone_add = 3
+    }
+  }
+
+  # 普政获得2发电岗
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = {
+        is_gestalt = no
+        is_fallen_empire_spiritualist = no
+      }
+    }
+    modifier = {
+      job_technician_add = 2
+    }
+  }
+
+  # 堕落专属岗位
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = { is_fallen_empire_spiritualist = yes }
+    }
+    modifier = {
+      job_fe_acolyte_generator_add = 2
+    }
+  }
+
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = { is_gestalt = yes }
+    }
+    text = job_technician_drone_effect_desc
+  }
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = {
+        is_gestalt = no
+        is_fallen_empire_spiritualist = no
+      }
+    }
+    text = job_technician_effect_desc
+  }
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = { is_fallen_empire_spiritualist = yes }
+    }
+    text = job_fe_acolyte_generator_effect_desc
+  }
+
+  prerequisites = {
+    tech_power_plant_1
+  }
+}
+
+# 采矿区划
+district_irs_skyland_mining = {
+  is_capped_by_modifier = no
+  icon = district_irs_skycity_mining
+  base_buildtime = @skyland_base_build_time
+
+  show_on_uncolonized = {
+    uses_district_set = irs_skyland_set
+  }
+
+  potential = {
+    uses_district_set = irs_skyland_set
+  }
+
+  allow = {
+    uses_district_set = irs_skyland_set
+    NOT = { has_modifier = resort_colony }
+  }
+
+  conversion_ratio = 0.5
+  convert_to = {
+    district_irs_skycity_mining
+  }
+
+  resources = {
+    category = planet_districts_mining
+    cost = {
+      minerals = @skyland_base_cost
+    }
+    upkeep = {
+      energy = 1
+    }
+  }
+
+  planet_modifier = {
+    planet_housing_add = 2
+  }
+
+  # 田园牧歌国策获得1额外住房与岗位
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = { has_valid_civic = civic_agrarian_idyll }
+    }
+    modifier = {
+      planet_housing_add = 1
+      job_miner_add = 1
+    }
+  }
+
+  # 格式塔获得3岗位
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = { is_gestalt = yes }
+    }
+    modifier = {
+      job_mining_drone_add = 3
+    }
+  }
+
+  # 普政获得2岗位
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = {
+        is_gestalt = no
+        is_fallen_empire_spiritualist = no
+      }
+    }
+    modifier = {
+      job_miner_add = 2
+    }
+  }
+
+  # 堕落专属岗位
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = { is_fallen_empire_spiritualist = yes }
+    }
+    modifier = {
+      job_fe_acolyte_mine_add = 2
+    }
+  }
+
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = { is_gestalt = yes }
+    }
+    text = job_mining_drone_effect_desc
+  }
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = {
+        is_gestalt = no
+        is_fallen_empire_spiritualist = no
+      }
+    }
+    text = job_miner_effect_desc
+  }
+
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = { is_fallen_empire_spiritualist = yes }
+    }
+    text = job_fe_acolyte_mine_effect_desc
+  }
+
+  prerequisites = {
+    tech_mechanized_mining
+  }
+}
+
+# 农业区划
+district_irs_skyland_farming = {
+  is_capped_by_modifier = no
+  icon = district_irs_skycity_farming
+  base_buildtime = @skyland_base_build_time
+
+  show_on_uncolonized = {
+    uses_district_set = irs_skyland_set
+  }
+
+  potential = {
+    uses_district_set = irs_skyland_set
+  }
+
+  allow = {
+    uses_district_set = irs_skyland_set
+    NOT = { has_modifier = resort_colony }
+  }
+
+  conversion_ratio = 0.5
+  convert_to = {
+    district_irs_skycity_farming
+  }
+
+  resources = {
+    category = planet_districts_farming
+    cost = {
+      minerals = @skyland_base_cost
+    }
+    upkeep = {
+      energy = 1
+    }
+  }
+
+  planet_modifier = {
+    planet_housing_add = 2
+  }
+
+  # 田园牧歌国策获得1额外住房与岗位
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = { has_valid_civic = civic_agrarian_idyll }
+    }
+    modifier = {
+      planet_housing_add = 1
+      job_farmer_add = 1
+    }
+  }
+
+  # 农业乌托邦科技获得每区划-1%岗位维护费
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = {
+        has_technology = tech_housing_agrarian_idyll
+        has_valid_civic = civic_agrarian_idyll
+      }
+    }
+    modifier = {
+      planet_jobs_upkeep_mult = -0.01
+    }
+  }
+
+  # 格式塔获得3岗位
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = { is_gestalt = yes }
+    }
+    modifier = {
+      job_agri_drone_add = 3
+    }
+  }
+
+  # 普政获得2岗位
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = {
+        is_gestalt = no
+        is_fallen_empire_spiritualist = no
+        is_anglers_empire = no
+      }
+    }
+    modifier = {
+      job_farmer_add = 2
+    }
+  }
+
+  # 渔夫国策获得2渔夫岗位
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = { is_anglers_empire = yes }
+    }
+    modifier = {
+      job_angler_add = 2
+    }
+  }
+
+  # 堕落专属岗位
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = { is_fallen_empire_spiritualist = yes }
+    }
+    modifier = {
+      job_fe_acolyte_farm_add = 2
+    }
+  }
+
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = { is_gestalt = yes }
+    }
+    text = job_agri_drone_effect_desc
+  }
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = {
+        is_gestalt = no
+        is_fallen_empire_spiritualist = no
+        is_anglers_empire = no
+      }
+    }
+    text = job_farmer_effect_desc
+  }
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = { is_anglers_empire = yes }
+    }
+    text = job_aqu_angler_effect_desc
+  }
+  # triggered_desc = {
+  #   trigger = {
+  #     exists = owner
+  #     owner = { is_anglers_empire = yes }
+  #   }
+  #   text = job_pearl_diver_effect_desc
+  # }
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = { is_fallen_empire_spiritualist = yes }
+    }
+    text = job_fe_acolyte_farm_effect_desc
+  }
+
+  prerequisites = {
+    tech_industrial_farming
+  }
+
+  destroy_trigger = {
+    exists = owner
+    AND = {
+      owner = { is_ai = yes }
+      owner = { country_uses_food = no }
+    }
+  }
+}
+
+# 军事区划
+district_irs_skyland_navy = {
+  is_capped_by_modifier = no
+  icon = district_irs_skycity_navy
+  base_buildtime = @skyland_base_build_time
+
+  prerequisites = {
+    tech_planetary_defenses
+  }
+
+  show_on_uncolonized = {
+    uses_district_set = irs_skyland_set
+  }
+
+  potential = {
+    uses_district_set = irs_skyland_set
+  }
+
+  allow = {
+    uses_district_set = irs_skyland_set
+    NOT = { has_modifier = resort_colony }
+    NOT = { has_modifier = slave_colony }
+  }
+
+  conversion_ratio = 0.5
+  convert_to = {
+    district_irs_skycity_navy
+  }
+
+  resources = {
+    category = planet_districts
+    cost = {
+      minerals = @skyland_base_cost
+    }
+    upkeep = {
+      energy = 2
+    }
+  }
+
+  planet_modifier = {
+    planet_housing_add = 2
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = { is_gestalt = no }
+    }
+    modifier = {
+      job_soldier_add = 2
+    }
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = { is_gestalt = yes }
+    }
+    modifier = {
+      job_warrior_drone_add = 2
+    }
+  }
+
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = { is_gestalt = no }
+    }
+    text = job_soldier_effect_desc
+  }
+
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = { is_gestalt = yes }
+    }
+    text = job_warrior_drone_effect_desc
+  }
+}

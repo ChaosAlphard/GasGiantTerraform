@@ -1,0 +1,103 @@
+planet_modifier = {
+  planet_housing_add = $HOUSE$
+}
+
+triggered_planet_modifier = {
+  potential = {
+    exists = owner
+    owner = { has_active_tradition = tr_prosperity_public_works }
+  }
+  modifier = {
+    planet_housing_add = $HOUSE_TR_PUBLIC_WORKS$
+  }
+}
+
+triggered_planet_modifier = {
+  potential = {
+    exists = owner
+    owner = { has_valid_civic = civic_agrarian_idyll }
+  }
+  modifier = {
+    planet_housing_add = $HOUSE_CI_AGRARIAN_IDYLL$
+  }
+}
+
+triggered_planet_modifier = {
+  potential = {
+    exists = owner
+    owner = { is_regular_empire = yes }
+  }
+  modifier = {
+    job_enforcer_add = $ENFORCER$
+    job_clerk_add = $CLERK$
+  }
+}
+
+triggered_planet_modifier = {
+  potential = {
+    exists = owner
+    owner = {
+      is_regular_empire = yes
+      has_active_tradition = tr_virtuality_4
+    }
+  }
+  modifier = {
+    job_clerk_add = $CLERK_FROM_TRADITION$
+  }
+}
+
+triggered_desc = {
+  trigger = {
+    exists = owner
+    owner = { is_regular_empire = yes }
+  }
+  text = job_enforcer_effect_desc
+}
+
+triggered_desc = {
+  trigger = {
+    exists = owner
+    owner = { is_regular_empire = yes }
+  }
+  text = job_clerk_effect_desc
+}
+
+triggered_planet_modifier = {
+  potential = {
+    exists = owner
+    owner = { is_gestalt = yes }
+  }
+  modifier = {
+    job_patrol_drone_add = $PATROL$
+    job_maintenance_drone_add = $MAINTENANCE$
+  }
+}
+
+triggered_planet_modifier = {
+  potential = {
+    exists = owner
+    owner = {
+      is_gestalt = yes
+      has_active_tradition = tr_virtuality_4
+    }
+  }
+  modifier = {
+    job_maintenance_drone_add = $MAINTENANCE_FROM_TRADITION$
+  }
+}
+
+triggered_desc = {
+  trigger = {
+    exists = owner
+    owner = { is_gestalt = yes }
+  }
+  text = job_patrol_drone_effect_desc
+}
+
+triggered_desc = {
+  trigger = {
+    exists = owner
+    owner = { is_gestalt = yes }
+  }
+  text = job_maintenance_drone_effect_desc
+}

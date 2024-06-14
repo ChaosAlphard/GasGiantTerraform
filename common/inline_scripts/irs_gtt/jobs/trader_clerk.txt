@@ -1,0 +1,59 @@
+triggered_planet_modifier = {
+  potential = {
+    exists = owner
+    owner = {
+      is_gestalt = no
+      is_fallen_empire = no
+    }
+  }
+  modifier = {
+    job_trader_add = $TRADER$
+    job_clerk_add = $CLERK$
+  }
+}
+
+# 商业集团传统获得额外的商贩岗位
+triggered_planet_modifier = {
+  potential = {
+    exists = owner
+    owner = {
+      has_active_tradition = tr_mercantile_commercial_enterprise
+    }
+  }
+  modifier = {
+    job_trader_add = $TRADER_FROM_TRADITION$
+  }
+}
+
+# 生产力模拟传统获得额外的职员岗位
+triggered_planet_modifier = {
+  potential = {
+    exists = owner
+    owner = { has_active_tradition = tr_virtuality_4 }
+  }
+  modifier = {
+    job_clerk_add = $CLERK_FROM_TRADITION$
+  }
+}
+
+triggered_desc = {
+  trigger = {
+    exists = owner
+    owner = {
+      is_gestalt = no
+      is_fallen_empire = no
+    }
+  }
+  text = job_trader_effect_desc
+}
+
+triggered_desc = {
+  trigger = {
+    exists = owner
+    owner = {
+      is_gestalt = no
+      is_fallen_empire = no
+    }
+  }
+  text = job_clerk_effect_desc
+}

@@ -1,0 +1,4 @@
+defined_text = {
+  name = irs_num_gas_giant
+  value = value:count_gas_giant_num
+}

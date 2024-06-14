@@ -1,0 +1,132 @@
+##########################################################################
+# Decisions 行星决议
+##########################################################################
+# 天空城升级
+decision_irs_skycity_upgrade = {
+  owned_planets_only = yes
+  # sound = event_administrative_work
+  # icon = decision_arcology_project
+  # 执行时间
+  enactment_time = 1800
+
+  # 消耗资源
+  resources = {
+    category = decisions
+    cost = {
+      alloys = 10000
+      influence = 200
+    }
+  }
+
+  # 效果
+  effect = {
+    change_pc = pc_irs_skycity
+    # planet_event = { id = mega.201 }
+  }
+
+  # 显示条件
+  potential = {
+    is_planet_class = pc_irs_skyland
+    exists = owner # 有拥有者(即已殖民的行星)
+    owner = {
+      has_ascension_perk = ap_irs_skycity
+    }
+  }
+
+  allow = {
+    owner = {
+      has_technology = tech_planetary_shield_generator
+      has_technology = tech_planetary_infrastructure_1
+      has_technology = tech_starbase_3
+    }
+    NOR = {
+      has_modifier = resort_colony
+      has_modifier = penal_colony
+      has_modifier = slave_colony
+    }
+    free_district_slots < 1
+  }
+
+  ai_weight = {
+    weight = 0
+    modifier = {
+      weight = 20
+      exists = owner
+      owner = {
+        has_monthly_income = { resource = volatile_motes value >= 4 }
+        has_monthly_income = { resource = exotic_gases value >= 4 }
+        has_monthly_income = { resource = rare_crystals value >= 4 }
+        has_country_resource = { type = volatile_motes amount >= 200 }
+        has_country_resource = { type = exotic_gases amount >= 200 }
+        has_country_resource = { type = rare_crystals amount >= 200 }
+      }
+    }
+    modifier = {
+      factor = 100
+      num_pops >= 50
+    }
+  }
+}
+
+# 天空城完成
+decision_irs_skycity_fin = {
+  owned_planets_only = yes
+  # 执行时间
+  #enactment_time = 1800
+
+  # 消耗资源
+  resources = {
+    category = decisions
+    cost = {
+      alloys = 10000
+      influence = 100
+    }
+  }
+
+  # 效果
+  effect = {
+    change_pc = pc_irs_skyworld
+    clear_deposits = yes
+    add_deposit = d_skycity_produce_core
+    # planet_event = { id = mega.201 }
+  }
+
+  # 显示条件
+  potential = {
+    is_planet_class = pc_irs_skycity
+    exists = owner
+    owner = {
+      has_ascension_perk = ap_irs_skycity
+    }
+  }
+
+  allow = {
+    owner = {
+      has_technology = tech_planetary_infrastructure_2
+      has_technology = tech_starbase_5
+    }
+    NOR = {
+      has_modifier = resort_colony
+      has_modifier = penal_colony
+      has_modifier = slave_colony
+    }
+    free_district_slots < 1
+  }
+
+  ai_weight = {
+    weight = 0
+    modifier = {
+      weight = 20
+      exists = owner
+      owner = {
+        has_monthly_income = { resource = volatile_motes value >= 4 }
+        has_monthly_income = { resource = exotic_gases value >= 4 }
+        has_monthly_income = { resource = rare_crystals value >= 4 }
+      }
+    }
+    modifier = {
+      factor = 100
+      num_pops >= 100
+    }
+  }
+}

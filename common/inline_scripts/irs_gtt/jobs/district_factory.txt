@@ -1,0 +1,71 @@
+planet_modifier = {
+  planet_housing_add = $HOUSE$
+}
+
+triggered_planet_modifier = {
+  potential = {
+    exists = owner
+    owner = {
+      is_regular_empire = yes
+      is_crafter_empire = no
+    }
+  }
+  modifier = {
+    job_artisan_add = $ARTISAN$
+  }
+}
+
+triggered_desc = {
+  trigger = {
+    exists = owner
+    owner = {
+      is_regular_empire = yes
+      is_crafter_empire = no
+    }
+  }
+  text = job_artisan_effect_desc
+}
+
+triggered_planet_modifier = {
+  potential = {
+    exists = owner
+    owner = {
+      is_regular_empire = yes
+      is_crafter_empire = yes
+    }
+  }
+  modifier = {
+    job_artificer_add = $ARTIFICER$
+  }
+}
+
+triggered_desc = {
+  trigger = {
+    exists = owner
+    owner = {
+      is_regular_empire = yes
+      is_crafter_empire = yes
+    }
+  }
+  text = job_artificer_effect_desc
+}
+
+triggered_planet_modifier = {
+  potential = {
+    exists = owner
+    owner = { is_gestalt = yes }
+  }
+  modifier = {
+    job_artisan_drone_add = $ARTISAN$
+  }
+}
+
+triggered_desc = {
+  trigger = {
+    exists = owner
+    owner = {
+      is_gestalt = yes
+    }
+  }
+  text = job_artisan_drone_effect_desc
+}

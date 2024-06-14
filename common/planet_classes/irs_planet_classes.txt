@@ -1,0 +1,153 @@
+# Star glow from sun is set under atmosphere in	00_planet_classes
+# Star surface is set in worldgfx file for each star
+# Effects are set in particle effect for each star
+# New planets also need planet tiles (game\gfx\interface\icons\tile_backgrounds)
+# New planets need surface background (game\gfx\portraits\environments)
+# 空岛星球
+pc_irs_skyland = {
+  entity = "gas_giant"
+  entity_scale = 14
+  icon = GFX_planet_type_gas_giant
+  # picture = pc_gas_giant
+
+  atmosphere_color     = hsv { 0.1 0.15 1.1 }
+  atmosphere_intensity = 1.1
+  atmosphere_width     = 0.5
+
+  min_distance_from_sun = 40
+  max_distance_from_sun = 1000
+
+  initial = no
+  spawn_odds = 0
+  extra_orbit_size = 0
+  extra_planet_count = 0
+
+  chance_of_ring = 0.2
+
+  planet_size = { min = 20 max = 30 }
+  moon_size = { min = 8 max = 15 }
+
+  colonizable = yes
+  colonization_tech = {tech_housing_2}
+  starting_planet = no
+  city_color_lut = "gfx/portraits/misc/colorcorrection_continental.dds"
+  district_set = irs_skyland_set
+
+  ideal = no
+  show_city = no
+  is_artificial_planet = no
+  uses_alternative_skies_for_moons = no
+  uses_alternative_skies_if_has_orbital_ring = no
+  # 行星承载力
+  carry_cap_per_free_district = @carry_cap_high
+
+  modifier = {
+    pop_environment_tolerance = 0.8
+    planet_max_buildings_add = 12
+  }
+}
+
+# 空岛都市
+pc_irs_skycity = {
+  entity = "gas_giant"
+  entity_scale = 14
+  icon = GFX_planet_type_gas_giant
+
+  atmosphere_color     = hsv { 0.1 0.15 1.1 }
+  atmosphere_intensity = 1.1
+  atmosphere_width     = 0.5
+
+  min_distance_from_sun = 40
+  max_distance_from_sun = 1000
+
+  initial = no
+  spawn_odds = 0
+  extra_orbit_size = 0
+  extra_planet_count = 0
+
+  chance_of_ring = 0.2
+
+  planet_size = { min = 20 max = 30 }
+  moon_size = { min = 8 max = 15 }
+
+  colonizable = yes
+  colonization_tech = {
+    tech_housing_2
+    tech_planetary_shield_generator
+  }
+  starting_planet = no
+  city_color_lut = "gfx/portraits/misc/colorcorrection_continental.dds"
+  district_set = irs_skycity_set
+
+  ideal = yes
+  show_city = no
+  is_artificial_planet = no
+  uses_alternative_skies_for_moons = no
+  uses_alternative_skies_if_has_orbital_ring = no
+  # 行星承载力
+  carry_cap_per_free_district = @carry_cap_high
+
+  modifier = {
+    pop_environment_tolerance = 1.0
+    planet_max_buildings_add = 12
+    pop_growth_speed = 0.2
+    planet_pop_assembly_mult = 0.2
+    planet_pop_assembly_organic_mult = 0.2
+    # 失业人口自动重安置几率
+    planet_resettlement_unemployed_destination_mult = 0.5
+  }
+}
+
+# 天空城
+pc_irs_skyworld = {
+  entity = "irs_skyworld"
+  entity_scale = 20
+  icon = GFX_planet_type_gas_giant
+  picture = pc_irs_skycity
+
+  atmosphere_color     = hsv { 0.1 0.15 1.1 } #{ 0.6 0.1 1.0 }
+  atmosphere_intensity = 1.1
+  atmosphere_width     = 0.5
+
+  min_distance_from_sun = 40
+  max_distance_from_sun = 1000
+
+  initial = no
+  spawn_odds = 0
+  extra_orbit_size = 0
+  extra_planet_count = 0
+
+  chance_of_ring = 0.2
+
+  planet_size = { min = 20 max = 30 }
+  moon_size = { min = 8 max = 15 }
+
+  colonizable = yes
+  colonization_tech = {
+    tech_housing_2
+    tech_planetary_shield_generator
+  }
+  starting_planet = no
+  city_color_lut = "gfx/portraits/misc/colorcorrection_continental.dds"
+  district_set = irs_skyworld_set
+
+  ideal = yes
+  show_city = no
+  is_artificial_planet = no
+  uses_alternative_skies_for_moons = no
+  uses_alternative_skies_if_has_orbital_ring = no
+  carry_cap_per_free_district = @carry_cap_high
+
+  modifier = {
+    pop_environment_tolerance = 1.0
+    planet_max_buildings_add = 12
+    planet_jobs_produces_mult = 0.2
+    planet_jobs_upkeep_mult = -0.2
+    pop_amenities_usage_mult = -0.2
+    pop_happiness = 0.1
+    pop_growth_speed = 0.2
+    planet_pop_assembly_mult = 0.2
+    planet_pop_assembly_organic_mult = 0.2
+    planet_resettlement_unemployed_destination_mult = 1.0
+  }
+}

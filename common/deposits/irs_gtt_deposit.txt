@@ -1,0 +1,35 @@
+# 天空城资源调度核心
+d_skycity_produce_core = {
+  is_for_colonizable = yes
+  icon = d_skycity_produce_core
+  category = deposit_cat_rare
+
+  triggered_planet_modifier = {
+    potential = {
+      num_districts = {
+        type = district_irs_skyworld_city
+        value >= 1
+      }
+    }
+    modifier = {
+      planet_jobs_produces_mult = 0.1
+    }
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      num_districts = {
+        type = district_irs_skyworld_leisure
+        value >= 1
+      }
+    }
+    modifier = {
+      planet_jobs_upkeep_mult = -0.1
+    }
+  }
+
+  should_swap_deposit_on_terraforming = no
+  drop_weight = {
+    weight = 0
+  }
+}

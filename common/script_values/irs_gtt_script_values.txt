@@ -1,0 +1,9 @@
+count_gas_giant_num = {
+  complex_trigger_modifier = {
+    trigger = count_planet_within_border
+    parameters = {
+      limit = { is_planet_class = pc_gas_giant }
+    }
+    mode = add
+  }
+}

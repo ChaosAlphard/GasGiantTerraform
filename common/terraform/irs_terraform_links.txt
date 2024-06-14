@@ -1,0 +1,109 @@
+# 气态巨行星 => 空岛星球
+terraform_link = {
+  from = "pc_gas_giant"
+  to = "pc_irs_skyland"
+
+  resources = {
+    category = terraforming
+
+    cost = {
+      energy = 10000
+    }
+  }
+
+  duration = 3600
+
+  potential = {
+    has_ascension_perk = "ap_irs_skycity"
+  }
+
+  condition = {
+    has_technology = "tech_terrestrial_sculpting"
+    has_technology = "tech_housing_2"
+  }
+
+  effect = {
+    from = {
+      clear_deposits = yes
+      remove_modifier = terraforming_candidate
+    }
+  }
+
+  ai_weight = {
+    weight = 0
+  }
+}
+
+# 气态巨行星 => 空岛星球
+terraform_link = {
+  from = "pc_gas_giant"
+  to = "pc_irs_skyland"
+
+  resources = {
+    category = terraforming
+
+    cost = {
+      energy = 10000
+      minerals = 5000
+    }
+  }
+
+  duration = 1800
+
+  potential = {
+    has_ascension_perk = "ap_irs_skycity"
+  }
+
+  condition = {
+    has_technology = "tech_terrestrial_sculpting"
+    has_technology = "tech_housing_2"
+  }
+
+  effect = {
+    from = {
+      clear_deposits = yes
+      remove_modifier = terraforming_candidate
+    }
+  }
+
+  ai_weight = {
+    weight = 0
+  }
+}
+
+# 气态巨行星 => 空岛星球
+terraform_link = {
+  from = "pc_gas_giant"
+  to = "pc_irs_skyland"
+
+  resources = {
+    category = terraforming
+
+    cost = {
+      energy = 10000
+      alloys = 2000
+    }
+  }
+
+  duration = 720
+
+  potential = {
+    has_ascension_perk = "ap_irs_skycity"
+  }
+
+  condition = {
+    has_technology = "tech_terrestrial_sculpting"
+    has_technology = "tech_housing_2"
+  }
+
+  effect = {
+    from = {
+      clear_deposits = yes
+      remove_modifier = terraforming_candidate
+    }
+  }
+
+  ai_weight = {
+    weight = 0
+  }
+}

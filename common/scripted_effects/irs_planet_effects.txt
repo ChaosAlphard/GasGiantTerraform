@@ -1,0 +1,25 @@
+# 所有境内气态巨行星添加环境改造候选标记
+irs_gas_giant_add_terraform_candidate = {
+  every_planet_within_border = {
+    limit = {
+      is_planet_class = pc_gas_giant
+      NOT = {
+        has_modifier = terraforming_candidate
+      }
+    }
+    add_modifier = {
+      modifier = terraforming_candidate
+    }
+  }
+}
+
+# 所有境内气态巨行星移除环境改造候选标记
+irs_gas_giant_remove_terraform_candidate = {
+  every_planet_within_border = {
+    limit = {
+      is_planet_class = pc_gas_giant
+      has_modifier = terraforming_candidate
+    }
+    remove_modifier = terraforming_candidate
+  }
+}

@@ -1,0 +1,51 @@
+# 所有境内气态巨行星添加环境改造候选标记
+edict_irs_gas_giant_mark = {
+  length = 1
+  icon = "GFX_edict_type_time"
+
+  effect = {
+    hidden_effect = {
+      irs_gas_giant_add_terraform_candidate = yes
+    }
+  }
+
+  modifier = {}
+
+  potential = {
+    has_ascension_perk = ap_irs_skycity
+  }
+
+  allow = {
+    has_ascension_perk = ap_irs_skycity
+  }
+
+  ai_weight = {
+    weight = 0
+  }
+}
+
+# 所有境内气态巨行星移除环境改造候选标记
+edict_irs_gas_giant_unmark = {
+  length = 1
+  icon = "GFX_edict_type_time"
+
+  effect = {
+    hidden_effect = {
+      irs_gas_giant_remove_terraform_candidate = yes
+    }
+  }
+
+  modifier = {}
+
+  potential = {
+    has_ascension_perk = ap_irs_skycity
+  }
+
+  allow = {
+    has_ascension_perk = ap_irs_skycity
+  }
+
+  ai_weight = {
+    weight = 0
+  }
+}

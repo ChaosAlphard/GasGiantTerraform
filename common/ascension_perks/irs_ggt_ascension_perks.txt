@@ -1,0 +1,23 @@
+# 天空城
+ap_irs_skycity = {
+  # 是否出现
+  potential = {
+    NOT = { has_ascension_perk = ap_irs_skycity }
+  }
+  # 是否可选
+  possible = {
+    has_technology = tech_housing_2
+    custom_tooltip = {
+      fail_text = "requires_ascension_perks_1"
+      num_ascension_perks > 0
+    }
+  }
+  # 启用效果
+  on_enabled = {
+    custom_tooltip = "ap_irs_skycity_ctp"
+  }
+
+  ai_weight = {
+    weight = 0
+  }
+}
