@@ -1,6 +1,6 @@
-@skycity_base_cost = 300
-@skycity_city_cost = 500
-@skycity_sr_cost = 100
+@skycity_base_cost = 600
+@skycity_city_cost = 1000
+@skycity_sr_cost = 50
 @skycity_base_upkeep = 5
 @skycity_sr_upkeep = 1
 @skycity_build_time = 540
@@ -33,7 +33,7 @@ district_irs_skycity_city = {
   resources = {
     category = planet_districts_cities
     cost = {
-      alloys = @skycity_city_cost
+      minerals = @skycity_city_cost
     }
     upkeep = {
       energy = @skycity_base_upkeep
@@ -93,7 +93,7 @@ district_irs_skycity_leisure = {
   resources = {
     category = planet_districts
     cost = {
-      alloys = @skycity_city_cost
+      minerals = @skycity_city_cost
       exotic_gases = @skycity_sr_cost
     }
     upkeep = {
@@ -138,7 +138,7 @@ district_irs_skycity_research = {
   resources = {
     category = planet_districts
     cost = {
-      alloys = @skycity_city_cost
+      minerals = @skycity_city_cost
       exotic_gases = @skycity_sr_cost
     }
     upkeep = {
@@ -276,7 +276,7 @@ district_irs_skycity_administrative = {
   resources = {
     category = planet_districts
     cost = {
-      alloys = @skycity_city_cost
+      minerals = @skycity_city_cost
       rare_crystals = @skycity_sr_cost
     }
     upkeep = {
@@ -462,7 +462,7 @@ district_irs_skycity_religious = {
   resources = {
     category = planet_districts
     cost = {
-      alloys = @skycity_city_cost
+      minerals = @skycity_city_cost
       rare_crystals = @skycity_sr_cost
     }
     upkeep = {
@@ -651,7 +651,7 @@ district_irs_skycity_organic_housing = {
   resources = {
     category = planet_districts
     cost = {
-      alloys = @skycity_city_cost
+      minerals = @skycity_city_cost
       exotic_gases = @skycity_sr_cost
     }
     upkeep = {
@@ -661,7 +661,16 @@ district_irs_skycity_organic_housing = {
   }
 
   planet_modifier = {
+    job_artisan_drone_add = 2
     job_bio_trophy_add = 20
+  }
+
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = { has_valid_civic = civic_machine_servitor }
+    }
+    text = job_artisan_drone_effect_desc
   }
 
   triggered_desc = {
@@ -703,7 +712,7 @@ district_irs_skycity_foundry = {
   resources = {
     category = planet_districts
     cost = {
-      alloys = @skycity_city_cost
+      minerals = @skycity_city_cost
       volatile_motes = @skycity_sr_cost
     }
     upkeep = {
@@ -803,7 +812,7 @@ district_irs_skycity_factory = {
   resources = {
     category = planet_districts
     cost = {
-      alloys = @skycity_city_cost
+      minerals = @skycity_city_cost
       rare_crystals = @skycity_sr_cost
     }
     upkeep = {
@@ -896,7 +905,7 @@ district_irs_skycity_commercial = {
   resources = {
     category = planet_districts
     cost = {
-      alloys = @skycity_city_cost
+      minerals = @skycity_city_cost
       rare_crystals = @skycity_sr_cost
     }
     upkeep = {
@@ -945,7 +954,7 @@ district_irs_skycity_generator = {
   resources = {
     category = planet_districts
     cost = {
-      alloys = @skycity_base_cost
+      minerals = @skycity_base_cost
       rare_crystals = @skycity_sr_cost
     }
     upkeep = {
@@ -954,8 +963,13 @@ district_irs_skycity_generator = {
     }
   }
 
-  planet_modifier = {
-    planet_housing_add = 6
+  inline_script = {
+    script = irs_gtt/jobs/district_generator
+    HOUSE = 6
+    TECHNICIAN = 6
+    TECHNICIAN_DRONE = 8
+    HOUSE_CI_AGRARIAN_IDYLL = 2
+    TECHNICIAN_CI_AGRARIAN_IDYLL = 2
   }
 }
 
@@ -986,7 +1000,7 @@ district_irs_skycity_mining = {
   resources = {
     category = planet_districts_mining
     cost = {
-      alloys = @skycity_base_cost
+      minerals = @skycity_base_cost
       volatile_motes = @skycity_sr_cost
     }
     upkeep = {
@@ -995,8 +1009,13 @@ district_irs_skycity_mining = {
     }
   }
 
-  planet_modifier = {
-    planet_housing_add = 6
+  inline_script = {
+    script = irs_gtt/jobs/district_mining
+    HOUSE = 6
+    MINER = 6
+    MINER_DRONE = 8
+    HOUSE_CI_AGRARIAN_IDYLL = 2
+    MINER_CI_AGRARIAN_IDYLL = 2
   }
 }
 
@@ -1027,7 +1046,7 @@ district_irs_skycity_farming = {
   resources = {
     category = planet_districts_farming
     cost = {
-      alloys = @skycity_base_cost
+      minerals = @skycity_base_cost
       exotic_gases = @skycity_sr_cost
     }
     upkeep = {
@@ -1036,8 +1055,15 @@ district_irs_skycity_farming = {
     }
   }
 
-  planet_modifier = {
-    planet_housing_add = 6
+  inline_script = {
+    script = irs_gtt/jobs/district_farming
+    HOUSE = 6
+    FARMER = 6
+    ANGLER = 6
+    AGRI_DRONE = 8
+    HOUSE_TE_AGRARIAN_IDYLL = 2
+    HOUSE_CI_AGRARIAN_IDYLL = 2
+    FARMER_CI_AGRARIAN_IDYLL = 2
   }
 }
 
@@ -1068,7 +1094,7 @@ district_irs_skycity_navy = {
   resources = {
     category = planet_districts
     cost = {
-      alloys = @skycity_base_cost
+      minerals = @skycity_base_cost
       volatile_motes = @skycity_sr_cost
     }
     upkeep = {
@@ -1115,7 +1141,7 @@ district_irs_skycity_sr_gases = {
   resources = {
     category = planet_districts
     cost = {
-      alloys = @skycity_city_cost
+      minerals = @skycity_city_cost
       exotic_gases = @skycity_sr_cost
     }
     upkeep = {
@@ -1162,7 +1188,7 @@ district_irs_skycity_sr_crystals = {
   resources = {
     category = planet_districts
     cost = {
-      alloys = @skycity_city_cost
+      minerals = @skycity_city_cost
       rare_crystals = @skycity_sr_cost
     }
     upkeep = {
@@ -1209,7 +1235,7 @@ district_irs_skycity_sr_motes = {
   resources = {
     category = planet_districts
     cost = {
-      alloys = @skycity_city_cost
+      minerals = @skycity_city_cost
       volatile_motes = @skycity_sr_cost
     }
     upkeep = {

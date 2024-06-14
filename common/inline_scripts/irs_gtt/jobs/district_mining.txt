@@ -1,0 +1,89 @@
+planet_modifier = {
+  planet_housing_add = $HOUSE$
+}
+
+# 田园牧歌
+triggered_planet_modifier = {
+  potential = {
+    exists = owner
+    owner = { has_valid_civic = civic_agrarian_idyll }
+  }
+  modifier = {
+    planet_housing_add = $HOUSE_CI_AGRARIAN_IDYLL$
+    job_miner_add = $MINER_CI_AGRARIAN_IDYLL$
+  }
+}
+
+# 采矿区划额外的住房
+triggered_planet_modifier = {
+  potential = {
+    exists = owner
+  }
+  modifier = {
+    planet_housing_add = 1
+  }
+  mult = owner.value:scripted_modifier_add|MODIFIER|mining_district_housing_add|
+}
+
+# 普政
+triggered_planet_modifier = {
+  potential = {
+    exists = owner
+    owner = {
+      is_gestalt = no
+      is_fallen_empire_spiritualist = no
+    }
+  }
+  modifier = {
+    job_miner_add = $MINER$
+  }
+}
+
+triggered_desc = {
+  trigger = {
+    exists = owner
+    owner = {
+      is_gestalt = no
+      is_fallen_empire_spiritualist = no
+    }
+  }
+  text = job_miner_effect_desc
+}
+
+# 格式塔
+triggered_planet_modifier = {
+  potential = {
+    exists = owner
+    owner = { is_gestalt = yes }
+  }
+  modifier = {
+    job_mining_drone_add = $MINER_DRONE$
+  }
+}
+
+triggered_desc = {
+  trigger = {
+    exists = owner
+    owner = { is_gestalt = yes }
+  }
+  text = job_mining_drone_effect_desc
+}
+
+# 堕落
+triggered_planet_modifier = {
+  potential = {
+    exists = owner
+    owner = { is_fallen_empire_spiritualist = yes }
+  }
+  modifier = {
+    job_fe_acolyte_mine_add = $MINER$
+  }
+}
+
+triggered_desc = {
+  trigger = {
+    exists = owner
+    owner = { is_fallen_empire_spiritualist = yes }
+  }
+  text = job_fe_acolyte_mine_effect_desc
+}

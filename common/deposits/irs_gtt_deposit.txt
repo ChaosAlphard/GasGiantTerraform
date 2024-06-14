@@ -28,6 +28,106 @@ d_skycity_produce_core = {
     }
   }
 
+  triggered_planet_modifier = {
+    potential = {
+      num_districts = {
+        type = district_irs_skyworld_leisure
+        value >= 1
+      }
+      owner = { is_gestalt = yes }
+    }
+    modifier = {
+      planet_amenities_no_happiness_mult = 0.2
+    }
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      num_districts = {
+        type = district_irs_skyworld_research
+        value >= 20
+      }
+    }
+    modifier = {
+      planet_researchers_physics_research_produces_add = 1
+      planet_researchers_society_research_produces_add = 1
+      planet_researchers_engineering_research_produces_add = 1
+    }
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      num_districts = {
+        type = district_irs_skyworld_administrative
+        value >= 20
+      }
+    }
+    modifier = {
+      planet_administrators_unity_produces_add = 1
+    }
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      OR = {
+        num_districts = {
+          type = district_irs_skyworld_organic_housing
+          value >= 4
+        }
+        num_buildings = {
+          type = building_organic_paradise
+          value >= 6
+        }
+      }
+    }
+    modifier = {
+      pop_growth_speed_reduction = -0.5
+    }
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      num_districts = {
+        type = district_irs_skyworld_foundry
+        value >= 20
+      }
+    }
+    modifier = {
+      planet_metallurgists_alloys_produces_add = 1
+    }
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      num_districts = {
+        type = district_irs_skyworld_foundry
+        value >= 20
+      }
+      owner = { is_catalytic_empire = yes }
+    }
+    modifier = {
+      planet_metallurgists_alloys_produces_add = 0.25
+    }
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      num_districts = {
+        type = district_irs_skyworld_factory
+        value >= 20
+      }
+    }
+    modifier = {
+      planet_artisans_consumer_goods_produces_add = 2
+    }
+  }
+
+  planet_modifier = {
+    planet_farmers_food_produces_add = 2
+    planet_miners_minerals_produces_add = 2
+    planet_technician_energy_produces_add = 2
+  }
+
   should_swap_deposit_on_terraforming = no
   drop_weight = {
     weight = 0

@@ -3,7 +3,7 @@
 @skyworld_sr_cost = 100
 @skyworld_base_upkeep = 5
 @skyworld_sr_upkeep = 2
-@skyworld_build_time = 540
+@skyworld_build_time = 720
 
 # 城市区划
 district_irs_skyworld_city = {
@@ -661,7 +661,19 @@ district_irs_skyworld_organic_housing = {
   }
 
   planet_modifier = {
-    job_bio_trophy_add = 20
+    pop_happiness = 0.02
+    pop_growth_speed = 0.04
+    planet_bio_trophies_produces_mult = 0.05
+    job_artisan_drone_add = 3
+    job_bio_trophy_add = 30
+  }
+
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = { has_valid_civic = civic_machine_servitor }
+    }
+    text = job_artisan_drone_effect_desc
   }
 
   triggered_desc = {
@@ -719,6 +731,10 @@ district_irs_skyworld_foundry = {
       }
       energy = 2
     }
+  }
+
+  planet_modifier = {
+    planet_jobs_alloys_produces_mult = 0.01
   }
 
   inline_script = {
@@ -819,6 +835,10 @@ district_irs_skyworld_factory = {
       }
       energy = 2
     }
+  }
+
+  planet_modifier = {
+    planet_jobs_consumer_goods_produces_mult = 0.01
   }
 
   inline_script = {
@@ -940,6 +960,7 @@ district_irs_skyworld_generator = {
   conversion_ratio = 1
   convert_to = {
     district_irs_skycity_generator
+    district_irs_skyland_generator
   }
 
   resources = {
@@ -954,8 +975,13 @@ district_irs_skyworld_generator = {
     }
   }
 
-  planet_modifier = {
-    planet_housing_add = 6
+  inline_script = {
+    script = irs_gtt/jobs/district_generator
+    HOUSE = 10
+    TECHNICIAN = 10
+    TECHNICIAN_DRONE = 15
+    HOUSE_CI_AGRARIAN_IDYLL = 2
+    TECHNICIAN_CI_AGRARIAN_IDYLL = 5
   }
 }
 
@@ -980,6 +1006,7 @@ district_irs_skyworld_mining = {
   conversion_ratio = 1
   convert_to = {
     district_irs_skycity_mining
+    district_irs_skyland_mining
   }
 
   resources = {
@@ -994,8 +1021,13 @@ district_irs_skyworld_mining = {
     }
   }
 
-  planet_modifier = {
-    planet_housing_add = 6
+  inline_script = {
+    script = irs_gtt/jobs/district_mining
+    HOUSE = 10
+    MINER = 10
+    MINER_DRONE = 15
+    HOUSE_CI_AGRARIAN_IDYLL = 2
+    MINER_CI_AGRARIAN_IDYLL = 5
   }
 }
 
@@ -1020,6 +1052,7 @@ district_irs_skyworld_farming = {
   conversion_ratio = 1
   convert_to = {
     district_irs_skycity_farming
+    district_irs_skyland_farming
   }
 
   resources = {
@@ -1034,8 +1067,15 @@ district_irs_skyworld_farming = {
     }
   }
 
-  planet_modifier = {
-    planet_housing_add = 6
+  inline_script = {
+    script = irs_gtt/jobs/district_farming
+    HOUSE = 10
+    FARMER = 10
+    ANGLER = 10
+    AGRI_DRONE = 15
+    HOUSE_TE_AGRARIAN_IDYLL = 3
+    HOUSE_CI_AGRARIAN_IDYLL = 2
+    FARMER_CI_AGRARIAN_IDYLL = 5
   }
 }
 

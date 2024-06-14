@@ -1,0 +1,78 @@
+planet_modifier = {
+  planet_housing_add = $HOUSE$
+}
+
+# 田园牧歌
+triggered_planet_modifier = {
+  potential = {
+    exists = owner
+    owner = { has_valid_civic = civic_agrarian_idyll }
+  }
+  modifier = {
+    planet_housing_add = $HOUSE_CI_AGRARIAN_IDYLL$
+    job_technician_add = $TECHNICIAN_CI_AGRARIAN_IDYLL$
+  }
+}
+
+# 普政
+triggered_planet_modifier = {
+  potential = {
+    exists = owner
+    owner = {
+      is_gestalt = no
+      is_fallen_empire_spiritualist = no
+    }
+  }
+  modifier = {
+    job_technician_add = $TECHNICIAN$
+  }
+}
+
+triggered_desc = {
+  trigger = {
+    exists = owner
+    owner = {
+      is_gestalt = no
+      is_fallen_empire_spiritualist = no
+    }
+  }
+  text = job_technician_effect_desc
+}
+
+# 格式塔
+triggered_planet_modifier = {
+  potential = {
+    exists = owner
+    owner = { is_gestalt = yes }
+  }
+  modifier = {
+    job_technician_drone_add = $TECHNICIAN_DRONE$
+  }
+}
+
+triggered_desc = {
+  trigger = {
+    exists = owner
+    owner = { is_gestalt = yes }
+  }
+  text = job_technician_drone_effect_desc
+}
+
+# 堕落
+triggered_planet_modifier = {
+  potential = {
+    exists = owner
+    owner = { is_fallen_empire_spiritualist = yes }
+  }
+  modifier = {
+    job_fe_acolyte_generator_add = $TECHNICIAN$
+  }
+}
+
+triggered_desc = {
+  trigger = {
+    exists = owner
+    owner = { is_fallen_empire_spiritualist = yes }
+  }
+  text = job_fe_acolyte_generator_effect_desc
+}

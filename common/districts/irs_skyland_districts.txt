@@ -627,7 +627,16 @@ district_irs_skyland_organic_housing = {
   }
 
   planet_modifier = {
+    job_artisan_drone_add = 1
     job_bio_trophy_add = 10
+  }
+
+  triggered_desc = {
+    trigger = {
+      exists = owner
+      owner = { has_valid_civic = civic_machine_servitor }
+    }
+    text = job_artisan_drone_effect_desc
   }
 
   triggered_desc = {
@@ -1563,6 +1572,10 @@ district_irs_skyland_generator = {
   icon = district_irs_skycity_generator
   base_buildtime = @skyland_base_build_time
 
+  prerequisites = {
+    tech_power_plant_1
+  }
+
   # 在未殖民行星上显示
   show_on_uncolonized = {
     uses_district_set = irs_skyland_set
@@ -1583,6 +1596,7 @@ district_irs_skyland_generator = {
   conversion_ratio = 0.5
   convert_to = {
     district_irs_skycity_generator
+    district_irs_skyworld_generator
   }
 
   resources = {
@@ -1595,85 +1609,13 @@ district_irs_skyland_generator = {
     }
   }
 
-  planet_modifier = {
-    planet_housing_add = 2
-  }
-
-  # 田园牧歌国策获得1额外住房与岗位
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = { has_valid_civic = civic_agrarian_idyll }
-    }
-    modifier = {
-      planet_housing_add = 1
-      job_technician_add = 1
-    }
-  }
-
-  # 格式塔获得3发电岗
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = { is_gestalt = yes }
-    }
-    modifier = {
-      job_technician_drone_add = 3
-    }
-  }
-
-  # 普政获得2发电岗
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = {
-        is_gestalt = no
-        is_fallen_empire_spiritualist = no
-      }
-    }
-    modifier = {
-      job_technician_add = 2
-    }
-  }
-
-  # 堕落专属岗位
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = { is_fallen_empire_spiritualist = yes }
-    }
-    modifier = {
-      job_fe_acolyte_generator_add = 2
-    }
-  }
-
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = { is_gestalt = yes }
-    }
-    text = job_technician_drone_effect_desc
-  }
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = {
-        is_gestalt = no
-        is_fallen_empire_spiritualist = no
-      }
-    }
-    text = job_technician_effect_desc
-  }
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = { is_fallen_empire_spiritualist = yes }
-    }
-    text = job_fe_acolyte_generator_effect_desc
-  }
-
-  prerequisites = {
-    tech_power_plant_1
+  inline_script = {
+    script = irs_gtt/jobs/district_generator
+    HOUSE = 2
+    TECHNICIAN = 2
+    TECHNICIAN_DRONE = 3
+    HOUSE_CI_AGRARIAN_IDYLL = 1
+    TECHNICIAN_CI_AGRARIAN_IDYLL = 1
   }
 }
 
@@ -1682,6 +1624,10 @@ district_irs_skyland_mining = {
   is_capped_by_modifier = no
   icon = district_irs_skycity_mining
   base_buildtime = @skyland_base_build_time
+
+  prerequisites = {
+    tech_mechanized_mining
+  }
 
   show_on_uncolonized = {
     uses_district_set = irs_skyland_set
@@ -1699,6 +1645,7 @@ district_irs_skyland_mining = {
   conversion_ratio = 0.5
   convert_to = {
     district_irs_skycity_mining
+    district_irs_skyworld_mining
   }
 
   resources = {
@@ -1711,86 +1658,13 @@ district_irs_skyland_mining = {
     }
   }
 
-  planet_modifier = {
-    planet_housing_add = 2
-  }
-
-  # 田园牧歌国策获得1额外住房与岗位
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = { has_valid_civic = civic_agrarian_idyll }
-    }
-    modifier = {
-      planet_housing_add = 1
-      job_miner_add = 1
-    }
-  }
-
-  # 格式塔获得3岗位
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = { is_gestalt = yes }
-    }
-    modifier = {
-      job_mining_drone_add = 3
-    }
-  }
-
-  # 普政获得2岗位
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = {
-        is_gestalt = no
-        is_fallen_empire_spiritualist = no
-      }
-    }
-    modifier = {
-      job_miner_add = 2
-    }
-  }
-
-  # 堕落专属岗位
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = { is_fallen_empire_spiritualist = yes }
-    }
-    modifier = {
-      job_fe_acolyte_mine_add = 2
-    }
-  }
-
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = { is_gestalt = yes }
-    }
-    text = job_mining_drone_effect_desc
-  }
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = {
-        is_gestalt = no
-        is_fallen_empire_spiritualist = no
-      }
-    }
-    text = job_miner_effect_desc
-  }
-
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = { is_fallen_empire_spiritualist = yes }
-    }
-    text = job_fe_acolyte_mine_effect_desc
-  }
-
-  prerequisites = {
-    tech_mechanized_mining
+  inline_script = {
+    script = irs_gtt/jobs/district_mining
+    HOUSE = 2
+    MINER = 2
+    MINER_DRONE = 3
+    HOUSE_CI_AGRARIAN_IDYLL = 1
+    MINER_CI_AGRARIAN_IDYLL = 1
   }
 }
 
@@ -1799,6 +1673,10 @@ district_irs_skyland_farming = {
   is_capped_by_modifier = no
   icon = district_irs_skycity_farming
   base_buildtime = @skyland_base_build_time
+
+  prerequisites = {
+    tech_industrial_farming
+  }
 
   show_on_uncolonized = {
     uses_district_set = irs_skyland_set
@@ -1816,6 +1694,7 @@ district_irs_skyland_farming = {
   conversion_ratio = 0.5
   convert_to = {
     district_irs_skycity_farming
+    district_irs_skyworld_farming
   }
 
   resources = {
@@ -1828,126 +1707,15 @@ district_irs_skyland_farming = {
     }
   }
 
-  planet_modifier = {
-    planet_housing_add = 2
-  }
-
-  # 田园牧歌国策获得1额外住房与岗位
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = { has_valid_civic = civic_agrarian_idyll }
-    }
-    modifier = {
-      planet_housing_add = 1
-      job_farmer_add = 1
-    }
-  }
-
-  # 农业乌托邦科技获得每区划-1%岗位维护费
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = {
-        has_technology = tech_housing_agrarian_idyll
-        has_valid_civic = civic_agrarian_idyll
-      }
-    }
-    modifier = {
-      planet_jobs_upkeep_mult = -0.01
-    }
-  }
-
-  # 格式塔获得3岗位
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = { is_gestalt = yes }
-    }
-    modifier = {
-      job_agri_drone_add = 3
-    }
-  }
-
-  # 普政获得2岗位
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = {
-        is_gestalt = no
-        is_fallen_empire_spiritualist = no
-        is_anglers_empire = no
-      }
-    }
-    modifier = {
-      job_farmer_add = 2
-    }
-  }
-
-  # 渔夫国策获得2渔夫岗位
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = { is_anglers_empire = yes }
-    }
-    modifier = {
-      job_angler_add = 2
-    }
-  }
-
-  # 堕落专属岗位
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = { is_fallen_empire_spiritualist = yes }
-    }
-    modifier = {
-      job_fe_acolyte_farm_add = 2
-    }
-  }
-
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = { is_gestalt = yes }
-    }
-    text = job_agri_drone_effect_desc
-  }
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = {
-        is_gestalt = no
-        is_fallen_empire_spiritualist = no
-        is_anglers_empire = no
-      }
-    }
-    text = job_farmer_effect_desc
-  }
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = { is_anglers_empire = yes }
-    }
-    text = job_aqu_angler_effect_desc
-  }
-  # triggered_desc = {
-  #   trigger = {
-  #     exists = owner
-  #     owner = { is_anglers_empire = yes }
-  #   }
-  #   text = job_pearl_diver_effect_desc
-  # }
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = { is_fallen_empire_spiritualist = yes }
-    }
-    text = job_fe_acolyte_farm_effect_desc
-  }
-
-  prerequisites = {
-    tech_industrial_farming
+  inline_script = {
+    script = irs_gtt/jobs/district_farming
+    HOUSE = 2
+    FARMER = 2
+    ANGLER = 2
+    AGRI_DRONE = 3
+    HOUSE_TE_AGRARIAN_IDYLL = 1
+    HOUSE_CI_AGRARIAN_IDYLL = 1
+    FARMER_CI_AGRARIAN_IDYLL = 1
   }
 
   destroy_trigger = {

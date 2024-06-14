@@ -1,0 +1,117 @@
+planet_modifier = {
+  planet_housing_add = $HOUSE$
+}
+
+# 田园牧歌
+triggered_planet_modifier = {
+  potential = {
+    exists = owner
+    owner = { has_valid_civic = civic_agrarian_idyll }
+  }
+  modifier = {
+    planet_housing_add = $HOUSE_CI_AGRARIAN_IDYLL$
+    job_farmer_add = $FARMER_CI_AGRARIAN_IDYLL$
+  }
+}
+
+# 农业乌托邦
+triggered_planet_modifier = {
+  potential = {
+    exists = owner
+    owner = {
+      has_valid_civic = civic_agrarian_idyll
+      has_technology = tech_housing_agrarian_idyll
+    }
+  }
+  modifier = {
+    planet_housing_add = $HOUSE_TE_AGRARIAN_IDYLL$
+  }
+}
+
+# 格式塔
+triggered_planet_modifier = {
+  potential = {
+    exists = owner
+    owner = { is_gestalt = yes }
+  }
+  modifier = {
+    job_agri_drone_add = $AGRI_DRONE$
+  }
+}
+
+triggered_desc = {
+  trigger = {
+    exists = owner
+    owner = { is_gestalt = yes }
+  }
+  text = job_agri_drone_effect_desc
+}
+
+# 普政
+triggered_planet_modifier = {
+  potential = {
+    exists = owner
+    owner = {
+      is_gestalt = no
+      is_fallen_empire_spiritualist = no
+      is_anglers_empire = no
+    }
+  }
+  modifier = {
+    job_farmer_add = $FARMER$
+  }
+}
+
+triggered_desc = {
+  trigger = {
+    exists = owner
+    owner = {
+      is_gestalt = no
+      is_fallen_empire_spiritualist = no
+      is_anglers_empire = no
+    }
+  }
+  text = job_farmer_effect_desc
+}
+
+# 渔夫
+triggered_planet_modifier = {
+  potential = {
+    exists = owner
+    owner = {
+      is_gestalt = no
+      is_fallen_empire_spiritualist = no
+      is_anglers_empire = yes
+    }
+  }
+  modifier = {
+    job_angler_add = $ANGLER$
+  }
+}
+
+triggered_desc = {
+  trigger = {
+    exists = owner
+    owner = { is_anglers_empire = yes }
+  }
+  text = job_aqu_angler_effect_desc
+}
+
+# 堕落
+triggered_planet_modifier = {
+  potential = {
+    exists = owner
+    owner = { is_fallen_empire_spiritualist = yes }
+  }
+  modifier = {
+    job_fe_acolyte_farm_add = 2
+  }
+}
+
+triggered_desc = {
+  trigger = {
+    exists = owner
+    owner = { is_fallen_empire_spiritualist = yes }
+  }
+  text = job_fe_acolyte_farm_effect_desc
+}
