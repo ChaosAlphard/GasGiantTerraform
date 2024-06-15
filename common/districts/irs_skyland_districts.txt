@@ -10,21 +10,26 @@ district_irs_skyland_city = {
   icon = district_irs_skyland_city
   base_buildtime = @skyland_city_build_time
 
+  # 在未殖民行星上显示
   show_on_uncolonized = {
     uses_district_set = irs_skyland_set
   }
 
+  # 是否可以存在区划
   potential = {
     uses_district_set = irs_skyland_set
   }
 
+  # 是否可以建造区划
   allow = {
     uses_district_set = irs_skyland_set
     NOT = { has_modifier = resort_colony }
     NOT = { has_modifier = slave_colony }
   }
 
+  # 转化率
   conversion_ratio = 0.5
+  # 不满足 potential 条件时尝试转化为其他区划
   convert_to = {
     district_irs_skycity_city
     district_irs_skyworld_city
@@ -156,6 +161,7 @@ district_irs_skyland_research = {
   inline_script = {
     script = irs_gtt/jobs/researcher
     AMOUNT = 2
+    AMOUNT_TR_VIR4 = 1
   }
 }
 
@@ -203,6 +209,8 @@ district_irs_skyland_administrative = {
 
   allow = {
     uses_district_set = irs_skyland_set
+    NOT = { has_modifier = penal_colony }
+    NOT = { has_modifier = slave_colony }
   }
 
   conversion_ratio = 0.5
@@ -238,7 +246,7 @@ district_irs_skyland_administrative = {
   }
 }
 
-# 教会区划 TODO
+# 教会区划
 district_irs_skyland_religious = {
   is_capped_by_modifier = no
   icon = district_irs_skycity_administrative
@@ -270,6 +278,8 @@ district_irs_skyland_religious = {
 
   allow = {
     uses_district_set = irs_skyland_set
+    NOT = { has_modifier = penal_colony }
+    NOT = { has_modifier = slave_colony }
   }
 
   conversion_ratio = 0.5
@@ -294,111 +304,18 @@ district_irs_skyland_religious = {
     }
   }
 
-  planet_modifier = {
-    planet_housing_add = 2
-  }
-
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = {
-        is_megacorp = no
-        is_death_cult_empire = no
-      }
-    }
-    modifier = {
-      # Megacorp NO, Death Cult NO.
-      job_priest_add = 2
-    }
-  }
-
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = {
-        is_megacorp = yes
-        is_death_cult_empire = no
-        is_worker_coop_empire = no
-      }
-    }
-    modifier = {
-      # Megacorp YES, Death Cult NO.
-      job_priest_add = 1
-      job_manager_add = 1
-    }
-  }
-
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = {
-        is_megacorp = yes
-        is_death_cult_empire = no
-        is_worker_coop_empire = yes
-      }
-    }
-    modifier = {
-      job_priest_add = 1
-      job_steward_add = 1
-    }
-  }
-
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = {
-        is_death_cult_empire = yes
-      }
-    }
-    modifier = {
-      job_death_priest_add = 1
-      job_mortal_initiate_add = 1
-    }
-  }
-
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = {
-        is_megacorp = no
-        is_death_cult_empire = no
-      }
-    }
-    text = job_priest_effect_desc
-  }
-
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = {
-        is_megacorp = yes
-        is_death_cult_empire = no
-        is_worker_coop_empire = no
-      }
-    }
-    text = job_manager_effect_desc
-  }
-
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = {
-        is_megacorp = yes
-        is_death_cult_empire = no
-        is_worker_coop_empire = yes
-      }
-    }
-    text = job_steward_effect_desc
-  }
-
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = {
-        is_death_cult_empire = yes
-      }
-    }
-    text = jobs_death_priest_and_mortal_initiate_effect_desc
+  inline_script = {
+    script = irs_gtt/jobs/district_religious
+    HOUSE = 2
+    PRIEST = 2
+    PRIEST_TR_VIR4 = 1
+    PREACHER = 2
+    PREACHER_TR_VIR4 = 1
+    HARUSPEX = 2
+    HARUSPEX_TR_VIR4 = 1
+    DEATH_PRIEST = 1
+    MORTAL_INITIATE = 1
+    DEATH_PRIEST_TR_VIR4 = 1
   }
 }
 
@@ -1353,6 +1270,8 @@ district_irs_skyland_commercial = {
 
   allow = {
     uses_district_set = irs_skyland_set
+    NOT = { has_modifier = penal_colony }
+    NOT = { has_modifier = slave_colony }
   }
 
   conversion_ratio = 0.5
@@ -1394,19 +1313,15 @@ district_irs_skyland_generator = {
     tech_power_plant_1
   }
 
-  # 在未殖民行星上显示
   show_on_uncolonized = {
     uses_district_set = irs_skyland_set
   }
 
-  # 在已殖民行星上显示
   potential = {
     uses_district_set = irs_skyland_set
   }
 
-  # 允许建造
   allow = {
-    # 不能是旅游行星
     uses_district_set = irs_skyland_set
     NOT = { has_modifier = resort_colony }
   }
@@ -1566,7 +1481,6 @@ district_irs_skyland_navy = {
   allow = {
     uses_district_set = irs_skyland_set
     NOT = { has_modifier = resort_colony }
-    NOT = { has_modifier = slave_colony }
   }
 
   conversion_ratio = 0.5

@@ -8,6 +8,19 @@ triggered_planet_modifier = {
   }
 }
 
+triggered_planet_modifier = {
+  potential = {
+    exists = owner
+    owner = {
+      is_regular_empire = yes
+      has_active_tradition = tr_virtuality_4
+    }
+  }
+  modifier = {
+    job_researcher_add = $AMOUNT_TR_VIR4$
+  }
+}
+
 triggered_desc = {
   trigger = {
     exists = owner
@@ -41,6 +54,19 @@ triggered_planet_modifier = {
   }
   modifier = {
     job_calculator_add = $AMOUNT$
+  }
+}
+
+triggered_planet_modifier = {
+  potential = {
+    exists = owner
+    owner = {
+      is_machine_empire = yes
+      has_active_tradition = tr_virtuality_4
+    }
+  }
+  modifier = {
+    job_calculator_add = $AMOUNT_TR_VIR4$
   }
 }
 

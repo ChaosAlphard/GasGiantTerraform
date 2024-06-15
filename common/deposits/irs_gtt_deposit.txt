@@ -109,19 +109,6 @@ d_skycity_produce_core = {
     }
   }
 
-  triggered_planet_modifier = {
-    potential = {
-      num_districts = {
-        type = district_irs_skyworld_foundry
-        value >= 20
-      }
-      owner = { is_catalytic_empire = yes }
-    }
-    modifier = {
-      planet_metallurgists_alloys_produces_add = 0.25
-    }
-  }
-
   # 工厂
   triggered_planet_modifier = {
     potential = {
@@ -222,11 +209,12 @@ d_skycity_produce_core = {
     potential = {
       num_districts = {
         type = district_irs_skyworld_sr_gases
-        value >= 20
+        value >= 4
       }
     }
     modifier = {
-      planet_jobs_exotic_gases_produces_mult = 0.2
+      planet_refiners_upkeep_mult = -0.2
+      planet_structures_exotic_gases_upkeep_mult = -0.5
     }
   }
 
@@ -235,11 +223,12 @@ d_skycity_produce_core = {
     potential = {
       num_districts = {
         type = district_irs_skyworld_sr_crystals
-        value >= 20
+        value >= 4
       }
     }
     modifier = {
-      planet_jobs_rare_crystals_produces_mult = 0.2
+      planet_translucers_upkeep_mult = -0.2
+      planet_structures_rare_crystals_upkeep_mult = -0.5
     }
   }
 
@@ -248,19 +237,13 @@ d_skycity_produce_core = {
     potential = {
       num_districts = {
         type = district_irs_skyworld_sr_motes
-        value >= 20
+        value >= 4
       }
     }
     modifier = {
-      planet_jobs_volatile_motes_produces_mult = 0.2
+      planet_chemists_upkeep_mult = -0.2
+      planet_structures_volatile_motes_upkeep_mult = -0.5
     }
-  }
-
-  planet_modifier = {
-    planet_jobs_exotic_gases_produces_mult = 0.05
-    planet_jobs_exotic_gases_upkeep_mult = -0.05
-    planet_refiners_exotic_gases_upkeep_mult = -0.05
-    planet_structures_exotic_gases_upkeep_mult = -0.5
   }
 
   should_swap_deposit_on_terraforming = no
