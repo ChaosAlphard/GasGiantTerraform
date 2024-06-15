@@ -45,8 +45,8 @@ district_irs_skycity_city = {
     HOUSE = 25
     HOUSE_TR_PUBLIC_WORKS = 5
     HOUSE_CI_AGRARIAN_IDYLL = -5
-    ENFORCER = 4
-    PATROL = 4
+    ENFORCER = 6
+    PATROL = 6
     CLERK = 4
     CLERK_FROM_TRADITION = 4
     MAINTENANCE = 4
@@ -100,10 +100,10 @@ district_irs_skycity_leisure = {
 
   inline_script = {
     script = irs_gtt/jobs/district_leisure
-    HOUSE = 4
-    ENTERTAINER = 4
-    DUELIST = 4
-    MAINTENANCE = 8
+    HOUSE = 6
+    ENTERTAINER = 6
+    DUELIST = 6
+    MAINTENANCE = 10
     AMENITIES_VALUE = 20
   }
 }
@@ -301,8 +301,9 @@ district_irs_skycity_religious = {
     PRIEST_TR_VIR4 = 2
     PREACHER = 6
     PREACHER_TR_VIR4 = 2
+    STEWARD = 6
+    STEWARD_TR_VIR4 = 2
     HARUSPEX = 6
-    HARUSPEX_TR_VIR4 = 2
     DEATH_PRIEST = 3
     MORTAL_INITIATE = 3
     DEATH_PRIEST_TR_VIR4 = 1
@@ -798,12 +799,12 @@ district_irs_skycity_navy = {
   }
 
   planet_modifier = {
-    planet_housing_add = 4
+    planet_housing_add = 6
   }
 
   inline_script = {
     script = irs_gtt/jobs/soldier
-    AMOUNT = 4
+    AMOUNT = 6
   }
 }
 

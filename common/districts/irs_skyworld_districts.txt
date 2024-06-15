@@ -45,8 +45,8 @@ district_irs_skyworld_city = {
     HOUSE = 50
     HOUSE_TR_PUBLIC_WORKS = 10
     HOUSE_CI_AGRARIAN_IDYLL = -10
-    ENFORCER = 6
-    PATROL = 6
+    ENFORCER = 10
+    PATROL = 10
     CLERK = 6
     CLERK_FROM_TRADITION = 6
     MAINTENANCE = 4
@@ -100,11 +100,11 @@ district_irs_skyworld_leisure = {
 
   inline_script = {
     script = irs_gtt/jobs/district_leisure
-    HOUSE = 6
-    ENTERTAINER = 6
-    DUELIST = 6
-    MAINTENANCE = 12
-    AMENITIES_VALUE = 20
+    HOUSE = 10
+    ENTERTAINER = 10
+    DUELIST = 10
+    MAINTENANCE = 16
+    AMENITIES_VALUE = 40
   }
 }
 
@@ -306,8 +306,9 @@ district_irs_skyworld_religious = {
     PRIEST_TR_VIR4 = 4
     PREACHER = 10
     PREACHER_TR_VIR4 = 4
+    STEWARD = 10
+    STEWARD_TR_VIR4 = 4
     HARUSPEX = 10
-    HARUSPEX_TR_VIR4 = 4
     DEATH_PRIEST = 5
     MORTAL_INITIATE = 5
     DEATH_PRIEST_TR_VIR4 = 2
@@ -814,12 +815,12 @@ district_irs_skyworld_navy = {
   planet_modifier = {
     army_defense_damage_mult = 0.01
     army_defense_health_mult = 0.01
-    planet_housing_add = 6
+    planet_housing_add = 10
   }
 
   inline_script = {
     script = irs_gtt/jobs/soldier
-    AMOUNT = 6
+    AMOUNT = 10
   }
 }
 

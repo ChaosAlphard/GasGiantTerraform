@@ -28,7 +28,7 @@ district_irs_skyland_city = {
   }
 
   # 转化率
-  conversion_ratio = 0.5
+  conversion_ratio = 1
   # 不满足 potential 条件时尝试转化为其他区划
   convert_to = {
     district_irs_skycity_city
@@ -87,7 +87,7 @@ district_irs_skyland_leisure = {
     NOT = { has_modifier = penal_colony }
   }
 
-  conversion_ratio = 0.5
+  conversion_ratio = 1
   convert_to = {
     district_irs_skycity_leisure
     district_irs_skyworld_leisure
@@ -138,7 +138,7 @@ district_irs_skyland_research = {
     NOT = { has_modifier = slave_colony }
   }
 
-  conversion_ratio = 0.5
+  conversion_ratio = 1
   convert_to = {
     district_irs_skycity_research
     district_irs_skyworld_research
@@ -213,7 +213,7 @@ district_irs_skyland_administrative = {
     NOT = { has_modifier = slave_colony }
   }
 
-  conversion_ratio = 0.5
+  conversion_ratio = 1
   convert_to = {
     district_irs_skycity_administrative
     district_irs_skyworld_administrative
@@ -282,7 +282,7 @@ district_irs_skyland_religious = {
     NOT = { has_modifier = slave_colony }
   }
 
-  conversion_ratio = 0.5
+  conversion_ratio = 1
   convert_to = {
     district_irs_skycity_religious
     district_irs_skyworld_religious
@@ -311,8 +311,9 @@ district_irs_skyland_religious = {
     PRIEST_TR_VIR4 = 1
     PREACHER = 2
     PREACHER_TR_VIR4 = 1
+    STEWARD = 2
+    STEWARD_TR_VIR4 = 1
     HARUSPEX = 2
-    HARUSPEX_TR_VIR4 = 1
     DEATH_PRIEST = 1
     MORTAL_INITIATE = 1
     DEATH_PRIEST_TR_VIR4 = 1
@@ -345,7 +346,7 @@ district_irs_skyland_organic_housing = {
     uses_district_set = irs_skyland_set
   }
 
-  conversion_ratio = 0.5
+  conversion_ratio = 1
   convert_to = {
     district_irs_skycity_organic_housing
     district_irs_skyworld_organic_housing
@@ -413,7 +414,7 @@ district_irs_skyland_foundry = {
     NOT = { has_modifier = slave_colony }
   }
 
-  conversion_ratio = 0.5
+  conversion_ratio = 1
   convert_to = {
     district_irs_skyworld_foundry
     district_irs_skycity_foundry
@@ -859,7 +860,7 @@ district_irs_skyland_factory = {
     NOT = { has_modifier = slave_colony }
   }
 
-  conversion_ratio = 0.5
+  conversion_ratio = 1
   convert_to = {
     district_irs_skyworld_factory
     district_irs_skycity_factory
@@ -1274,7 +1275,7 @@ district_irs_skyland_commercial = {
     NOT = { has_modifier = slave_colony }
   }
 
-  conversion_ratio = 0.5
+  conversion_ratio = 1
   convert_to = {
     district_irs_skycity_commercial
     district_irs_skyworld_commercial
@@ -1326,7 +1327,7 @@ district_irs_skyland_generator = {
     NOT = { has_modifier = resort_colony }
   }
 
-  conversion_ratio = 0.5
+  conversion_ratio = 1
   convert_to = {
     district_irs_skycity_generator
     district_irs_skyworld_generator
@@ -1375,7 +1376,7 @@ district_irs_skyland_mining = {
     NOT = { has_modifier = resort_colony }
   }
 
-  conversion_ratio = 0.5
+  conversion_ratio = 1
   convert_to = {
     district_irs_skycity_mining
     district_irs_skyworld_mining
@@ -1424,7 +1425,7 @@ district_irs_skyland_farming = {
     NOT = { has_modifier = resort_colony }
   }
 
-  conversion_ratio = 0.5
+  conversion_ratio = 1
   convert_to = {
     district_irs_skycity_farming
     district_irs_skyworld_farming
@@ -1483,7 +1484,7 @@ district_irs_skyland_navy = {
     NOT = { has_modifier = resort_colony }
   }
 
-  conversion_ratio = 0.5
+  conversion_ratio = 1
   convert_to = {
     district_irs_skycity_navy
     district_irs_skyworld_navy

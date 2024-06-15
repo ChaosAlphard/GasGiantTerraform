@@ -1,0 +1,22 @@
+namespace = irs_skycity
+
+planet_event = {
+  id = irs_skycity.1
+  title = irs_skycity.name
+  desc = irs_skycity.desc
+  picture = GFX_evt_irs_skycity
+  location = root
+
+  is_triggered_only = yes
+  trigger = {
+    OR = {
+      is_planet_class = pc_irs_skyland
+      is_planet_class = pc_irs_skycity
+      is_planet_class = pc_irs_skyworld
+    }
+  }
+
+  option = {
+    name = irs_skycity.a
+  }
+}

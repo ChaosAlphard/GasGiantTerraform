@@ -21,7 +21,13 @@ decision_irs_skycity_upgrade = {
   # 效果
   effect = {
     change_pc = pc_irs_skycity
-    # planet_event = { id = mega.201 }
+    hidden_effect = {
+      irs_convert_district_effect = {
+        TYPE = skycity
+        RATIO = 0.33
+      }
+      planet_event = { id = irs_skycity.1 }
+    }
   }
 
   # 显示条件
@@ -44,6 +50,7 @@ decision_irs_skycity_upgrade = {
       has_modifier = penal_colony
       has_modifier = slave_colony
     }
+    has_upgraded_capital = yes
     free_district_slots < 1
   }
 
@@ -71,8 +78,7 @@ decision_irs_skycity_upgrade = {
 # 天空城完成
 decision_irs_skycity_fin = {
   owned_planets_only = yes
-  # 执行时间
-  #enactment_time = 1800
+  enactment_time = 1800
 
   # 消耗资源
   resources = {
@@ -88,7 +94,13 @@ decision_irs_skycity_fin = {
     change_pc = pc_irs_skyworld
     clear_deposits = yes
     add_deposit = d_skycity_produce_core
-    # planet_event = { id = mega.201 }
+    hidden_effect = {
+      irs_convert_district_effect = {
+        TYPE = skyworld
+        RATIO = 0.6
+      }
+      planet_event = { id = irs_skycity.1 }
+    }
   }
 
   # 显示条件
@@ -110,6 +122,7 @@ decision_irs_skycity_fin = {
       has_modifier = penal_colony
       has_modifier = slave_colony
     }
+    has_major_upgraded_capital = yes
     free_district_slots < 1
   }
 

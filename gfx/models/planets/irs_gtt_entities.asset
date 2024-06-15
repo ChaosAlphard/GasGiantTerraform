@@ -1,8 +1,7 @@
 # 星球实体
 entity = {
   name = "irs_skyworld_01_entity"
-  # pdxmesh = "planet_no_pole_no_clouds_mesh"
-  pdxmesh = "planet_non_clouded_mesh"
+  pdxmesh = "planet_no_pole_no_clouds_mesh"
 
   meshsettings = {
     name = "planet_geosphereShape"
@@ -10,22 +9,6 @@ entity = {
     texture_normal = "gas_giant_01_normal.dds"
     texture_specular = "gas_giant_01_specular.dds"
     shader = PdxMeshGasGiant
-  }
-
-  ##cloud texture override
-  meshsettings = {
-    name = "clouds_geosphereShape"
-    texture_diffuse = "clouds_smog_01_diffuse.dds"
-    texture_normal = "nonormal.dds"
-    texture_specular = "nospec.dds"
-  }
-
-  ##cloud shadow texture override
-  meshsettings = {
-    name = "clouds_shadow_geosphereShape"
-    texture_diffuse = "clouds_smog_shadow_01_diffuse.dds"
-    texture_normal = "nonormal.dds"
-    texture_specular = "nospec.dds"
   }
 
   default_state = "idle"
