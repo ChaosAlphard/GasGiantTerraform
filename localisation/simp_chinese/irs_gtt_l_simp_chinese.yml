@@ -10,19 +10,23 @@
   edict_edict_irs_gas_giant_unmark_desc: "移除境内§Y$pc_gas_giant$§!的§Y$terraforming_candidate$§!修正"
   # 地块
   d_skycity_produce_core: "天空城资源调度核心"
-  d_skycity_produce_core_desc: "根据已建造的区划获得额外修正\n§Y$district_irs_skyworld_city$§!数量大于等于§Y1§!: $mod_planet_jobs_produces_mult$§G+10%§!\n§Y$district_irs_skyworld_leisure$§!数量大于等于§Y1§!: $mod_planet_jobs_upkeep_mult$§G-10%§!"
+  d_skycity_produce_core_desc: "根据已建造的区划获得额外加成，具体要求在区划说明处查看。"
   # 决议
-  decision_irs_skycity_upgrade: "天空城：升级"
+  decision_irs_skycity_upgrade: "建造$pc_irs_skycity$"
   decision_irs_skycity_upgrade_desc: "将分散的空岛连接起来构成钢铁城市，解锁更高效的区划"
-  decision_irs_skycity_fin: "天空城：完成"
-  decision_irs_skycity_fin_desc: "最终，钢铁大陆会将这个气态行星完全包裹在内"
+  decision_irs_skycity_fin: "建造$pc_irs_skyworld$"
+  decision_irs_skycity_fin_desc: "使用更高级的材料来强化城市的各项设施，解锁更高效的区划"
+  # 事件
+  irs_skycity.name: "§H[Root.GetName]§! 已完成改造"
+  irs_skycity.desc: "§H[Root.GetName]§! 上的改造计划已经完成"
+  irs_skycity.a: "好"
   # 行星
   pc_irs_skyland: "空岛星球"
   pc_irs_skyland_desc: "气态行星上没有陆地，但是借助£engineering£§Y$tech_housing_2$§!科技，我们可以创造出飘浮在空中的钢铁岛屿。"
   pc_irs_skycity: "空岛都市"
-  pc_irs_skycity_desc: "将分散的空岛连接在一起构成巨型钢铁城市，再利用£physics£§Y$tech_planetary_shield_generator$§!科技将§Y$pc_gas_giant$§!的风暴阻挡在外，使我们能建造更高级的区划。"
+  pc_irs_skycity_desc: "将分散的空岛连接在一起构成巨型钢铁城市，再利用£physics£§Y$tech_planetary_shield_generator$§!科技将§Y$pc_gas_giant$§!的风暴阻挡在外。"
   pc_irs_skyworld: "天空城"
-  pc_irs_skyworld_desc: "钢铁大陆已将这个气态行星完全包裹在内，从太空中看这个星球就像是都市星球一样。"
+  pc_irs_skyworld_desc: "这颗§Y$pc_gas_giant$§!上的§Y$pc_irs_skyworld$§!已经被建设为理想状态。"
   # 城市区划
   district_irs_skyland_city: "城市区划"
   district_irs_skyland_city_plural: "城市区划"
@@ -32,7 +36,7 @@
   district_irs_skycity_city_desc: "这些特殊的巨型城市利用反重力技术，可实现地表面积人口密度最大化。"
   district_irs_skyworld_city: "居住天空城"
   district_irs_skyworld_city_plural: "居住天空城"
-  district_irs_skyworld_city_desc: "这些特殊的巨型城市利用反重力技术，可实现地表面积人口密度最大化。"
+  district_irs_skyworld_city_desc: "区划数量达到§Y1§!个以上时:\n$mod_planet_jobs_produces_mult$§G+10%§!"
   # 休闲区划
   district_irs_skyland_leisure: "休闲区划"
   district_irs_skyland_leisure_plural: "休闲区划"
@@ -42,7 +46,7 @@
   district_irs_skycity_leisure_desc: "居民们在这里打发休闲时光。"
   district_irs_skyworld_leisure: "休闲天空城"
   district_irs_skyworld_leisure_plural: "休闲天空城"
-  district_irs_skyworld_leisure_desc: "居民们在这里打发休闲时光。"
+  district_irs_skyworld_leisure_desc: "区划数量达到§Y1§!个以上时:\n$mod_planet_jobs_upkeep_mult$§G-10%§!\n\n§Y格式塔§!帝国获得以下额外效果:\n£mod_planet_amenities_no_happiness_add£$PLANET_AMENITIES_TITLE$§G+20%§!"
   # 研究区划
   district_irs_skyland_research: "研究区划"
   district_irs_skyland_research_plural: "研究区划"
@@ -52,7 +56,7 @@
   district_irs_skycity_research_desc: "这些研究区划是科学发现的中心，汇集了无数科研领域的研究者们。"
   district_irs_skyworld_research: "研究天空城"
   district_irs_skyworld_research_plural: "研究天空城"
-  district_irs_skyworld_research_desc: "这些研究区划是科学发现的中心，汇集了无数科研领域的研究者们。"
+  district_irs_skyworld_research_desc: "区划数量达到§Y20§!个以上时:\n$mod_planet_researchers_produces_mult$的£physics£ £society£ £engineering£ §G+1§!"
   # 行政区划
   district_irs_skyland_administrative: "行政区划"
   district_irs_skyland_administrative_plural: "行政区划"
@@ -62,7 +66,7 @@
   district_irs_skycity_administrative_desc: "成群结队的行政文员和官僚们甘做牛马，以满足一个正在扩张的官僚体系不断提出的全新要求。"
   district_irs_skyworld_administrative: "行政天空城"
   district_irs_skyworld_administrative_plural: "行政天空城"
-  district_irs_skyworld_administrative_desc: "成群结队的行政文员和官僚们甘做牛马，以满足一个正在扩张的官僚体系不断提出的全新要求。"
+  district_irs_skyworld_administrative_desc: "区划数量达到§Y20§!个以上时:\n$mod_planet_administrators_unity_produces_mult$的§G+1§!"
   # 教会区划
   district_irs_skyland_religious: "教会区划"
   district_irs_skyland_religious_plural: "教会区划"
@@ -72,7 +76,7 @@
   district_irs_skycity_religious_desc: "这些尖塔是我们信仰虔敬的真鉴与实证，关乎我们整个帝国的精神福祉。"
   district_irs_skyworld_religious: "教会天空城"
   district_irs_skyworld_religious_plural: "教会天空城"
-  district_irs_skyworld_religious_desc: "这些尖塔是我们信仰虔敬的真鉴与实证，关乎我们整个帝国的精神福祉。"
+  district_irs_skyworld_religious_desc: "区划数量达到§Y20§!个以上时:\n$mod_planet_administrators_unity_produces_mult$的§G+1§!"
   # 庇护所区划
   district_irs_skyland_organic_housing: "庇护所区划"
   district_irs_skyland_organic_housing_plural: "庇护所区划"
@@ -82,7 +86,7 @@
   district_irs_skycity_organic_housing_desc: "这些高耸的建筑由人工智能控制的人工气候，可以模仿智慧有机生物需要的任何环境。其中的有机生物的住房需求可以完全被满足。"
   district_irs_skyworld_organic_housing: "庇护所天空城"
   district_irs_skyworld_organic_housing_plural: "庇护所天空城"
-  district_irs_skyworld_organic_housing_desc: "这些高耸的建筑由人工智能控制的人工气候，可以模仿智慧有机生物需要的任何环境。其中的有机生物的住房需求可以完全被满足。"
+  district_irs_skyworld_organic_housing_desc: "区划数量达到§Y4§!个以上或§Y$building_organic_paradise$§!数量达到§Y6§!个以上时:\n$MOD_POP_GROWTH_SPEED_REDUCTION$§G-50%§!"
   # 铸造区划
   district_irs_skyland_foundry: "铸造区划"
   district_irs_skyland_foundry_plural: "铸造区划"
@@ -92,7 +96,7 @@
   district_irs_skycity_foundry_desc: "每一个角落，都能感受到无数合金铸造厂所散发出的炽热。"
   district_irs_skyworld_foundry: "铸造天空城"
   district_irs_skyworld_foundry_plural: "铸造天空城"
-  district_irs_skyworld_foundry_desc: "每一个角落，都能感受到无数合金铸造厂所散发出的炽热。"
+  district_irs_skyworld_foundry_desc: "区划数量达到§Y20§!个以上时:\n$mod_planet_metallurgists_alloys_produces_mult$§G+1§!"
   # 工厂区划
   district_irs_skyland_factory: "工厂区划"
   district_irs_skyland_factory_plural: "工厂区划"
@@ -102,7 +106,7 @@
   district_irs_skycity_factory_desc: "这些工厂区划充斥着制造厂、作坊、民用工厂。"
   district_irs_skyworld_factory: "工厂天空城"
   district_irs_skyworld_factory_plural: "工厂天空城"
-  district_irs_skyworld_factory_desc: "这些工厂区划充斥着制造厂、作坊、民用工厂。"
+  district_irs_skyworld_factory_desc: "区划数量达到§Y20§!个以上时:\n$mod_planet_artisans_consumer_goods_produces_mult$§G+2§!"
   # 商业区划
   district_irs_skyland_commercial: "商业区划"
   district_irs_skyland_commercial_plural: "商业区划"
@@ -112,7 +116,7 @@
   district_irs_skycity_commercial_desc: "这里充斥着专门用于商业的民用工厂和设施。"
   district_irs_skyworld_commercial: "商业天空城"
   district_irs_skyworld_commercial_plural: "商业天空城"
-  district_irs_skyworld_commercial_desc: "这里充斥着专门用于商业的民用工厂和设施。"
+  district_irs_skyworld_commercial_desc: "区划数量达到§Y20§!个以上时:\n$mod_pop_job_trade_mult$§G+20%§!"
   # 发电区划
   district_irs_skyland_generator: "发电区划"
   district_irs_skyland_generator_plural: "发电区划"
@@ -122,7 +126,7 @@
   district_irs_skycity_generator_desc: "一排排的大型发电厂可以生成大量的能源，这些能源可以用来做其他事情，也可以转化为能量币。"
   district_irs_skyworld_generator: "发电天空城"
   district_irs_skyworld_generator_plural: "发电天空城"
-  district_irs_skyworld_generator_desc: "一排排的大型发电厂可以生成大量的能源，这些能源可以用来做其他事情，也可以转化为能量币。"
+  district_irs_skyworld_generator_desc: "区划数量达到§Y20§!个以上时:\n$mod_planet_technician_energy_produces_mult$§G+2§!"
   # 采矿区划
   district_irs_skyland_mining: "采矿区划"
   district_irs_skyland_mining_plural: "采矿区划"
@@ -132,7 +136,7 @@
   district_irs_skycity_mining_desc: "这些采矿城镇和资源提取中心为了获取到大量矿物资源而深入气态巨行星核采矿区划处。"
   district_irs_skyworld_mining: "采矿天空城"
   district_irs_skyworld_mining_plural: "采矿天空城"
-  district_irs_skyworld_mining_desc: "这些采矿城镇和资源提取中心为了获取到大量矿物资源而深入气态巨行星核采矿区划处。"
+  district_irs_skyworld_mining_desc: "区划数量达到§Y20§!个以上时:\n$mod_planet_miners_minerals_produces_mult$§G+2§!"
   # 农业区划
   district_irs_skyland_farming: "农业区划"
   district_irs_skyland_farming_plural: "农业区划"
@@ -142,7 +146,7 @@
   district_irs_skycity_farming_desc: "无数的水培农场为居民们提供源源不断的食物。"
   district_irs_skyworld_farming: "农业天空城"
   district_irs_skyworld_farming_plural: "农业天空城"
-  district_irs_skyworld_farming_desc: "无数的水培农场为居民们提供源源不断的食物。"
+  district_irs_skyworld_farming_desc: "区划数量达到§Y20§!个以上时:\n$mod_planet_farmers_food_produces_mult$§G+2§!\n\n拥有§Y$civic_agrarian_idyll$§!国民理念以及§Y$tech_housing_agrarian_idyll$§!科技时:\n$mod_planet_jobs_upkeep_mult$§G-20%§!\n£happiness£$MOD_POP_HAPPINESS$§G+10%§!"
   # 军事区划
   district_irs_skyland_navy: "军事区划"
   district_irs_skyland_navy_plural: "军事区划"
@@ -152,26 +156,26 @@
   district_irs_skycity_navy_desc: "这些军事要塞可以保护该星球免遭入侵和叛乱。"
   district_irs_skyworld_navy: "军事天空城"
   district_irs_skyworld_navy_plural: "军事天空城"
-  district_irs_skyworld_navy_desc: "这些军事要塞可以保护该星球免遭入侵和叛乱。"
+  district_irs_skyworld_navy_desc: "区划数量达到§Y20§!个以上时:\n£mod_planet_orbital_bombardment_damage£$MOD_PLANET_ORBITAL_BOMBARDMENT_DAMAGE$§G-20%§!"
   # 异星天然气
   district_irs_skycity_sr_gases: "精炼都市"
   district_irs_skycity_sr_gases_plural: "精炼都市"
   district_irs_skycity_sr_gases_desc: "异星天然气精炼"
   district_irs_skyworld_sr_gases: "精炼天空城"
   district_irs_skyworld_sr_gases_plural: "精炼天空城"
-  district_irs_skyworld_sr_gases_desc: "异星天然气精炼"
+  district_irs_skyworld_sr_gases_desc: "区划数量达到§Y4§!个以上时:\n£job_gas_refiner£$mod_planet_refiners_upkeep_mult$§G-20%§!\n$mod_planet_structures_exotic_gases_upkeep_mult$§G-50%§!"
   # 稀有水晶
   district_irs_skycity_sr_crystals: "透镜都市"
   district_irs_skycity_sr_crystals_plural: "透镜都市"
   district_irs_skycity_sr_crystals_desc: "稀有水晶制造"
   district_irs_skyworld_sr_crystals: "透镜天空城"
   district_irs_skyworld_sr_crystals_plural: "透镜天空城"
-  district_irs_skyworld_sr_crystals_desc: "稀有水晶制造"
+  district_irs_skyworld_sr_crystals_desc: "区划数量达到§Y4§!个以上时:\n£job_translucer£$mod_planet_translucers_upkeep_mult$§G-20%§!\n$mod_planet_structures_rare_crystals_upkeep_mult$§G-50%§!"
   # 易爆微粒
   district_irs_skycity_sr_motes: "化合都市"
   district_irs_skycity_sr_motes_plural: "化合都市"
   district_irs_skycity_sr_motes_desc:  "易爆微粒制造"
   district_irs_skyworld_sr_motes: "化合天空城"
   district_irs_skyworld_sr_motes_plural: "化合天空城"
-  district_irs_skyworld_sr_motes_desc:  "易爆微粒制造"
+  district_irs_skyworld_sr_motes_desc:  "区划数量达到§Y4§!个以上时:\n£job_chemist£$mod_planet_chemists_upkeep_mult$§G-20%§!\n$mod_planet_structures_volatile_motes_upkeep_mult$§G-50%§!"
 

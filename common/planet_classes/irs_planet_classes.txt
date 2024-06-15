@@ -5,7 +5,7 @@
 # New planets need surface background (game\gfx\portraits\environments)
 # 空岛星球
 pc_irs_skyland = {
-  entity = "gas_giant"
+  entity = "irs_skycity"
   entity_scale = 14
   icon = GFX_planet_type_gas_giant
   # picture = pc_gas_giant
@@ -49,7 +49,7 @@ pc_irs_skyland = {
 
 # 空岛都市
 pc_irs_skycity = {
-  entity = "gas_giant"
+  entity = "irs_skycity"
   entity_scale = 14
   icon = GFX_planet_type_gas_giant
 
@@ -100,7 +100,7 @@ pc_irs_skycity = {
 
 # 天空城
 pc_irs_skyworld = {
-  entity = "irs_skyworld"
+  entity = "irs_skycity"
   entity_scale = 14
   icon = GFX_planet_type_gas_giant
   picture = pc_irs_skycity
