@@ -1,56 +1,90 @@
+# 工厂区划 在没有 铸造星球规划 时添加消费品制造岗位
 triggered_planet_modifier = {
   potential = {
+    has_foundry_designation = no
     exists = owner
     owner = {
       is_regular_empire = yes
-      is_catalytic_empire = no
+      is_crafter_empire = no
     }
   }
   modifier = {
-    job_foundry_add = $FOUNDRY$
+    job_artisan_add = $ARTISAN$
   }
 }
 
 triggered_desc = {
   trigger = {
+    has_foundry_designation = no
     exists = owner
     owner = {
       is_regular_empire = yes
-      is_catalytic_empire = no
+      is_crafter_empire = no
     }
   }
-  text = job_foundry_effect_desc
+  text = job_artisan_effect_desc
 }
 
 triggered_planet_modifier = {
   potential = {
+    has_foundry_designation = no
     exists = owner
     owner = {
       is_regular_empire = yes
-      is_catalytic_empire = yes
+      is_crafter_empire = yes
     }
   }
   modifier = {
-    job_catalytic_technician_add = $CATALYTIC$
+    job_artificer_add = $ARTIFICER$
   }
 }
 
 triggered_desc = {
   trigger = {
+    has_foundry_designation = no
     exists = owner
     owner = {
       is_regular_empire = yes
-      is_catalytic_empire = yes
+      is_crafter_empire = yes
     }
   }
-  text = job_catalytic_technician_effect_desc
+  text = job_artificer_effect_desc
 }
 
 triggered_planet_modifier = {
   potential = {
+    has_foundry_designation = no
+    exists = owner
+    owner = {
+      is_gestalt = yes
+      country_uses_consumer_goods = yes
+    }
+  }
+  modifier = {
+    job_artisan_drone_add = $ARTISAN$
+  }
+}
+
+triggered_desc = {
+  trigger = {
+    has_foundry_designation = no
+    exists = owner
+    owner = {
+      is_gestalt = yes
+      country_uses_consumer_goods = yes
+    }
+  }
+  text = job_artisan_drone_effect_desc
+}
+
+# 不使用消费品的格式塔帝国保留合金岗位
+triggered_planet_modifier = {
+  potential = {
+    has_foundry_designation = no
     exists = owner
     owner = {
       is_hive_empire = yes
+      country_uses_consumer_goods = no
       is_catalytic_empire = no
     }
   }
@@ -61,9 +95,11 @@ triggered_planet_modifier = {
 
 triggered_desc = {
   trigger = {
+    has_foundry_designation = no
     exists = owner
     owner = {
       is_hive_empire = yes
+      country_uses_consumer_goods = no
       is_catalytic_empire = no
     }
   }
@@ -72,9 +108,11 @@ triggered_desc = {
 
 triggered_planet_modifier = {
   potential = {
+    has_foundry_designation = no
     exists = owner
     owner = {
       is_machine_empire = yes
+      country_uses_consumer_goods = no
       is_catalytic_empire = no
     }
   }
@@ -85,9 +123,11 @@ triggered_planet_modifier = {
 
 triggered_desc = {
   trigger = {
+    has_foundry_designation = no
     exists = owner
     owner = {
       is_machine_empire = yes
+      country_uses_consumer_goods = no
       is_catalytic_empire = no
     }
   }
@@ -96,9 +136,11 @@ triggered_desc = {
 
 triggered_planet_modifier = {
   potential = {
+    has_foundry_designation = no
     exists = owner
     owner = {
       is_gestalt = yes
+      country_uses_consumer_goods = no
       is_catalytic_empire = yes
     }
   }
@@ -109,9 +151,11 @@ triggered_planet_modifier = {
 
 triggered_desc = {
   trigger = {
+    has_foundry_designation = no
     exists = owner
     owner = {
       is_gestalt = yes
+      country_uses_consumer_goods = no
       is_catalytic_empire = yes
     }
   }

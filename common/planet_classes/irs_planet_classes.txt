@@ -42,7 +42,7 @@ pc_irs_skyland = {
   carry_cap_per_free_district = @carry_cap_high
 
   modifier = {
-    pop_environment_tolerance = 0.8
+    pop_environment_tolerance = 0.6
     planet_max_buildings_add = 12
   }
 }
@@ -88,7 +88,7 @@ pc_irs_skycity = {
   carry_cap_per_free_district = @carry_cap_high
 
   modifier = {
-    pop_environment_tolerance = 1.0
+    pop_environment_tolerance = 0.8
     planet_max_buildings_add = 12
     pop_growth_speed = 0.2
     planet_pop_assembly_mult = 0.2

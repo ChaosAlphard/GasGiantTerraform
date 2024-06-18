@@ -1,5 +1,7 @@
+# 工厂区划 在有 铸造星球规划 时添加合金制造岗位
 triggered_planet_modifier = {
   potential = {
+    has_foundry_designation = yes
     exists = owner
     owner = {
       is_regular_empire = yes
@@ -13,6 +15,7 @@ triggered_planet_modifier = {
 
 triggered_desc = {
   trigger = {
+    has_foundry_designation = yes
     exists = owner
     owner = {
       is_regular_empire = yes
@@ -24,6 +27,7 @@ triggered_desc = {
 
 triggered_planet_modifier = {
   potential = {
+    has_foundry_designation = yes
     exists = owner
     owner = {
       is_regular_empire = yes
@@ -37,6 +41,7 @@ triggered_planet_modifier = {
 
 triggered_desc = {
   trigger = {
+    has_foundry_designation = yes
     exists = owner
     owner = {
       is_regular_empire = yes
@@ -48,6 +53,7 @@ triggered_desc = {
 
 triggered_planet_modifier = {
   potential = {
+    has_foundry_designation = yes
     exists = owner
     owner = {
       is_hive_empire = yes
@@ -61,6 +67,7 @@ triggered_planet_modifier = {
 
 triggered_desc = {
   trigger = {
+    has_foundry_designation = yes
     exists = owner
     owner = {
       is_hive_empire = yes
@@ -72,6 +79,7 @@ triggered_desc = {
 
 triggered_planet_modifier = {
   potential = {
+    has_foundry_designation = yes
     exists = owner
     owner = {
       is_machine_empire = yes
@@ -85,6 +93,7 @@ triggered_planet_modifier = {
 
 triggered_desc = {
   trigger = {
+    has_foundry_designation = yes
     exists = owner
     owner = {
       is_machine_empire = yes
@@ -96,6 +105,7 @@ triggered_desc = {
 
 triggered_planet_modifier = {
   potential = {
+    has_foundry_designation = yes
     exists = owner
     owner = {
       is_gestalt = yes
@@ -109,6 +119,7 @@ triggered_planet_modifier = {
 
 triggered_desc = {
   trigger = {
+    has_foundry_designation = yes
     exists = owner
     owner = {
       is_gestalt = yes

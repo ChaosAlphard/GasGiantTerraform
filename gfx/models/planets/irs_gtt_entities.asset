@@ -176,11 +176,6 @@ entity = {
 # Uranus 天王星
 entity = {
   name = "irs_skycity_08_entity"
-  locator = { name = "part1"   rotation = { 0 0 110 } }
-  attach = { part1 = "irs_skycity_uranus_section_entity" }
-}
-entity = {
-  name = "irs_skycity_uranus_section_entity"
   pdxmesh = "planet_no_pole_no_clouds_mesh"
 
   meshsettings = {

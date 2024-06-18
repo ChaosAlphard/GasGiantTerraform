@@ -40,17 +40,20 @@ district_irs_skyworld_city = {
     }
   }
 
+  planet_modifier = {
+    planet_housing_add = 50
+  }
+
   inline_script = {
     script = irs_gtt/jobs/district_city
-    HOUSE = 50
     HOUSE_TR_PUBLIC_WORKS = 10
     HOUSE_CI_AGRARIAN_IDYLL = -10
     ENFORCER = 10
     PATROL = 10
     CLERK = 6
-    CLERK_FROM_TRADITION = 6
+    CLERK_TR_VIR4 = 6
     MAINTENANCE = 4
-    MAINTENANCE_FROM_TRADITION = 4
+    MAINTENANCE_TR_VIR4 = 4
   }
 }
 
@@ -98,9 +101,12 @@ district_irs_skyworld_leisure = {
     }
   }
 
+  planet_modifier = {
+    planet_housing_add = 10
+  }
+
   inline_script = {
     script = irs_gtt/jobs/district_leisure
-    HOUSE = 10
     ENTERTAINER = 10
     DUELIST = 10
     MAINTENANCE = 16
@@ -229,6 +235,7 @@ district_irs_skyworld_administrative = {
   }
 
   planet_modifier = {
+    species_empire_size_mult = -0.01
     planet_jobs_unity_produces_mult = 0.01
     planet_housing_add = 10
   }
@@ -298,10 +305,14 @@ district_irs_skyworld_religious = {
     }
   }
 
+  planet_modifier = {
+    species_empire_size_mult = -0.01
+    planet_jobs_unity_produces_mult = 0.01
+    planet_housing_add = 10
+  }
+
   inline_script = {
     script = irs_gtt/jobs/district_religious
-    UNITY_PRODUCE = 0.01
-    HOUSE = 10
     PRIEST = 10
     PRIEST_TR_VIR4 = 4
     PREACHER = 10
@@ -439,10 +450,13 @@ district_irs_skyworld_foundry = {
     }
   }
 
+  planet_modifier = {
+    planet_jobs_alloys_produces_mult = 0.01
+    planet_housing_add = 10
+  }
+
   inline_script = {
     script = irs_gtt/jobs/district_foundry
-    ALLOYS_PRODUCE = 0.01
-    HOUSE = 10
     FOUNDRY = 10
     CATALYTIC = 10
   }
@@ -540,10 +554,13 @@ district_irs_skyworld_factory = {
     }
   }
 
+  planet_modifier = {
+    planet_jobs_consumer_goods_produces_mult = 0.01
+    planet_housing_add = 10
+  }
+
   inline_script = {
     script = irs_gtt/jobs/district_factory
-    GOODS_PRODUCE = 0.01
-    HOUSE = 10
     ARTISAN = 10
     ARTIFICER = 10
   }
@@ -622,10 +639,13 @@ district_irs_skyworld_commercial = {
     }
   }
 
+  planet_modifier = {
+    trade_value_mult = 0.01
+    planet_housing_add = 10
+  }
+
   inline_script = {
     script = irs_gtt/jobs/district_commercial
-    TRADE_VALUE = 0.01
-    HOUSE = 10
     TRADER = 4
     CLERK = 6
     TRADER_TR_COMMERCIAL = 2
@@ -669,10 +689,13 @@ district_irs_skyworld_generator = {
     }
   }
 
+  planet_modifier = {
+    planet_jobs_energy_produces_mult = 0.01
+    planet_housing_add = 10
+  }
+
   inline_script = {
     script = irs_gtt/jobs/district_generator
-    ENERGY_PRODUCE = 0.01
-    HOUSE = 10
     TECHNICIAN = 10
     TECHNICIAN_DRONE = 15
     HOUSE_CI_AGRARIAN_IDYLL = 2
@@ -716,10 +739,13 @@ district_irs_skyworld_mining = {
     }
   }
 
+  planet_modifier = {
+    planet_jobs_minerals_produces_mult = 0.01
+    planet_housing_add = 10
+  }
+
   inline_script = {
     script = irs_gtt/jobs/district_mining
-    MINERALS_PRODUCE = 0.01
-    HOUSE = 10
     MINER = 10
     MINER_DRONE = 15
     HOUSE_CI_AGRARIAN_IDYLL = 2
@@ -763,10 +789,13 @@ district_irs_skyworld_farming = {
     }
   }
 
+  planet_modifier = {
+    planet_jobs_food_produces_mult = 0.01
+    planet_housing_add = 10
+  }
+
   inline_script = {
     script = irs_gtt/jobs/district_farming
-    FOOD_PRODUCE = 0.01
-    HOUSE = 10
     FARMER = 10
     ANGLER = 10
     AGRI_DRONE = 15

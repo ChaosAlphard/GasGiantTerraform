@@ -24,23 +24,6 @@ irs_gas_giant_remove_terraform_candidate = {
   }
 }
 
-irs_skycity_district_conversion_effect_old = {
-  export_trigger_value_to_variable = {
-    trigger = num_districts
-    parameters = {
-      type = $DISTRICT$
-    }
-    variable = $VARIABLE$
-  }
-  divide_variable = { which = $VARIABLE$ value = 2 }
-  floor_variable = $VARIABLE$
-  while = {
-    count = $VARIABLE$
-    remove_district = $DISTRICT$
-  }
-  clear_variable = $VARIABLE$
-}
-
 # 根据比例转化区划, RATIO最小为0(全部移除), 最大为1(全部转化)
 irs_skycity_district_conversion_effect = {
   # 获取总区划数量

@@ -40,17 +40,20 @@ district_irs_skycity_city = {
     }
   }
 
+  planet_modifier = {
+    planet_housing_add = 25
+  }
+
   inline_script = {
     script = irs_gtt/jobs/district_city
-    HOUSE = 25
     HOUSE_TR_PUBLIC_WORKS = 5
     HOUSE_CI_AGRARIAN_IDYLL = -5
     ENFORCER = 6
     PATROL = 6
     CLERK = 4
-    CLERK_FROM_TRADITION = 4
+    CLERK_TR_VIR4 = 4
     MAINTENANCE = 4
-    MAINTENANCE_FROM_TRADITION = 2
+    MAINTENANCE_TR_VIR4 = 2
   }
 }
 
@@ -98,9 +101,12 @@ district_irs_skycity_leisure = {
     }
   }
 
+  planet_modifier = {
+    planet_housing_add = 6
+  }
+
   inline_script = {
     script = irs_gtt/jobs/district_leisure
-    HOUSE = 6
     ENTERTAINER = 6
     DUELIST = 6
     MAINTENANCE = 10
@@ -294,9 +300,12 @@ district_irs_skycity_religious = {
     }
   }
 
+  planet_modifier = {
+    planet_housing_add = 6
+  }
+
   inline_script = {
     script = irs_gtt/jobs/district_religious
-    HOUSE = 6
     PRIEST = 6
     PRIEST_TR_VIR4 = 2
     PREACHER = 6
@@ -431,9 +440,12 @@ district_irs_skycity_foundry = {
     }
   }
 
+  planet_modifier = {
+    planet_housing_add = 6
+  }
+
   inline_script = {
     script = irs_gtt/jobs/district_foundry
-    HOUSE = 6
     FOUNDRY = 6
     CATALYTIC = 6
   }
@@ -531,9 +543,12 @@ district_irs_skycity_factory = {
     }
   }
 
+  planet_modifier = {
+    planet_housing_add = 6
+  }
+
   inline_script = {
     script = irs_gtt/jobs/district_factory
-    HOUSE = 6
     ARTISAN = 6
     ARTIFICER = 6
   }
@@ -612,9 +627,12 @@ district_irs_skycity_commercial = {
     }
   }
 
+  planet_modifier = {
+    planet_housing_add = 6
+  }
+
   inline_script = {
     script = irs_gtt/jobs/district_commercial
-    HOUSE = 6
     TRADER = 2
     CLERK = 4
     TRADER_TR_COMMERCIAL = 2
@@ -658,9 +676,12 @@ district_irs_skycity_generator = {
     }
   }
 
+  planet_modifier = {
+    planet_housing_add = 6
+  }
+
   inline_script = {
     script = irs_gtt/jobs/district_generator
-    HOUSE = 6
     TECHNICIAN = 6
     TECHNICIAN_DRONE = 8
     HOUSE_CI_AGRARIAN_IDYLL = 2
@@ -704,9 +725,12 @@ district_irs_skycity_mining = {
     }
   }
 
+  planet_modifier = {
+    planet_housing_add = 6
+  }
+
   inline_script = {
     script = irs_gtt/jobs/district_mining
-    HOUSE = 6
     MINER = 6
     MINER_DRONE = 8
     HOUSE_CI_AGRARIAN_IDYLL = 2
@@ -750,9 +774,12 @@ district_irs_skycity_farming = {
     }
   }
 
+  planet_modifier = {
+    planet_housing_add = 6
+  }
+
   inline_script = {
     script = irs_gtt/jobs/district_farming
-    HOUSE = 6
     FARMER = 6
     ANGLER = 6
     AGRI_DRONE = 8

@@ -1,11 +1,13 @@
-planet_modifier = {
-  planet_housing_add = $HOUSE$
-}
-
 triggered_planet_modifier = {
   potential = {
     exists = owner
-    owner = { has_active_tradition = tr_prosperity_public_works }
+    owner = {
+      OR = {
+        has_active_tradition = tr_prosperity_public_works
+        has_active_tradition = tr_prosperity_extended_hives
+        has_active_tradition = tr_prosperity_optimized_nexus
+      }
+    }
   }
   modifier = {
     planet_housing_add = $HOUSE_TR_PUBLIC_WORKS$
@@ -42,7 +44,7 @@ triggered_planet_modifier = {
     }
   }
   modifier = {
-    job_clerk_add = $CLERK_FROM_TRADITION$
+    job_clerk_add = $CLERK_TR_VIR4$
   }
 }
 
@@ -82,7 +84,7 @@ triggered_planet_modifier = {
     }
   }
   modifier = {
-    job_maintenance_drone_add = $MAINTENANCE_FROM_TRADITION$
+    job_maintenance_drone_add = $MAINTENANCE_TR_VIR4$
   }
 }
 

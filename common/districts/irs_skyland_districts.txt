@@ -45,17 +45,20 @@ district_irs_skyland_city = {
     }
   }
 
+  planet_modifier = {
+    planet_housing_add = 12
+  }
+
   inline_script = {
     script = irs_gtt/jobs/district_city
-    HOUSE = 12
     HOUSE_TR_PUBLIC_WORKS = 3
     HOUSE_CI_AGRARIAN_IDYLL = -2
     ENFORCER = 2
     PATROL = 2
     CLERK = 2
-    CLERK_FROM_TRADITION = 2
+    CLERK_TR_VIR4 = 2
     MAINTENANCE = 2
-    MAINTENANCE_FROM_TRADITION = 2
+    MAINTENANCE_TR_VIR4 = 2
   }
 }
 
@@ -103,9 +106,12 @@ district_irs_skyland_leisure = {
     }
   }
 
+  planet_modifier = {
+    planet_housing_add = 2
+  }
+
   inline_script = {
     script = irs_gtt/jobs/district_leisure
-    HOUSE = 2
     ENTERTAINER = 2
     DUELIST = 2
     MAINTENANCE = 4
@@ -304,9 +310,12 @@ district_irs_skyland_religious = {
     }
   }
 
+  planet_modifier = {
+    planet_housing_add = 2
+  }
+
   inline_script = {
     script = irs_gtt/jobs/district_religious
-    HOUSE = 2
     PRIEST = 2
     PRIEST_TR_VIR4 = 1
     PREACHER = 2
@@ -317,6 +326,7 @@ district_irs_skyland_religious = {
     DEATH_PRIEST = 1
     MORTAL_INITIATE = 1
     DEATH_PRIEST_TR_VIR4 = 1
+    MORTAL_INITIATE_TR_VIR4 = 0
   }
 }
 
@@ -390,7 +400,7 @@ district_irs_skyland_organic_housing = {
   }
 }
 
-# 铸造区划 TODO
+# 铸造区划
 district_irs_skyland_foundry = {
   is_capped_by_modifier = no
   icon = district_irs_skyland_foundry
@@ -431,7 +441,6 @@ district_irs_skyland_foundry = {
     upkeep = {
       energy = 2
     }
-
     upkeep = {
       trigger = {
         exists = owner
@@ -447,348 +456,31 @@ district_irs_skyland_foundry = {
     planet_housing_add = 2
   }
 
-  # 能工巧匠获得1贸易额
+  # 能工巧匠获得2贸易额
   triggered_planet_modifier = {
     potential = {
       exists = owner
       owner = { is_crafter_empire = yes }
     }
     modifier = {
-      trade_value_add = 1
+      trade_value_add = 2
     }
   }
 
-  # 普政获得2合金岗位
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = {
-        OR = {
-          is_regular_empire = yes
-          has_origin = origin_fear_of_the_dark
-        }
-        is_catalytic_empire = no
-      }
-    }
-    modifier = {
-      job_foundry_add = 2
-    }
+  # 在没有 工厂星球规划 时添加合金制造岗位
+  inline_script = {
+    script = irs_gtt/jobs/mutable/district_foundry_foundry
+    FOUNDRY = 2
+    CATALYTIC = 2
   }
 
-  # 普政 催化加工获得2合金岗位
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = {
-        is_regular_empire = yes
-        is_catalytic_empire = yes
-      }
-    }
-    modifier = {
-      job_catalytic_technician_add = 2
-    }
-  }
-
-  # 格式塔 催化加工获得2合金岗位
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = {
-        is_gestalt = yes
-        is_catalytic_empire = yes
-      }
-    }
-    modifier = {
-      job_catalytic_drone_add = 2
-    }
-  }
-
-  # 蜂巢获得2合金岗位
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = {
-        is_hive_empire = yes
-        is_catalytic_empire = no
-      }
-    }
-    modifier = {
-      job_alloy_drone_add = 2
-    }
-  }
-
-  # 智械获得2合金岗位
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = {
-        is_machine_empire = yes
-        is_catalytic_empire = no
-      }
-    }
-    modifier = {
-      job_fabricator_add = 2
-    }
-  }
-
-  # 殖民地规划 工厂
-  # 普政 +2工匠
-  triggered_planet_modifier = {
-    potential = {
-      OR = {
-        has_designation = col_factory
-        has_designation = col_capital_factory
-      }
-
-      exists = owner
-      owner = {
-        is_regular_empire = yes
-        is_crafter_empire = no
-      }
-    }
-    modifier = {
-      job_artisan_add = 2
-    }
-  }
-
-  # 普政 能工巧匠 +2熟练技工
-  triggered_planet_modifier = {
-    potential = {
-      OR = {
-        has_designation = col_factory
-        has_designation = col_capital_factory
-      }
-
-      exists = owner
-      owner = {
-        is_regular_empire = yes
-        is_crafter_empire = yes
-      }
-    }
-    modifier = {
-      job_artificer_add = 2
-    }
-  }
-
-  # 普政 -2冶金师
-  triggered_planet_modifier = {
-    potential = {
-      OR = {
-        has_designation = col_factory
-        has_designation = col_capital_factory
-      }
-
-      exists = owner
-      owner = {
-        is_regular_empire = yes
-        is_catalytic_empire = no
-      }
-    }
-    modifier = {
-      job_foundry_add = -2
-    }
-  }
-
-  # 普政 催化加工 -2催化技师
-  triggered_planet_modifier = {
-    potential = {
-      OR = {
-        has_designation = col_factory
-        has_designation = col_capital_factory
-      }
-
-      exists = owner
-      owner = {
-        is_regular_empire = yes
-        is_catalytic_empire = yes
-      }
-    }
-    modifier = {
-      job_catalytic_technician_add = -2
-    }
-  }
-
-  # 智械 使用消费品的智械(机仆) -2合金岗+2消费品岗
-  triggered_planet_modifier = {
-    potential = {
-      OR = {
-        has_designation = col_factory
-        has_designation = col_mac_factory
-        has_designation = col_capital_factory
-      }
-      exists = owner
-      owner = {
-        is_machine_empire = yes
-        country_uses_consumer_goods = yes
-        is_catalytic_empire = no
-      }
-    }
-    modifier = {
-      job_artisan_drone_add = 2
-      job_fabricator_add = -2
-    }
-  }
-
-  # 智械 催化加工 使用消费品的智械(机仆) -2合金岗+2消费品岗
-  triggered_planet_modifier = {
-    potential = {
-      OR = {
-        has_designation = col_factory
-        has_designation = col_mac_factory
-        has_designation = col_capital_factory
-      }
-      exists = owner
-      owner = {
-        is_machine_empire = yes
-        country_uses_consumer_goods = yes
-        is_catalytic_empire = yes
-      }
-    }
-    modifier = {
-      job_artisan_drone_add = 2
-      job_catalytic_drone_add = -2
-    }
-  }
-
-  # 岗位说明
-  # 有工厂星球规划 添加工匠岗位说明
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = {
-        is_regular_empire = yes
-        is_crafter_empire = no
-      }
-      has_designation = col_factory
-    }
-    text = job_artisan_effect_desc
-  }
-
-  # 有工厂星球规划 添加熟练技工岗位说明
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = {
-        is_regular_empire = yes
-        is_crafter_empire = yes
-      }
-      has_designation = col_factory
-    }
-    text = job_artificer_effect_desc
-  }
-
-  # 没有工厂星球规划 添加冶金师岗位说明
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = {
-        is_regular_empire = yes
-        is_catalytic_empire = no
-      }
-      NOT = { has_designation = col_factory }
-    }
-    text = job_foundry_effect_desc
-  }
-
-  # 没有工厂星球规划 添加催化技师岗位说明
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = {
-        is_regular_empire = yes
-        is_catalytic_empire = yes
-      }
-      NOT = { has_designation = col_factory }
-    }
-    text = job_catalytic_technician_effect_desc
-  }
-
-  # 有工厂星球规划 添加工匠子个体说明
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = {
-        is_machine_empire = yes
-        country_uses_consumer_goods = yes
-      }
-      OR = {
-        has_designation = col_factory
-        has_designation = col_mac_factory
-        has_designation = col_capital_factory
-      }
-    }
-    text = job_artisan_drone_effect_desc
-  }
-
-  # 没有工厂星球规划 添加制造者说明
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = {
-        is_machine_empire = yes
-        country_uses_consumer_goods = yes
-        is_catalytic_empire = no
-      }
-      NOR = {
-        has_designation = col_factory
-        has_designation = col_mac_factory
-        has_designation = col_capital_factory
-      }
-    }
-    text = job_fabricator_effect_desc
-  }
-
-  # 没有工厂星球规划 添加催化子个体说明
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = {
-        is_machine_empire = yes
-        country_uses_consumer_goods = yes
-        is_catalytic_empire = yes
-      }
-      NOR = {
-        has_designation = col_factory
-        has_designation = col_mac_factory
-        has_designation = col_capital_factory
-      }
-    }
-    text = job_catalytic_drone_effect_desc
-  }
-
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = {
-        is_machine_empire = yes
-        country_uses_consumer_goods = no
-        is_catalytic_empire = no
-      }
-    }
-    text = job_fabricator_effect_desc
-  }
-
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = {
-        is_hive_empire = yes
-        is_catalytic_empire = no
-      }
-    }
-    text = job_alloy_drone_effect_desc
-  }
-
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = {
-        is_gestalt = yes
-        country_uses_consumer_goods = no
-        is_catalytic_empire = yes
-      }
-    }
-    text = job_catalytic_drone_effect_desc
+  # 在有 工厂星球规划 时添加消费品制造岗位, 不使用消费品的格式塔帝国添加合金岗位
+  inline_script = {
+    script = irs_gtt/jobs/mutable/district_foundry_artisan
+    ARTISAN = 2
+    ARTIFICER = 2
+    FOUNDRY = 2
+    CATALYTIC = 2
   }
 
   triggered_planet_modifier = {
@@ -816,7 +508,7 @@ district_irs_skyland_foundry = {
   }
 }
 
-# 工厂区划 TODO
+# 工厂区划
 district_irs_skyland_factory = {
   is_capped_by_modifier = no
   icon = district_irs_skyland_factory
@@ -877,7 +569,6 @@ district_irs_skyland_factory = {
     upkeep = {
       energy = 2
     }
-
     upkeep = {
       trigger = {
         exists = owner
@@ -893,327 +584,31 @@ district_irs_skyland_factory = {
     planet_housing_add = 2
   }
 
-  # 能工巧匠获得2消费品岗位和1贸易额
+  # 能工巧匠获得2贸易额
   triggered_planet_modifier = {
     potential = {
       exists = owner
       owner = { is_crafter_empire = yes }
     }
     modifier = {
-      trade_value_add = 1
-      job_artificer_add = 2
+      trade_value_add = 2
     }
   }
 
-  # 普政获得2消费品岗位
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = {
-        OR = {
-          is_regular_empire = yes
-          has_origin = origin_fear_of_the_dark
-        }
-        is_crafter_empire = no
-      }
-    }
-    modifier = {
-      job_artisan_add = 2
-    }
+  # 在没有 铸造星球规划 时添加消费品制造岗位, 不使用消费品的格式塔帝国添加合金岗位
+  inline_script = {
+    script = irs_gtt/jobs/mutable/district_factory_artisan
+    ARTISAN = 2
+    ARTIFICER = 2
+    FOUNDRY = 2
+    CATALYTIC = 2
   }
 
-  # 格式塔 使用消费品(机仆) 获得2消费品岗
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = {
-        is_gestalt = yes
-        country_uses_consumer_goods = yes
-      }
-    }
-    modifier = {
-      job_artisan_drone_add = 2
-    }
-  }
-
-  # 蜂巢获得2合金岗位
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = {
-        is_hive_empire = yes
-        country_uses_consumer_goods = no
-        is_catalytic_empire = no
-      }
-    }
-    modifier = {
-      job_alloy_drone_add = 2
-    }
-  }
-
-  # 智械获得2合金岗位
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = {
-        is_machine_empire = yes
-        country_uses_consumer_goods = no
-        is_catalytic_empire = no
-      }
-    }
-    modifier = {
-      job_fabricator_add = 2
-    }
-  }
-
-  # 格式塔 催化加工 获得2合金岗位
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = {
-        is_gestalt = yes
-        country_uses_consumer_goods = no
-        is_catalytic_empire = yes
-      }
-    }
-    modifier = {
-      job_catalytic_drone_add = 2
-    }
-  }
-
-  # 殖民地规划 铸造
-  # 普政 -2工匠
-  triggered_planet_modifier = {
-    potential = {
-      OR = {
-        has_designation = col_foundry
-        has_designation = col_capital_foundry
-      }
-      exists = owner
-      owner = {
-        is_regular_empire = yes
-        is_crafter_empire = no
-      }
-    }
-    modifier = {
-      job_artisan_add = -2
-    }
-  }
-
-  # 普政 能工巧匠 -2熟练技工
-  triggered_planet_modifier = {
-    potential = {
-      OR = {
-        has_designation = col_foundry
-        has_designation = col_capital_foundry
-      }
-      exists = owner
-      owner = {
-        is_regular_empire = yes
-        is_crafter_empire = yes
-      }
-    }
-    modifier = {
-      job_artificer_add = -2
-    }
-  }
-
-  # 普政 +2冶金师
-  triggered_planet_modifier = {
-    potential = {
-      OR = {
-        has_designation = col_foundry
-        has_designation = col_capital_foundry
-      }
-      exists = owner
-      owner = {
-        is_regular_empire = yes
-        is_catalytic_empire = no
-      }
-    }
-    modifier = {
-      job_foundry_add = 2
-    }
-  }
-
-  # 普政 催化加工 +2催化技师
-  triggered_planet_modifier = {
-    potential = {
-      OR = {
-        has_designation = col_foundry
-        has_designation = col_capital_foundry
-      }
-      exists = owner
-      owner = {
-        is_regular_empire = yes
-        is_catalytic_empire = yes
-      }
-    }
-    modifier = {
-      job_catalytic_technician_add = 2
-    }
-  }
-
-  # 智械 使用消费品(机仆) -2工匠子个体 +2制造者
-  triggered_planet_modifier = {
-    potential = {
-      OR = {
-        has_designation = col_foundry
-        has_designation = col_capital_foundry
-      }
-      exists = owner
-      owner = {
-        is_machine_empire = yes
-        country_uses_consumer_goods = yes
-        is_catalytic_empire = no
-      }
-    }
-    modifier = {
-      job_artisan_drone_add = -2
-      job_fabricator_add = 2
-    }
-  }
-
-  # 格式塔 催化加工 使用消费品(机仆) -2工匠子个体 +2催化子个体
-  triggered_planet_modifier = {
-    potential = {
-      OR = {
-        has_designation = col_foundry
-        has_designation = col_capital_foundry
-      }
-      exists = owner
-      owner = {
-        is_machine_empire = yes
-        country_uses_consumer_goods = yes
-        is_catalytic_empire = yes
-      }
-    }
-    modifier = {
-      job_artisan_drone_add = -2
-      job_catalytic_drone_add = 2
-    }
-  }
-
-  # 岗位说明
-  # 没有铸造星球规划 添加工匠岗位说明
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = {
-        is_regular_empire = yes
-        is_crafter_empire = no
-      }
-      NOT = { has_designation = col_foundry }
-    }
-    text = job_artisan_effect_desc
-  }
-
-  # 没有铸造星球规划 添加熟练技工岗位说明
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = {
-        is_regular_empire = yes
-        is_crafter_empire = yes
-      }
-      NOT = { has_designation = col_foundry }
-    }
-    text = job_artificer_effect_desc
-  }
-
-  # 有铸造星球规划 添加冶金师岗位说明
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = {
-        is_regular_empire = yes
-        is_catalytic_empire = no
-      }
-      has_designation = col_foundry
-    }
-    text = job_foundry_effect_desc
-  }
-
-  # 有铸造星球规划 添加催化技师岗位说明
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = {
-        is_regular_empire = yes
-        is_catalytic_empire = yes
-      }
-      has_designation = col_foundry
-    }
-    text = job_catalytic_technician_effect_desc
-  }
-
-  # 没有铸造星球规划 添加工匠子个体说明
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = {
-        is_machine_empire = yes
-        country_uses_consumer_goods = yes
-      }
-      NOR = {
-        has_designation = col_foundry
-        has_designation = col_mac_foundry
-        has_designation = col_capital_foundry
-      }
-    }
-    text = job_artisan_drone_effect_desc
-  }
-
-  # 有铸造星球规划 添加制造者说明
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = {
-        is_machine_empire = yes
-        country_uses_consumer_goods = yes
-      }
-      OR = {
-        has_designation = col_foundry
-        has_designation = col_mac_foundry
-        has_designation = col_capital_foundry
-      }
-    }
-    text = job_fabricator_effect_desc
-  }
-
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = {
-        is_machine_empire = yes
-        country_uses_consumer_goods = no
-        is_catalytic_empire = no
-      }
-    }
-    text = job_fabricator_effect_desc
-  }
-
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = {
-        is_hive_empire = yes
-        is_catalytic_empire = no
-      }
-    }
-    text = job_alloy_drone_effect_desc
-  }
-
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = {
-        is_gestalt = yes
-        country_uses_consumer_goods = no
-        is_catalytic_empire = yes
-      }
-    }
-    text = job_catalytic_drone_effect_desc
+  # 在有 铸造星球规划 时添加合金制造岗位
+  inline_script = {
+    script = irs_gtt/jobs/mutable/district_factory_foundry
+    FOUNDRY = 2
+    CATALYTIC = 2
   }
 
   triggered_planet_modifier = {
@@ -1294,9 +689,12 @@ district_irs_skyland_commercial = {
     }
   }
 
+  planet_modifier = {
+    planet_housing_add = 2
+  }
+
   inline_script = {
     script = irs_gtt/jobs/district_commercial
-    HOUSE = 2
     TRADER = 1
     CLERK = 2
     TRADER_TR_COMMERCIAL = 1
@@ -1343,9 +741,12 @@ district_irs_skyland_generator = {
     }
   }
 
+  planet_modifier = {
+    planet_housing_add = 2
+  }
+
   inline_script = {
     script = irs_gtt/jobs/district_generator
-    HOUSE = 2
     TECHNICIAN = 2
     TECHNICIAN_DRONE = 3
     HOUSE_CI_AGRARIAN_IDYLL = 1
@@ -1392,9 +793,12 @@ district_irs_skyland_mining = {
     }
   }
 
+  planet_modifier = {
+    planet_housing_add = 2
+  }
+
   inline_script = {
     script = irs_gtt/jobs/district_mining
-    HOUSE = 2
     MINER = 2
     MINER_DRONE = 3
     HOUSE_CI_AGRARIAN_IDYLL = 1
@@ -1441,9 +845,12 @@ district_irs_skyland_farming = {
     }
   }
 
+  planet_modifier = {
+    planet_housing_add = 2
+  }
+
   inline_script = {
     script = irs_gtt/jobs/district_farming
-    HOUSE = 2
     FARMER = 2
     ANGLER = 2
     AGRI_DRONE = 3
