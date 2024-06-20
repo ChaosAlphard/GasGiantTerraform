@@ -1,0 +1,528 @@
+@keep_current = 10
+
+# 殖民地规划 复合 采掘 科研 行政 庇护所 铸造 工厂 商业
+# 科研
+col_irs_skycity_research = {
+  icon = GFX_colony_type_research
+
+  potential = {
+    OR = {
+      uses_district_set = irs_skyworld_set
+      uses_district_set = irs_skycity_set
+    }
+    is_capital = no
+  }
+
+  planet_modifier = {
+    planet_jobs_physics_research_produces_mult = 0.15
+    planet_jobs_society_research_produces_mult = 0.15
+    planet_jobs_engineering_research_produces_mult = 0.15
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = { has_tradition = tr_adaptability_finish }
+    }
+    modifier = {
+      planet_jobs_physics_research_produces_mult = 0.05
+      planet_jobs_society_research_produces_mult = 0.05
+      planet_jobs_engineering_research_produces_mult = 0.05
+    }
+  }
+
+  weight_modifier = {
+    base = 20
+    modifier = {
+      add = @keep_current
+      has_designation = col_irs_skycity_research
+    }
+    inline_script = {
+      script = irs_gtt/colony_types/trigger_weight_modifier
+      DISTRICT_SUFFIX = research
+    }
+  }
+}
+col_irs_skycity_research_capital = {
+  icon = GFX_colony_type_research
+
+  potential = {
+    OR = {
+      uses_district_set = irs_skyworld_set
+      uses_district_set = irs_skycity_set
+    }
+    is_capital = yes
+  }
+
+  planet_modifier = {
+    planet_jobs_physics_research_produces_mult = 0.15
+    planet_jobs_society_research_produces_mult = 0.15
+    planet_jobs_engineering_research_produces_mult = 0.15
+  }
+
+  inline_script = {
+    script = irs_gtt/colony_types/capital_type_modifier
+  }
+
+  weight_modifier = {
+    base = 20
+    modifier = {
+      add = @keep_current
+      has_designation = col_irs_skycity_research_capital
+    }
+    inline_script = {
+      script = irs_gtt/colony_types/trigger_weight_modifier
+      DISTRICT_SUFFIX = research
+    }
+  }
+}
+
+# 行政
+col_irs_skycity_administrative = {
+  icon = GFX_colony_type_bureaucratic
+
+  potential = {
+    OR = {
+      uses_district_set = irs_skyworld_set
+      uses_district_set = irs_skycity_set
+    }
+    exists = owner
+    owner = { NOT = { has_valid_civic = civic_machine_servitor } }
+    is_capital = no
+  }
+
+  planet_modifier = {
+    planet_jobs_unity_produces_mult = 0.15
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = { has_tradition = tr_adaptability_finish }
+    }
+    modifier = {
+      planet_jobs_unity_produces_mult = 0.05
+    }
+  }
+
+  weight_modifier = {
+    base = 20
+    modifier = {
+      add = @keep_current
+      has_designation = col_irs_skycity_administrative
+    }
+    inline_script = {
+      script = irs_gtt/colony_types/trigger_weight_modifier
+      DISTRICT_SUFFIX = administrative
+    }
+    inline_script = {
+      script = irs_gtt/colony_types/trigger_weight_modifier
+      DISTRICT_SUFFIX = religious
+    }
+  }
+}
+col_irs_skycity_administrative_capital = {
+  icon = GFX_colony_type_bureaucratic
+
+  potential = {
+    OR = {
+      uses_district_set = irs_skyworld_set
+      uses_district_set = irs_skycity_set
+    }
+    exists = owner
+    owner = { NOT = { has_valid_civic = civic_machine_servitor } }
+    is_capital = yes
+  }
+
+  planet_modifier = {
+    planet_jobs_unity_produces_mult = 0.15
+  }
+
+  inline_script = {
+    script = irs_gtt/colony_types/capital_type_modifier
+  }
+
+  weight_modifier = {
+    base = 20
+    modifier = {
+      add = @keep_current
+      has_designation = col_irs_skycity_administrative_capital
+    }
+    inline_script = {
+      script = irs_gtt/colony_types/trigger_weight_modifier
+      DISTRICT_SUFFIX = administrative
+    }
+    inline_script = {
+      script = irs_gtt/colony_types/trigger_weight_modifier
+      DISTRICT_SUFFIX = religious
+    }
+  }
+}
+
+# 庇护所
+col_irs_skycity_organic_housing = {
+  icon = GFX_colony_type_bureaucratic
+
+  potential = {
+    OR = {
+      uses_district_set = irs_skyworld_set
+      uses_district_set = irs_skycity_set
+    }
+    exists = owner
+    owner = { has_valid_civic = civic_machine_servitor }
+    is_capital = no
+  }
+
+  planet_modifier = {
+    pop_growth_speed = 0.2
+    pop_growth_from_immigration = 0.1
+    planet_jobs_unity_produces_mult = 0.15
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = { has_tradition = tr_adaptability_finish }
+    }
+    modifier = {
+      planet_jobs_unity_produces_mult = 0.05
+    }
+  }
+
+  weight_modifier = {
+    base = 20
+    modifier = {
+      add = @keep_current
+      has_designation = col_irs_skycity_organic_housing
+    }
+    inline_script = {
+      script = irs_gtt/colony_types/trigger_weight_modifier
+      DISTRICT_SUFFIX = organic_housing
+    }
+  }
+}
+col_irs_skycity_organic_housing_capital = {
+  icon = GFX_colony_type_bureaucratic
+
+  potential = {
+    OR = {
+      uses_district_set = irs_skyworld_set
+      uses_district_set = irs_skycity_set
+    }
+    exists = owner
+    owner = { has_valid_civic = civic_machine_servitor }
+    is_capital = yes
+  }
+
+  planet_modifier = {
+    pop_growth_speed = 0.2
+    pop_growth_from_immigration = 0.1
+    planet_jobs_unity_produces_mult = 0.15
+  }
+
+  inline_script = {
+    script = irs_gtt/colony_types/capital_type_modifier
+  }
+
+  weight_modifier = {
+    base = 20
+    modifier = {
+      add = @keep_current
+      has_designation = col_irs_skycity_organic_housing_capital
+    }
+    inline_script = {
+      script = irs_gtt/colony_types/trigger_weight_modifier
+      DISTRICT_SUFFIX = organic_housing
+    }
+  }
+}
+
+# 铸造
+col_irs_skycity_foundry = {
+  icon = GFX_colony_type_foundry
+
+  potential = {
+    OR = {
+      uses_district_set = irs_skyworld_set
+      uses_district_set = irs_skycity_set
+    }
+    is_capital = no
+  }
+
+  planet_modifier = {
+    planet_jobs_alloys_produces_mult = 0.15
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = { has_tradition = tr_adaptability_finish }
+    }
+    modifier = {
+      planet_jobs_alloys_produces_mult = 0.05
+    }
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = { is_galactic_community_member = yes }
+      OR = {
+        is_active_resolution = "resolution_industry_environmental_ordinance_waivers"
+        is_active_resolution = "resolution_industry_project_cornucopia"
+      }
+    }
+    modifier = {
+      planet_jobs_alloys_produces_mult = 0.05
+    }
+  }
+
+  weight_modifier = {
+    base = 20
+    modifier = {
+      add = @keep_current
+      has_designation = col_irs_skycity_foundry
+    }
+    inline_script = {
+      script = irs_gtt/colony_types/trigger_weight_modifier
+      DISTRICT_SUFFIX = foundry
+    }
+  }
+}
+col_irs_skycity_foundry_capital = {
+  icon = GFX_colony_type_capital_foundry
+
+  potential = {
+    OR = {
+      uses_district_set = irs_skyworld_set
+      uses_district_set = irs_skycity_set
+    }
+    is_capital = yes
+  }
+
+  planet_modifier = {
+    planet_jobs_alloys_produces_mult = 0.15
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = { is_galactic_community_member = yes }
+      OR = {
+        is_active_resolution = "resolution_industry_environmental_ordinance_waivers"
+        is_active_resolution = "resolution_industry_project_cornucopia"
+      }
+    }
+    modifier = {
+      planet_jobs_alloys_produces_mult = 0.05
+    }
+  }
+
+  inline_script = {
+    script = irs_gtt/colony_types/capital_type_modifier
+  }
+
+  weight_modifier = {
+    base = 20
+    modifier = {
+      add = @keep_current
+      has_designation = col_irs_skycity_foundry_capital
+    }
+    inline_script = {
+      script = irs_gtt/colony_types/trigger_weight_modifier
+      DISTRICT_SUFFIX = foundry
+    }
+  }
+}
+
+# 工厂
+col_irs_skycity_factory = {
+  icon = GFX_colony_type_factory
+
+  potential = {
+    OR = {
+      uses_district_set = irs_skyworld_set
+      uses_district_set = irs_skycity_set
+    }
+    exists = owner
+    owner = {
+      OR = {
+        is_regular_empire = yes
+        AND = {
+          is_gestalt = yes
+          country_uses_consumer_goods = yes
+        }
+      }
+    }
+    is_capital = no
+  }
+
+  planet_modifier = {
+    planet_jobs_consumer_goods_produces_mult = 0.15
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = { has_tradition = tr_adaptability_finish }
+    }
+    modifier = {
+      planet_jobs_consumer_goods_produces_mult = 0.05
+    }
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = { is_galactic_community_member = yes }
+      OR = {
+        is_active_resolution = "resolution_industry_environmental_ordinance_waivers"
+        is_active_resolution = "resolution_industry_project_cornucopia"
+      }
+    }
+    modifier = {
+      planet_jobs_consumer_goods_produces_mult = 0.05
+    }
+  }
+
+  weight_modifier = {
+    base = 20
+    modifier = {
+      add = @keep_current
+      has_designation = col_irs_skycity_factory
+    }
+    inline_script = {
+      script = irs_gtt/colony_types/trigger_weight_modifier
+      DISTRICT_SUFFIX = factory
+    }
+  }
+}
+col_irs_skycity_factory_capital = {
+  icon = GFX_colony_type_capital_factory
+
+  potential = {
+    OR = {
+      uses_district_set = irs_skyworld_set
+      uses_district_set = irs_skycity_set
+    }
+    exists = owner
+    owner = {
+      OR = {
+        is_regular_empire = yes
+        AND = {
+          is_gestalt = yes
+          country_uses_consumer_goods = yes
+        }
+      }
+    }
+    is_capital = yes
+  }
+
+  planet_modifier = {
+    planet_jobs_consumer_goods_produces_mult = 0.15
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = { is_galactic_community_member = yes }
+      OR = {
+        is_active_resolution = "resolution_industry_environmental_ordinance_waivers"
+        is_active_resolution = "resolution_industry_project_cornucopia"
+      }
+    }
+    modifier = {
+      planet_jobs_consumer_goods_produces_mult = 0.05
+    }
+  }
+
+  inline_script = {
+    script = irs_gtt/colony_types/capital_type_modifier
+  }
+
+  weight_modifier = {
+    base = 20
+    modifier = {
+      add = @keep_current
+      has_designation = col_irs_skycity_factory_capital
+    }
+    inline_script = {
+      script = irs_gtt/colony_types/trigger_weight_modifier
+      DISTRICT_SUFFIX = factory
+    }
+  }
+}
+
+# 商业
+col_irs_skycity_commercial = {
+  icon = GFX_colony_type_urban
+
+  potential = {
+    OR = {
+      uses_district_set = irs_skyworld_set
+      uses_district_set = irs_skycity_set
+    }
+    exists = owner
+    owner = { is_gestalt = no }
+    is_capital = no
+  }
+
+  planet_modifier = {
+    trade_value_mult = 0.20
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = { has_tradition = tr_adaptability_finish }
+    }
+    modifier = {
+      trade_value_mult = 0.05
+    }
+  }
+
+  weight_modifier = {
+    base = 20
+    modifier = {
+      add = @keep_current
+      has_designation = col_irs_skycity_commercial
+    }
+    inline_script = {
+      script = irs_gtt/colony_types/trigger_weight_modifier
+      DISTRICT_SUFFIX = commercial
+    }
+  }
+}
+col_irs_skycity_commercial_capital = {
+  icon = GFX_colony_type_capital_trade
+
+  potential = {
+    OR = {
+      uses_district_set = irs_skyworld_set
+      uses_district_set = irs_skycity_set
+    }
+    exists = owner
+    owner = { is_gestalt = no }
+    is_capital = yes
+  }
+
+  planet_modifier = {
+    trade_value_mult = 0.20
+  }
+
+  inline_script = {
+    script = irs_gtt/colony_types/capital_type_modifier
+  }
+
+  weight_modifier = {
+    base = 20
+    modifier = {
+      add = @keep_current
+      has_designation = col_irs_skycity_commercial_capital
+    }
+    inline_script = {
+      script = irs_gtt/colony_types/trigger_weight_modifier
+      DISTRICT_SUFFIX = commercial
+    }
+  }
+}

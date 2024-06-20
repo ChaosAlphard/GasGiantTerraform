@@ -1,0 +1,16 @@
+complex_trigger_modifier = {
+  trigger = num_districts
+  parameters = {
+    type = district_irs_skyworld_$DISTRICT_SUFFIX$
+  }
+  mode = add
+  mult = 10
+}
+complex_trigger_modifier = {
+  trigger = num_districts
+  parameters = {
+    type = district_irs_skycity_$DISTRICT_SUFFIX$
+  }
+  mode = add
+  mult = 10
+}

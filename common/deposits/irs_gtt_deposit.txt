@@ -36,9 +36,23 @@ d_skycity_produce_core = {
         type = district_irs_skyworld_leisure
         value >= 1
       }
+      owner = { is_gestalt = no }
+    }
+    modifier = {
+      planet_crime_mult = -0.2
+    }
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      num_districts = {
+        type = district_irs_skyworld_leisure
+        value >= 1
+      }
       owner = { is_gestalt = yes }
     }
     modifier = {
+      planet_crime_no_happiness_mult = -0.2
       planet_amenities_no_happiness_mult = 0.2
     }
   }
