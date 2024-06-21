@@ -3,6 +3,7 @@ irs_gas_giant_add_terraform_candidate = {
   every_planet_within_border = {
     limit = {
       is_planet_class = pc_gas_giant
+      has_anomaly = no
       NOT = {
         has_modifier = terraforming_candidate
       }

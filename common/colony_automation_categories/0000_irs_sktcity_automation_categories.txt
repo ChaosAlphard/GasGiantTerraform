@@ -1,0 +1,10 @@
+# 自动托管建造类型
+planet_automation_irs_skycity_district = {
+  available = {
+    OR = {
+      is_planet_class = pc_irs_skyworld
+      is_planet_class = pc_irs_skycity
+      is_planet_class = pc_irs_skyland
+    }
+  }
+}

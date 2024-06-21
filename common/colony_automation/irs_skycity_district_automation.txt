@@ -1,0 +1,111 @@
+# 行星自动托管
+
+# 科研
+automate_irs_skycity_research = {
+  category = planet_automation_irs_skycity_district
+
+  available = {
+    OR = {
+      has_designation = col_irs_skycity_research
+      has_designation = col_irs_skycity_research_capital
+      has_research_designation = yes
+    }
+  }
+
+  prio_districts = {
+    district_irs_skyworld_research
+    district_irs_skycity_research
+    district_irs_skyland_research
+  }
+
+  buildings = {
+    1 = {
+      building = building_capital
+    }
+    2 = {
+      building = building_research_lab_1
+      available = {
+        OR = {
+          num_free_districts = {
+            type = district_irs_skyworld_research
+            value <= 0
+          }
+          num_free_districts = {
+            type = district_irs_skycity_research
+            value <= 0
+          }
+          num_free_districts = {
+            type = district_irs_skyland_research
+            value <= 0
+          }
+        }
+      }
+    }
+  }
+}
+
+automate_irs_skycity_foundry = {
+  category = planet_automation_irs_skycity_district
+
+  available = {
+    OR = {
+      has_designation = col_irs_skycity_foundry
+      has_designation = col_irs_skycity_foundry_capital
+      has_foundry_designation = yes
+    }
+  }
+
+  prio_districts = {
+    district_irs_skyworld_foundry
+    district_irs_skycity_foundry
+    district_irs_skyland_foundry
+  }
+
+  buildings = {
+    1 = {
+      building = building_capital
+    }
+    2 = {
+      building = building_foundry_1
+    }
+    3 = {
+      building = building_ministry_production
+    }
+    4 = {
+      building = building_production_center
+    }
+  }
+}
+
+automate_irs_skycity_factory = {
+  category = planet_automation_irs_skycity_district
+
+  available = {
+    OR = {
+      has_designation = col_irs_skycity_factory
+      has_designation = col_irs_skycity_factory_capital
+      has_factory_designation = yes
+    }
+  }
+
+  prio_districts = {
+    district_irs_skyworld_factory
+    district_irs_skycity_factory
+    district_irs_skyland_factory
+  }
+
+  buildings = {
+    1 = {
+      building = building_capital
+    }
+    2 = {
+      building = building_factory_1
+    }
+    3 = {
+      building = building_ministry_production
+    }
+    4 = {
+      building = building_production_center
+    }
+  }
+}

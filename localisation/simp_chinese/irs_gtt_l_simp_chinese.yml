@@ -2,7 +2,7 @@
   # 飞升
   ap_irs_skycity: "天空城"
   ap_irs_skycity_desc: "气态行星上没有虽然陆地，但是借助£engineering£§Y$tech_housing_2$§!科技，我们可以创造出飘浮在空中的岛屿。"
-  ap_irs_skycity_ctp: "能够将§Y$pc_gas_giant$§!通过环境改造转变为§Y$pc_irs_skyland$§!并逐步建设为§Y$pc_irs_skyworld$§!。\n在我们的国境内有§Y[This.irs_num_gas_giant]§!颗这样的行星。\n解锁法令，使我们可以在§Y扩张规划器§!中管理§Y$pc_gas_giant$§!。"
+  ap_irs_skycity_ctp: "能够将§Y$pc_gas_giant$§!通过环境改造转变为§Y$pc_irs_skyland$§!并逐步建设为§Y$pc_irs_skyworld$§!。\n在我们的国境内有§Y[This.irs_num_gas_giant]§!颗这样的行星。\n解锁法令，使我们可以在§Y扩张规划器§!中管理§Y$pc_gas_giant$§!。\n§Y$pc_irs_skyland$§!、§Y$pc_irs_skycity$§!和§Y$pc_irs_skyworld$§!上有额外的§Y$PLANET_AUTOMATION_TITLE$§!选项可用。"
   # 法令
   edict_edict_irs_gas_giant_mark: "标记境内气态巨行星"
   edict_edict_irs_gas_giant_mark_desc: "给境内§Y$pc_gas_giant$§!添加§Y$terraforming_candidate$§!修正，使其可以在§Y扩张规划器§!中进行管理"
