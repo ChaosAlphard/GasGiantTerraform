@@ -1,0 +1,363 @@
+# 岗位
+# 管理员
+irs_admin = {
+  category = specialist
+  condition_string = SPECIALIST_JOB_TRIGGER
+  building_icon = building_autocurating_vault
+  clothes_texture_index = 3
+  icon = administrator
+
+  possible_pre_triggers = {
+    has_owner = yes
+    is_being_purged = no
+    is_being_assimilated = no
+    is_sapient = yes
+  }
+  possible_precalc = can_fill_specialist_job
+  possible = {
+    complex_specialist_job_check_trigger = yes
+  }
+
+  resources = {
+    category = planet_administrators
+  }
+
+  triggered_country_modifier = {
+    potential = { always = yes }
+    country_admin_cap_add = 2
+    mult = value:irs_count_assigned_job_num|JOB|irs_admin_sub|
+    # mult = value:irs_total_admin_cap|JOB|irs_admin|
+  }
+
+  triggered_country_modifier = {
+    potential = { always = yes }
+    country_admin_cap_add = 1
+    mult = value:irs_total_admin_cap|JOB|irs_admin_sub|
+  }
+
+  weight = {
+    weight = @ruler_job_weight
+    mult = value:job_weights_modifier|JOB|irs_admin|RESOURCE|unity|
+    modifier = {
+      factor = 0.2
+      has_citizenship_rights = no
+      NOT = { has_trait = trait_mechanical }
+    }
+    modifier = {
+      factor = 0.1
+      can_take_servant_job = yes
+    }
+    modifier = {
+      factor = 1.5
+      has_job = irs_admin
+    }
+  }
+
+  inline_script = "jobs/automodding_priority_unity"
+}
+irs_admin_sub = {
+  category = specialist
+  condition_string = SPECIALIST_JOB_TRIGGER
+  building_icon = building_autocurating_vault
+  clothes_texture_index = 3
+  icon = bureaucrat
+
+  possible_pre_triggers = {
+    has_owner = yes
+    is_being_purged = no
+    is_being_assimilated = no
+    is_sapient = yes
+  }
+  possible_precalc = can_fill_specialist_job
+  possible = {
+    complex_specialist_job_check_trigger = yes
+  }
+
+  resources = {
+    category = planet_administrators
+    produces = {
+      unity = 2
+    }
+    upkeep = {
+      consumer_goods = 2
+    }
+  }
+
+  triggered_planet_modifier = {
+    potential = { always = yes }
+    planet_amenities_add = 4
+    mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      planet = {
+        has_active_building = building_league_offices
+      }
+    }
+    planet_amenities_add = 1
+    mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = { has_valid_civic = civic_byzantine_bureaucracy }
+    }
+    modifier = { planet_stability_add = 1 }
+  }
+
+  triggered_country_modifier = {
+    potential = {
+      exists = owner
+      owner = { has_valid_civic = civic_efficient_bureaucracy }
+    }
+    country_edict_fund_add = 2
+    mult = value:job_total_output_modifier|JOB|irs_admin|RESOURCE|unity|
+  }
+
+  weight = {
+    weight = @specialist_job_weight
+    mult = value:job_weights_modifier|JOB|irs_admin_sub|RESOURCE|unity|
+    modifier = {
+      factor = 0.2
+      has_citizenship_rights = no
+      NOT = { has_trait = trait_mechanical }
+    }
+    modifier = {
+      factor = 0.1
+      can_take_servant_job = yes
+    }
+    modifier = {
+      factor = 1.5
+      has_job = irs_admin_sub
+    }
+  }
+
+  inline_script = "jobs/automodding_priority_unity"
+}
+
+# 管控子个体
+irs_admin_drone = {
+  category = complex_drone
+  condition_string = DRONE_JOB_TRIGGER
+  building_icon = building_autocurating_vault
+  icon = administrator
+
+  possible_pre_triggers = {
+    has_owner = yes
+    is_enslaved = no
+    is_being_purged = no
+    is_being_assimilated = no
+    is_sapient = yes
+  }
+  possible_precalc = can_fill_drone_job
+  possible = {
+    can_think = yes
+  }
+
+  resources = {
+    category = planet_administrators
+  }
+
+  triggered_country_modifier = {
+    potential = { always = yes }
+    country_admin_cap_add = 2
+    mult = value:irs_count_assigned_job_num|JOB|irs_admin_sub_drone|
+  }
+
+  triggered_country_modifier = {
+    potential = { always = yes }
+    country_admin_cap_add = 1
+    mult = value:irs_total_admin_cap|JOB|irs_admin_sub_drone|
+  }
+
+  weight = {
+    weight = @spawner_drone_job_weight
+    mult = value:job_weights_modifier|JOB|irs_admin_drone|RESOURCE|unity|
+    modifier = {
+      factor = 1.5
+      has_job = irs_admin_drone
+    }
+  }
+
+  inline_script = "jobs/automodding_priority_unity"
+}
+irs_admin_sub_drone = {
+  category = complex_drone
+  condition_string = DRONE_JOB_TRIGGER
+  building_icon = building_autocurating_vault
+  icon = evaluator
+
+  possible_pre_triggers = {
+    has_owner = yes
+    is_enslaved = no
+    is_being_purged = no
+    is_being_assimilated = no
+    is_sapient = yes
+  }
+  possible_precalc = can_fill_drone_job
+  possible = {
+    can_think = yes
+  }
+
+  resources = {
+    category = planet_administrators
+    upkeep = {
+      trigger = {
+        is_lithoid = no
+        is_robot_pop = no
+      }
+      food = 6
+    }
+    upkeep = {
+      trigger = {
+        is_lithoid = yes
+      }
+      minerals = 6
+    }
+    upkeep = {
+      trigger = {
+        is_robot_pop = yes
+      }
+      energy = 8
+    }
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      planet = {
+        OR = {
+          has_modifier = planet_artifact_relays_machine
+          has_modifier = planet_artifact_relays_hivemind
+        }
+      }
+    }
+    modifier = {
+      planet_stability_add = 2
+      planet_jobs_simple_drone_produces_mult = 0.01
+    }
+  }
+
+  triggered_planet_modifier = {
+    potential = { always = yes }
+    planet_crime_no_happiness_mult = -0.01
+  }
+
+  triggered_planet_modifier = {
+    potential = { always = yes }
+    planet_amenities_no_happiness_add = 4
+    mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      planet = {
+        has_active_building = building_league_offices
+      }
+    }
+    planet_amenities_no_happiness_add = 1
+    mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+  }
+
+  weight = {
+    weight = @synapse_drone_job_weight
+    mult = value:job_weights_modifier|JOB|irs_admin_sub_drone|RESOURCE|unity|
+    mult = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_amenities_mult|
+    modifier = {
+      factor = 1.5
+      has_job = irs_admin_drone
+    }
+  }
+
+  inline_script = "jobs/automodding_priority_unity"
+}
+
+# 管控子个体(机仆)
+irs_admin_servitor_drone = {
+  category = complex_drone
+  condition_string = DRONE_JOB_TRIGGER
+  building_icon = building_autocurating_vault
+  icon = administrator
+
+  possible_pre_triggers = {
+    has_owner = yes
+    is_enslaved = no
+    is_being_purged = no
+    is_being_assimilated = no
+    is_sapient = yes
+  }
+  possible_precalc = can_fill_drone_job
+  possible = {
+    can_think = yes
+  }
+
+  resources = {
+    category = planet_administrators
+  }
+
+  triggered_country_modifier = {
+    potential = { always = yes }
+    country_admin_cap_add = 2
+    mult = value:irs_count_assigned_job_num|JOB|bio_trophy|
+  }
+
+  triggered_country_modifier = {
+    potential = { always = yes }
+    country_admin_cap_add = 1
+    mult = value:irs_total_admin_cap|JOB|bio_trophy|
+  }
+
+  weight = {
+    weight = @spawner_drone_job_weight
+    mult = value:job_weights_modifier|JOB|irs_admin_servitor_drone|RESOURCE|unity|
+    modifier = {
+      factor = 1.5
+      has_job = irs_admin_drone
+    }
+  }
+
+  inline_script = "jobs/automodding_priority_unity"
+}
+irs_admin_sub_trophy = {
+  category = bio_trophy
+  clothes_texture_index = 1
+  building_icon = building_organic_paradise
+
+  possible_pre_triggers = {
+    is_sapient = yes
+    is_robot_pop = no
+  }
+
+  possible = {
+    has_citizenship_type = { type = citizenship_organic_trophy country = owner }
+  }
+
+  resources = {
+    category = planet_bio_trophies
+    produces = {
+      unity = 2
+    }
+    upkeep = {
+      consumer_goods = 2
+    }
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      happiness >= 0.5
+    }
+
+    modifier = {
+      planet_jobs_complex_drone_produces_mult = 0.01
+    }
+  }
+
+  triggered_pop_modifier = {
+    pop_housing_usage_add = -1
+  }
+
+  weight = {
+    weight = @special_job_weight
+  }
+}

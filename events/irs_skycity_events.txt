@@ -20,3 +20,24 @@ planet_event = {
     name = irs_skycity.a
   }
 }
+
+planet_event = {
+  id = irs_skycity.10
+  title = irs_skycity.10.name
+  desc = irs_skycity.10.desc
+  picture = GFX_evt_irs_skycity
+  location = root
+
+  is_triggered_only = yes
+  trigger = {
+    OR = {
+      is_planet_class = pc_irs_skyland
+      is_planet_class = pc_irs_skycity
+      is_planet_class = pc_irs_skyworld
+    }
+  }
+
+  option = {
+    name = irs_skycity.10.a
+  }
+}

@@ -1,4 +1,5 @@
-count_gas_giant_num = {
+irs_count_gas_giant_num = {
+  base = 0
   complex_trigger_modifier = {
     trigger = count_planet_within_border
     parameters = {
@@ -6,4 +7,41 @@ count_gas_giant_num = {
     }
     mode = add
   }
+}
+
+# 计算影响岗位资源产出的百分比修正的总值 (e.g. 5%, 30%, 130%)
+irs_job_total_output_modifier = {
+  base = 0
+  complex_trigger_modifier = {
+    trigger = check_economic_production_modifier_for_job
+    trigger_scope = root
+    parameters = {
+      job = $JOB$
+      resource = $RESOURCE$
+      species_modifiers_only = no #Note this
+    }
+    mode = add
+  }
+  round_to = 0.01 #DO NOT REMOVE. It is here to stop modifiers perpetually being recalculated because complex dependency
+  #orders can ensure there is always a 0.00001 difference
+}
+
+# 计算特定岗位的上岗人数
+irs_count_assigned_job_num = {
+  base = 0
+  complex_trigger_modifier = {
+    trigger = num_assigned_jobs
+    trigger_scope = planet
+    parameters = {
+      job = $JOB$
+    }
+    mode = add
+  }
+}
+
+# 岗位凝聚力产出修正带来的帝国规模上限加成
+irs_total_admin_cap = {
+  base = 0
+  add = value:irs_count_assigned_job_num|JOB|$JOB$|
+  multiply = value:irs_job_total_output_modifier|JOB|$JOB$|RESOURCE|unity|
 }

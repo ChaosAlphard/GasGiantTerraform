@@ -1,4 +1,23 @@
 defined_text = {
   name = irs_num_gas_giant
-  value = value:count_gas_giant_num
+  value = value:irs_count_gas_giant_num
+}
+
+defined_text = {
+  name = GetIrsAdminCapJob
+  text = {
+    trigger = {
+      is_scope_valid = yes
+      owner = { is_regular_empire = yes }
+    }
+    localization_key = job_irs_admin
+  }
+  text = {
+    trigger = {
+      is_scope_valid = yes
+      owner = { is_gestalt = yes }
+    }
+    localization_key = job_irs_admin_drone
+  }
+  default = job_irs_admin
 }

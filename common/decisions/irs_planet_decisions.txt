@@ -257,3 +257,30 @@ decision_irs_skycity_fin_fast = {
     weight = 0
   }
 }
+
+# 建造队列完成通知
+decision_irs_skycity_construction_notify = {
+  owned_planets_only = yes
+  icon = decision_smugglers_in_bar
+  enactment_time = 1
+
+  effect = {
+    planet_event = { id = irs_skycity.10 }
+  }
+
+  potential = {
+    OR = {
+      is_planet_class = pc_irs_skyworld
+      is_planet_class = pc_irs_skycity
+      is_planet_class = pc_irs_skyland
+    }
+  }
+
+  allow = {
+    always = yes
+  }
+
+  ai_weight = {
+    weight = 0
+  }
+}

@@ -20,10 +20,38 @@
   decision_irs_skycity_fin_desc: "使用更高级的材料来强化城市的各项设施，解锁更高效的区划"
   decision_irs_skycity_fin_fast: "$decision_irs_skycity_fin$"
   decision_irs_skycity_fin_fast_desc: "$decision_irs_skycity_fin_desc$"
+  decision_irs_skycity_construction_notify: "建造完成通知"
+  decision_irs_skycity_construction_notify_desc: "行星建造队列完成时进行事件通知，实际效果取决于该决议在建造队列中的位置"
   # 事件
   irs_skycity.name: "§H[Root.GetName]§! 已改造为 §H[Root.GetClassName]§!"
   irs_skycity.desc: "§H[Root.GetName]§! 上的改造计划已经完成"
   irs_skycity.a: "好"
+  irs_skycity.10.name: "§H[Root.GetName]§! 已完成建造"
+  irs_skycity.10.desc: "§H[Root.GetName]§! 上的建造队列已经完成"
+  irs_skycity.10.a: "好"
+  # 岗位
+  job_irs_admin_loc: "[GetIrsAdminCapJob]"
+  mod_job_irs_admin_loc_add: "$job_irs_admin_loc$岗位"
+  job_irs_admin: "行政管理主任"
+  job_irs_admin_plural: "行政管理主任"
+  job_irs_admin_desc: "§Y行政管理能力§!在这里汇总"
+  mod_job_irs_admin_add: "$job_irs_admin$岗位"
+  job_irs_admin_sub: "行政管理员"
+  job_irs_admin_sub_plural: "行政管理员"
+  job_irs_admin_sub_desc: "提供§Y行政管理能力§!，基础§G2§!点，每§G1%§!凝聚力产出加成额外提供§G0.01§!点。\n由于游戏机制不支持岗位产出非整数的§Y行政管理能力§!，为避免每20层循环才更新一次数据，所以改为由$job_irs_admin$提供"
+  mod_job_irs_admin_sub_add: "$job_irs_admin_sub$岗位"
+  job_irs_admin_drone: "管控中心子个体"
+  job_irs_admin_drone_plural: "管控中心子个体"
+  job_irs_admin_drone_desc: "§Y行政管理能力§!在这里汇总"
+  mod_job_irs_admin_drone_add: "$job_irs_admin_drone$岗位"
+  job_irs_admin_sub_drone: "管控节点子个体"
+  job_irs_admin_sub_drone_plural: "管控节点子个体"
+  job_irs_admin_sub_drone_desc: "提供§Y行政管理能力§!，基础§G2§!点，每§G1%§!凝聚力产出加成额外提供§G0.01§!点。\n由于游戏机制不支持岗位产出非整数的§Y行政管理能力§!，为避免每20层循环才更新一次数据，所以改为由$job_irs_admin$提供"
+  mod_job_irs_admin_sub_drone_add: "$job_irs_admin_sub_drone$岗位"
+  job_irs_admin_servitor_drone: "$job_irs_admin_drone$"
+  job_irs_admin_servitor_drone_plural: "$job_irs_admin_drone_plural$"
+  job_irs_admin_servitor_drone_desc: "提供§Y行政管理能力§!，基础§G2§!点，每§G1%§!凝聚力产出加成额外提供§G0.01§!点，乘以§Y$job_bio_trophy$§!数量"
+  mod_job_irs_admin_servitor_drone_add: "$job_irs_admin_servitor_drone$岗位"
   # 行星
   pc_irs_skyland: "空岛星球"
   pc_irs_skyland_desc: "气态行星上没有虽然陆地，但是借助£engineering£§Y$tech_housing_2$§!科技，我们可以创造出飘浮在空中的岛屿。"
@@ -31,6 +59,9 @@
   pc_irs_skycity_desc: "将分散的空岛连接在一起构成城市，再利用小型化的£physics£§Y$tech_planetary_shield_generator$§!科技将§Y$pc_gas_giant$§!的风暴阻挡在城市外。"
   pc_irs_skyworld: "天空城"
   pc_irs_skyworld_desc: "这颗§Y$pc_gas_giant$§!上的§Y$pc_irs_skyworld$§!已经被建设为理想状态。"
+  # 行星自动托管
+  planet_automation_irs_skycity_district: "£district£天空城区划建设"
+  planet_automation_irs_skycity_district_desc: "允许按照§Y$DESIGNATIONS_TITLE$§!自动建造区划。无空余区划可用时将建造建筑"
   # 殖民地规划
   # 理事会议案
   environmental_ordinance_waivers_active: "是§Y$GALACTIC_COMMUNITY$§!成员且§Y$SENATE_FLOOR$§!通过了§Y$resolution_industry_environmental_ordinance_waivers$§!或后续§Y$RESOLUTIONS$§!"
@@ -75,6 +106,10 @@
   district_irs_skyworld_city: "居住天空城"
   district_irs_skyworld_city_plural: "居住天空城"
   district_irs_skyworld_city_desc: "区划数量达到§Y1§!个及以上时:\n$mod_planet_jobs_produces_mult$§G+10%§!"
+  # 帝国规模
+  district_irs_skyworld_admin_cap: "管理中心"
+  district_irs_skyworld_admin_cap_plural: "管理中心"
+  district_irs_skyworld_admin_cap_desc: "区划数量达到§Y1§!个及以上时:\n§Y$mod_job_irs_admin_loc_add$§!§G+1§!"
   # 休闲区划
   district_irs_skyland_leisure: "休闲区划"
   district_irs_skyland_leisure_plural: "休闲区划"
@@ -124,7 +159,7 @@
   district_irs_skycity_organic_housing_desc: "这些高耸的建筑由人工智能控制的人工气候，可以模仿智慧有机生物需要的任何环境。其中的有机生物的住房需求可以完全被满足。"
   district_irs_skyworld_organic_housing: "庇护所天空城"
   district_irs_skyworld_organic_housing_plural: "庇护所天空城"
-  district_irs_skyworld_organic_housing_desc: "区划数量达到§Y4§!个以上或§Y$building_organic_paradise$§!数量达到§Y6§!个及以上时:\n$MOD_POP_GROWTH_SPEED_REDUCTION$§G-50%§!"
+  district_irs_skyworld_organic_housing_desc: "区划数量达到§Y4§!个及以上时:\n§Y$mod_job_irs_admin_servitor_drone_add$§!§G+1§!\n区划数量达到§Y4§!个及以上或§Y$building_organic_paradise$§!数量达到§Y6§!个及以上时:\n$MOD_POP_GROWTH_SPEED_REDUCTION$§G-50%§!"
   # 铸造区划
   district_irs_skyland_foundry: "铸造区划"
   district_irs_skyland_foundry_plural: "铸造区划"
