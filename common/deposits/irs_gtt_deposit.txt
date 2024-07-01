@@ -37,10 +37,41 @@ d_skycity_produce_core = {
         type = district_irs_skyworld_admin_cap
         value >= 1
       }
-      owner = { is_gestalt = yes }
+      owner = {
+        is_gestalt = yes
+        NOT = { has_valid_civic = civic_machine_servitor }
+      }
     }
     modifier = {
       job_irs_admin_drone_add = 1
+    }
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      num_districts = {
+        type = district_irs_skyworld_admin_cap
+        value >= 1
+      }
+      owner = {
+        is_gestalt = yes
+        has_valid_civic = civic_machine_servitor
+      }
+    }
+    modifier = {
+      job_irs_admin_servitor_drone_add = 1
+    }
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      num_districts = {
+        type = district_irs_skyworld_admin_cap
+        value >= 20
+      }
+    }
+    modifier = {
+      species_empire_size_mult = -0.8
     }
   }
 
@@ -121,18 +152,6 @@ d_skycity_produce_core = {
   # 庇护所
   triggered_planet_modifier = {
     potential = {
-      num_districts = {
-        type = district_irs_skyworld_organic_housing
-        value >= 4
-      }
-    }
-    modifier = {
-      job_irs_admin_servitor_drone_add = 1
-    }
-  }
-
-  triggered_planet_modifier = {
-    potential = {
       OR = {
         num_districts = {
           type = district_irs_skyworld_organic_housing
@@ -140,7 +159,7 @@ d_skycity_produce_core = {
         }
         num_buildings = {
           type = building_organic_paradise
-          value >= 6
+          value >= 4
         }
       }
     }

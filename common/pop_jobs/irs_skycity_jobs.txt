@@ -24,13 +24,6 @@ irs_admin = {
 
   triggered_country_modifier = {
     potential = { always = yes }
-    country_admin_cap_add = 2
-    mult = value:irs_count_assigned_job_num|JOB|irs_admin_sub|
-    # mult = value:irs_total_admin_cap|JOB|irs_admin|
-  }
-
-  triggered_country_modifier = {
-    potential = { always = yes }
     country_admin_cap_add = 1
     mult = value:irs_total_admin_cap|JOB|irs_admin_sub|
   }
@@ -116,6 +109,11 @@ irs_admin_sub = {
     mult = value:job_total_output_modifier|JOB|irs_admin|RESOURCE|unity|
   }
 
+  triggered_country_modifier = {
+    potential = { always = yes }
+    country_admin_cap_add = 2
+  }
+
   weight = {
     weight = @specialist_job_weight
     mult = value:job_weights_modifier|JOB|irs_admin_sub|RESOURCE|unity|
@@ -158,12 +156,6 @@ irs_admin_drone = {
 
   resources = {
     category = planet_administrators
-  }
-
-  triggered_country_modifier = {
-    potential = { always = yes }
-    country_admin_cap_add = 2
-    mult = value:irs_count_assigned_job_num|JOB|irs_admin_sub_drone|
   }
 
   triggered_country_modifier = {
@@ -260,6 +252,11 @@ irs_admin_sub_drone = {
     mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
   }
 
+  triggered_country_modifier = {
+    potential = { always = yes }
+    country_admin_cap_add = 2
+  }
+
   weight = {
     weight = @synapse_drone_job_weight
     mult = value:job_weights_modifier|JOB|irs_admin_sub_drone|RESOURCE|unity|
@@ -298,14 +295,8 @@ irs_admin_servitor_drone = {
 
   triggered_country_modifier = {
     potential = { always = yes }
-    country_admin_cap_add = 2
-    mult = value:irs_count_assigned_job_num|JOB|bio_trophy|
-  }
-
-  triggered_country_modifier = {
-    potential = { always = yes }
     country_admin_cap_add = 1
-    mult = value:irs_total_admin_cap|JOB|bio_trophy|
+    mult = value:irs_total_admin_cap|JOB|irs_admin_sub_trophy|
   }
 
   weight = {
@@ -323,14 +314,17 @@ irs_admin_sub_trophy = {
   category = bio_trophy
   clothes_texture_index = 1
   building_icon = building_organic_paradise
+  icon = bio_trophy
 
   possible_pre_triggers = {
     is_sapient = yes
     is_robot_pop = no
   }
-
   possible = {
-    has_citizenship_type = { type = citizenship_organic_trophy country = owner }
+    has_citizenship_type = {
+      type = citizenship_organic_trophy
+      country = owner
+    }
   }
 
   resources = {
@@ -343,21 +337,45 @@ irs_admin_sub_trophy = {
     }
   }
 
-  triggered_planet_modifier = {
-    potential = {
-      happiness >= 0.5
-    }
+  triggered_pop_modifier = {
+    potential = { always = yes }
+    pop_housing_usage_add = -1
+  }
 
+  triggered_planet_modifier = {
+    potential = { always = yes }
     modifier = {
       planet_jobs_complex_drone_produces_mult = 0.01
     }
   }
 
-  triggered_pop_modifier = {
-    pop_housing_usage_add = -1
+  triggered_planet_modifier = {
+    potential = { always = yes }
+    planet_amenities_no_happiness_add = 4
+    mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      planet = {
+        has_active_building = building_league_offices
+      }
+    }
+    planet_amenities_no_happiness_add = 1
+    mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+  }
+
+  triggered_country_modifier = {
+    potential = { always = yes }
+    country_admin_cap_add = 2
   }
 
   weight = {
     weight = @special_job_weight
+    mult = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_amenities_mult|
+    modifier = {
+      factor = 1.5
+      has_job = irs_admin_sub_trophy
+    }
   }
 }

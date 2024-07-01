@@ -379,16 +379,7 @@ district_irs_skyland_organic_housing = {
   }
 
   planet_modifier = {
-    job_artisan_drone_add = 1
-    job_bio_trophy_add = 10
-  }
-
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = { has_valid_civic = civic_machine_servitor }
-    }
-    text = job_artisan_drone_effect_desc
+    job_bio_trophy_add = 6
   }
 
   triggered_desc = {

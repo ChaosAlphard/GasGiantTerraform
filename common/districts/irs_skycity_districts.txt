@@ -371,16 +371,7 @@ district_irs_skycity_organic_housing = {
   }
 
   planet_modifier = {
-    job_artisan_drone_add = 2
-    job_bio_trophy_add = 20
-  }
-
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = { has_valid_civic = civic_machine_servitor }
-    }
-    text = job_artisan_drone_effect_desc
+    job_bio_trophy_add = 12
   }
 
   triggered_desc = {

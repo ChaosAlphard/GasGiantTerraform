@@ -57,6 +57,109 @@ district_irs_skyworld_city = {
   }
 }
 
+# 行政管理中心区划
+district_irs_skyworld_admin_cap = {
+  is_capped_by_modifier = no
+  icon = district_irs_skyworld_admin_cap
+  base_buildtime = @skyworld_build_time
+
+  show_on_uncolonized = {
+    uses_district_set = irs_skyworld_set
+  }
+
+  potential = {
+    uses_district_set = irs_skyworld_set
+  }
+
+  allow = {
+    uses_district_set = irs_skyworld_set
+  }
+
+  conversion_ratio = 1
+  convert_to = {
+    district_irs_skyworld_administrative
+    district_irs_skycity_administrative
+    district_irs_skyland_administrative
+    district_irs_skyworld_religious
+    district_irs_skycity_religious
+    district_irs_skyland_religious
+    district_irs_skyworld_organic_housing
+    district_irs_skycity_organic_housing
+    district_irs_skyland_organic_housing
+  }
+
+  resources = {
+    category = planet_districts
+    cost = {
+      alloys = @skyworld_city_cost
+      exotic_gases = @skyworld_sr_cost
+      rare_crystals = @skyworld_sr_cost
+      volatile_motes = @skyworld_sr_cost
+    }
+    upkeep = {
+      energy = @skyworld_base_upkeep
+      exotic_gases = @skyworld_sr_upkeep
+      rare_crystals = @skyworld_sr_upkeep
+      volatile_motes = @skyworld_sr_upkeep
+    }
+  }
+
+  planet_modifier = {
+    species_empire_size_mult = -0.01
+    planet_jobs_unity_produces_mult = 0.01
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = {
+        NOT = { has_valid_civic = civic_machine_servitor }
+      }
+    }
+    modifier = {
+      planet_housing_add = 6
+    }
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = {
+        is_regular_empire = yes
+      }
+    }
+    modifier = {
+      job_irs_admin_sub_add = 6
+    }
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = {
+        is_gestalt = yes
+        NOT = { has_valid_civic = civic_machine_servitor }
+      }
+    }
+    modifier = {
+      job_irs_admin_sub_drone_add = 6
+    }
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = {
+        is_gestalt = yes
+        has_valid_civic = civic_machine_servitor
+      }
+    }
+    modifier = {
+      job_irs_admin_sub_trophy_add = 10
+    }
+  }
+}
+
 # 休闲区划
 district_irs_skyworld_leisure = {
   is_capped_by_modifier = no
@@ -111,90 +214,6 @@ district_irs_skyworld_leisure = {
     DUELIST = 10
     MAINTENANCE = 16
     AMENITIES_VALUE = 40
-  }
-}
-
-# 行政管理中心区划
-district_irs_skyworld_admin_cap = {
-  is_capped_by_modifier = no
-  icon = district_irs_skyworld_admin_cap
-  base_buildtime = @skyworld_build_time
-
-  show_on_uncolonized = {
-    uses_district_set = irs_skyworld_set
-    exists = from
-    from = {
-      NOT = { has_valid_civic = civic_machine_servitor }
-    }
-  }
-
-  potential = {
-    uses_district_set = irs_skyworld_set
-    exists = owner
-    owner = {
-      NOT = { has_valid_civic = civic_machine_servitor }
-    }
-  }
-
-  allow = {
-    uses_district_set = irs_skyworld_set
-  }
-
-  conversion_ratio = 1
-  convert_to = {
-    district_irs_skyworld_organic_housing
-    district_irs_skycity_organic_housing
-    district_irs_skyland_organic_housing
-    district_irs_skyworld_administrative
-    district_irs_skycity_administrative
-    district_irs_skyland_administrative
-    district_irs_skyworld_religious
-    district_irs_skycity_religious
-    district_irs_skyland_religious
-  }
-
-  resources = {
-    category = planet_districts
-    cost = {
-      alloys = @skyworld_city_cost
-      exotic_gases = @skyworld_sr_cost
-      rare_crystals = @skyworld_sr_cost
-      volatile_motes = @skyworld_sr_cost
-    }
-    upkeep = {
-      energy = @skyworld_base_upkeep
-      exotic_gases = @skyworld_sr_upkeep
-      rare_crystals = @skyworld_sr_upkeep
-      volatile_motes = @skyworld_sr_upkeep
-    }
-  }
-
-  planet_modifier = {
-    planet_housing_add = 6
-  }
-
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = {
-        is_regular_empire = yes
-      }
-    }
-    modifier = {
-      job_irs_admin_sub_add = 6
-    }
-  }
-
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = {
-        is_gestalt = yes
-      }
-    }
-    modifier = {
-      job_irs_admin_sub_drone_add = 6
-    }
   }
 }
 
@@ -465,16 +484,7 @@ district_irs_skyworld_organic_housing = {
     pop_happiness = 0.02
     pop_growth_speed = 0.02
     planet_bio_trophies_produces_mult = 0.02
-    job_artisan_drone_add = 3
-    job_bio_trophy_add = 30
-  }
-
-  triggered_desc = {
-    trigger = {
-      exists = owner
-      owner = { has_valid_civic = civic_machine_servitor }
-    }
-    text = job_artisan_drone_effect_desc
+    job_bio_trophy_add = 20
   }
 
   triggered_desc = {

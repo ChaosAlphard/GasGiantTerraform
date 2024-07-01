@@ -15,9 +15,22 @@ defined_text = {
   text = {
     trigger = {
       is_scope_valid = yes
-      owner = { is_gestalt = yes }
+      owner = {
+        is_gestalt = yes
+        NOT = { has_valid_civic = civic_machine_servitor }
+      }
     }
     localization_key = job_irs_admin_drone
+  }
+  text = {
+    trigger = {
+      is_scope_valid = yes
+      owner = {
+        is_gestalt = yes
+        has_valid_civic = civic_machine_servitor
+      }
+    }
+    localization_key = job_irs_admin_servitor_drone
   }
   default = job_irs_admin
 }
