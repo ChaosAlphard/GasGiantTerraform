@@ -1,0 +1,26 @@
+automate_irs_skycity_farming = {
+  category = "planet_automation_irs_skycity_district"
+
+  available = {
+    has_farming_designation = yes
+  }
+
+  prio_districts = {
+    district_irs_skyworld_farming
+    district_irs_skycity_farming
+    district_irs_skyland_farming
+  }
+
+  buildings = {
+    1 = {
+      building = building_capital
+    }
+    2 = {
+      building = building_food_processing_facility
+    }
+    3 = {
+      building = building_hydroponics_farm
+      available = { free_district_slots <= 0 }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+automate_irs_skycity_research = {
+  category = "planet_automation_irs_skycity_district"
+
+  available = {
+    OR = {
+      has_designation = col_irs_skycity_research
+      has_designation = col_irs_skycity_research_capital
+      has_research_designation = yes
+    }
+  }
+
+  prio_districts = {
+    district_irs_skyworld_research
+    district_irs_skycity_research
+    district_irs_skyland_research
+  }
+
+  buildings = {
+    1 = {
+      building = building_capital
+    }
+    2 = {
+      building = building_research_lab_1
+      available = { free_district_slots <= 0 }
+    }
+  }
+}

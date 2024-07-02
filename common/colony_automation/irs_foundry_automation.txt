@@ -1,0 +1,32 @@
+automate_irs_skycity_foundry = {
+  category = "planet_automation_irs_skycity_district"
+
+  available = {
+    OR = {
+      has_designation = col_irs_skycity_foundry
+      has_designation = col_irs_skycity_foundry_capital
+      has_foundry_designation = yes
+    }
+  }
+
+  prio_districts = {
+    district_irs_skyworld_foundry
+    district_irs_skycity_foundry
+    district_irs_skyland_foundry
+  }
+
+  buildings = {
+    1 = {
+      building = building_capital
+    }
+    2 = {
+      building = building_foundry_1
+    }
+    3 = {
+      building = building_ministry_production
+    }
+    4 = {
+      building = building_production_center
+    }
+  }
+}

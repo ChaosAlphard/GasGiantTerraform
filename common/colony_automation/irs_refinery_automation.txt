@@ -1,0 +1,25 @@
+automate_irs_skycity_refinery = {
+  category = "planet_automation_irs_skycity_district"
+
+  available = {
+    has_refinery_designation = yes
+  }
+
+  prio_districts = {
+    district_irs_skyworld_sr_gases
+    district_irs_skyworld_sr_crystals
+    district_irs_skyworld_sr_motes
+    district_irs_skycity_sr_gases
+    district_irs_skycity_sr_crystals
+    district_irs_skycity_sr_motes
+  }
+
+  buildings = {
+    1 = {
+      building = building_capital
+    }
+    2 = {
+      building = building_archaeo_refinery
+    }
+  }
+}

@@ -69,7 +69,7 @@
   pc_irs_skyworld_desc: "这颗§Y$pc_gas_giant$§!上的§Y$pc_irs_skyworld$§!已经被建设为理想状态。"
   # 行星自动托管
   planet_automation_irs_skycity_district: "£district£天空城区划建设"
-  planet_automation_irs_skycity_district_desc: "允许按照§Y$DESIGNATIONS_TITLE$§!自动建造区划。无空余区划可用时将建造建筑"
+  planet_automation_irs_skycity_district_desc: "允许按照§Y$DESIGNATIONS_TITLE$§!自动建造区划。无空余区划可用时将建造建筑\n§G$district_irs_skyworld_admin_cap$§!对应的§Y$DESIGNATIONS_TITLE$§!为§Y$col_irs_skycity_administrative$§!\n§G$district_irs_skyworld_administrative$§!对应的§Y$DESIGNATIONS_TITLE$§!为§Y$col_bureau$§!"
   # 殖民地规划
   # 理事会议案
   environmental_ordinance_waivers_active: "是§Y$GALACTIC_COMMUNITY$§!成员且§Y$SENATE_FLOOR$§!通过了§Y$resolution_industry_environmental_ordinance_waivers$§!或后续§Y$RESOLUTIONS$§!"

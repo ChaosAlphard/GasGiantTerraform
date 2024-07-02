@@ -1,0 +1,30 @@
+automate_irs_skycity_navy = {
+  category = "planet_automation_irs_skycity_district"
+
+  available = {
+    has_fortress_designation = yes
+  }
+
+  prio_districts = {
+    district_irs_skyworld_navy
+    district_irs_skycity_navy
+    district_irs_skyland_navy
+  }
+
+  buildings = {
+    1 = {
+      building = building_capital
+    }
+    2 = {
+      building = building_planetary_shield_generator
+    }
+    3 = {
+      building = building_dread_encampment
+      available = { free_district_slots <= 0 }
+    }
+    4 = {
+      building = building_stronghold
+      available = { free_district_slots <= 0 }
+    }
+  }
+}

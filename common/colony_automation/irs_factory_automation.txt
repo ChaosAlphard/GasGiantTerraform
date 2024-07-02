@@ -1,0 +1,32 @@
+automate_irs_skycity_factory = {
+  category = "planet_automation_irs_skycity_district"
+
+  available = {
+    OR = {
+      has_designation = col_irs_skycity_factory
+      has_designation = col_irs_skycity_factory_capital
+      has_factory_designation = yes
+    }
+  }
+
+  prio_districts = {
+    district_irs_skyworld_factory
+    district_irs_skycity_factory
+    district_irs_skyland_factory
+  }
+
+  buildings = {
+    1 = {
+      building = building_capital
+    }
+    2 = {
+      building = building_factory_1
+    }
+    3 = {
+      building = building_ministry_production
+    }
+    4 = {
+      building = building_production_center
+    }
+  }
+}

@@ -1,0 +1,26 @@
+automate_irs_skycity_generator = {
+  category = "planet_automation_irs_skycity_district"
+
+  available = {
+    has_generator_designation = yes
+  }
+
+  prio_districts = {
+    district_irs_skyworld_generator
+    district_irs_skycity_generator
+    district_irs_skyland_generator
+  }
+
+  buildings = {
+    1 = {
+      building = building_capital
+    }
+    2 = {
+      building = building_energy_grid
+    }
+    3 = {
+      building = building_betharian_power_plant
+      available = { free_district_slots <= 0 }
+    }
+  }
+}

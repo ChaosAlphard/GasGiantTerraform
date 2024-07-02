@@ -1,0 +1,20 @@
+automate_irs_skycity_admin_cap = {
+  category = "planet_automation_irs_skycity_district"
+
+  available = {
+    OR = {
+      has_designation = col_irs_skycity_administrative
+      has_designation = col_irs_skycity_administrative_capital
+    }
+  }
+
+  prio_districts = {
+    district_irs_skyworld_admin_cap
+  }
+
+  buildings = {
+    1 = {
+      building = building_capital
+    }
+  }
+}

@@ -1,0 +1,22 @@
+automate_irs_skycity_mining = {
+  category = "planet_automation_irs_skycity_district"
+
+  available = {
+    has_mining_designation = yes
+  }
+
+  prio_districts = {
+    district_irs_skyworld_mining
+    district_irs_skycity_mining
+    district_irs_skyland_mining
+  }
+
+  buildings = {
+    1 = {
+      building = building_capital
+    }
+    3 = {
+      building = building_mineral_purification_plant
+    }
+  }
+}

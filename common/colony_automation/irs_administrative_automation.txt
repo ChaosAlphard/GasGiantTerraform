@@ -1,0 +1,69 @@
+automate_irs_skycity_administrative = {
+  category = "planet_automation_irs_skycity_district"
+
+  available = {
+    OR = {
+      has_designation = col_irs_skycity_organic_housing
+      has_designation = col_irs_skycity_organic_housing_capital
+      has_unity_designation = yes
+    }
+  }
+
+  prio_districts = {
+    district_irs_skyworld_administrative
+    district_irs_skyworld_religious
+    district_irs_skyworld_organic_housing
+    district_irs_skycity_administrative
+    district_irs_skycity_religious
+    district_irs_skycity_organic_housing
+    district_irs_skyland_administrative
+    district_irs_skyland_religious
+    district_irs_skyland_organic_housing
+  }
+
+  buildings = {
+    1 = {
+      building = building_capital
+    }
+    2 = {
+      building = building_autochthon_monument
+      # available = { free_district_slots <= 0 }
+    }
+    3 = {
+      building = building_simulation_1
+      # available = { free_district_slots <= 0 }
+    }
+    4 = {
+      building = building_galactic_memorial_1
+      # available = { free_district_slots <= 0 }
+    }
+    5 = {
+      building = building_sensorium_1
+      # available = { free_district_slots <= 0 }
+    }
+    6 = {
+      building = building_hive_node
+      available = { free_district_slots <= 0 }
+    }
+    7 = {
+      building = building_bureaucratic_1
+      available = { free_district_slots <= 0 }
+    }
+    8 = {
+      building = building_uplink_node
+      available = { free_district_slots <= 0 }
+    }
+    9 = {
+      building = building_sacrificial_temple_1
+      available = { free_district_slots <= 0 }
+    }
+    10 = {
+      building = building_temple
+      available = { free_district_slots <= 0 }
+    }
+    11 = {
+      building = building_organic_sanctuary
+      available = { free_district_slots <= 0 }
+    }
+  }
+}
