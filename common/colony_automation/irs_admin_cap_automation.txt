@@ -3,8 +3,8 @@ automate_irs_skycity_admin_cap = {
 
   available = {
     OR = {
-      has_designation = col_irs_skycity_administrative
-      has_designation = col_irs_skycity_administrative_capital
+      has_designation = col_irs_skycity_admin_cap
+      has_designation = col_irs_skycity_admin_cap_capital
     }
   }
 

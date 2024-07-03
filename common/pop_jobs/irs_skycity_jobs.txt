@@ -270,51 +270,56 @@ irs_admin_sub_drone = {
   inline_script = "jobs/automodding_priority_unity"
 }
 
-# 管控子个体(机仆)
-irs_admin_servitor_drone = {
-  category = complex_drone
-  condition_string = DRONE_JOB_TRIGGER
+# 管理员(机仆)
+irs_admin_trophy = {
+  category = bio_trophy
+  clothes_texture_index = 1
   building_icon = building_autocurating_vault
   icon = administrator
 
   possible_pre_triggers = {
-    has_owner = yes
-    is_enslaved = no
-    is_being_purged = no
-    is_being_assimilated = no
     is_sapient = yes
+    is_robot_pop = no
   }
-  possible_precalc = can_fill_drone_job
   possible = {
-    can_think = yes
+    has_citizenship_type = {
+      type = citizenship_organic_trophy
+      country = owner
+    }
   }
 
   resources = {
-    category = planet_administrators
+    category = planet_bio_trophies
+  }
+
+  triggered_pop_modifier = {
+    potential = { always = yes }
+    pop_housing_usage_add = -1
   }
 
   triggered_country_modifier = {
     potential = { always = yes }
     country_admin_cap_add = 1
-    mult = value:irs_total_admin_cap|JOB|irs_admin_sub_trophy|
+    mult = value:irs_total_admin_cap|JOB|irs_admin_trophy_sub|
   }
 
   weight = {
-    weight = @spawner_drone_job_weight
-    mult = value:job_weights_modifier|JOB|irs_admin_servitor_drone|RESOURCE|unity|
+    weight = @ruler_job_weight
+    mult = value:job_weights_modifier|JOB|irs_admin_trophy|RESOURCE|unity|
+    mult = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_amenities_mult|
     modifier = {
       factor = 1.5
-      has_job = irs_admin_drone
+      has_job = irs_admin_trophy
     }
   }
 
   inline_script = "jobs/automodding_priority_unity"
 }
-irs_admin_sub_trophy = {
+irs_admin_trophy_sub = {
   category = bio_trophy
   clothes_texture_index = 1
-  building_icon = building_organic_paradise
-  icon = bio_trophy
+  building_icon = building_autocurating_vault
+  icon = bureaucrat
 
   possible_pre_triggers = {
     is_sapient = yes
@@ -372,10 +377,13 @@ irs_admin_sub_trophy = {
 
   weight = {
     weight = @special_job_weight
+    mult = value:job_weights_modifier|JOB|irs_admin_trophy_sub|RESOURCE|unity|
     mult = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_amenities_mult|
     modifier = {
       factor = 1.5
-      has_job = irs_admin_sub_trophy
+      has_job = irs_admin_trophy_sub
     }
   }
+
+  inline_script = "jobs/automodding_priority_unity"
 }

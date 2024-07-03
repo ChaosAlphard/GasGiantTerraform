@@ -1,6 +1,5 @@
 @keep_current = 10
-
-# 殖民地规划 复合 采掘 科研 行政 庇护所 铸造 工厂 商业
+# 殖民地规划
 # 科研
 col_irs_skycity_research = {
   icon = GFX_colony_type_research
@@ -73,6 +72,70 @@ col_irs_skycity_research_capital = {
     inline_script = {
       script = irs_gtt/colony_types/trigger_weight_modifier
       DISTRICT_SUFFIX = research
+    }
+  }
+}
+
+# 管理
+col_irs_skycity_admin_cap = {
+  icon = GFX_colony_type_bureaucratic
+
+  potential = {
+    uses_district_set = irs_skyworld_set
+    is_capital = no
+  }
+
+  planet_modifier = {
+    planet_jobs_unity_produces_mult = 0.15
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      exists = owner
+      owner = { has_tradition = tr_adaptability_finish }
+    }
+    modifier = {
+      planet_jobs_unity_produces_mult = 0.05
+    }
+  }
+
+  weight_modifier = {
+    base = 20
+    modifier = {
+      add = @keep_current
+      has_designation = col_irs_skycity_admin_cap
+    }
+    inline_script = {
+      script = irs_gtt/colony_types/trigger_weight_modifier
+      DISTRICT_SUFFIX = admin_cap
+    }
+  }
+}
+col_irs_skycity_admin_cap_capital = {
+  icon = GFX_colony_type_bureaucratic
+
+  potential = {
+    uses_district_set = irs_skyworld_set
+    is_capital = yes
+  }
+
+  planet_modifier = {
+    planet_jobs_unity_produces_mult = 0.15
+  }
+
+  inline_script = {
+    script = irs_gtt/colony_types/capital_type_modifier
+  }
+
+  weight_modifier = {
+    base = 20
+    modifier = {
+      add = @keep_current
+      has_designation = col_irs_skycity_admin_cap_capital
+    }
+    inline_script = {
+      script = irs_gtt/colony_types/trigger_weight_modifier
+      DISTRICT_SUFFIX = admin_cap
     }
   }
 }

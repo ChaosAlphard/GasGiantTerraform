@@ -51,15 +51,15 @@
   job_irs_admin_sub_drone_plural: "管控节点子个体"
   job_irs_admin_sub_drone_desc: "提供§Y行政管理能力§!"
   mod_job_irs_admin_sub_drone_add: "$job_irs_admin_sub_drone$岗位"
-  # 管控中心(机仆)
-  job_irs_admin_servitor_drone: "行政管理子个体"
-  job_irs_admin_servitor_drone_plural: "行政管理子个体"
-  job_irs_admin_servitor_drone_desc: "$irs_admin_cap_modifier_desc$，乘以§Y$job_irs_admin_sub_trophy$§!数量"
-  mod_job_irs_admin_servitor_drone_add: "$job_irs_admin_servitor_drone$岗位"
-  job_irs_admin_sub_trophy: "行政管理员"
-  job_irs_admin_sub_trophy_plural: "行政管理员"
-  job_irs_admin_sub_trophy_desc: "这些闲得无聊的§Y$job_bio_trophy$§!决定给自己找点事做"
-  mod_job_irs_admin_sub_trophy_add: "$job_irs_admin_sub_trophy$岗位"
+  # 行政管理主任(机仆)
+  job_irs_admin_trophy: "行政管理主任"
+  job_irs_admin_trophy_plural: "行政管理主任"
+  job_irs_admin_trophy_desc: "$irs_admin_cap_modifier_desc$，乘以§Y$job_irs_admin_trophy_sub$§!数量"
+  mod_job_irs_admin_trophy_add: "$job_irs_admin_trophy$岗位"
+  job_irs_admin_trophy_sub: "行政管理员"
+  job_irs_admin_trophy_sub_plural: "行政管理员"
+  job_irs_admin_trophy_sub_desc: "这些闲得无聊的§Y$job_bio_trophy$§!决定给自己找点事做"
+  mod_job_irs_admin_trophy_sub_add: "$job_irs_admin_trophy_sub$岗位"
   # 行星
   pc_irs_skyland: "空岛星球"
   pc_irs_skyland_desc: "气态行星上没有虽然陆地，但是借助£engineering£§Y$tech_housing_2$§!科技，我们可以创造出飘浮在空中的岛屿。"
@@ -69,7 +69,7 @@
   pc_irs_skyworld_desc: "这颗§Y$pc_gas_giant$§!上的§Y$pc_irs_skyworld$§!已经被建设为理想状态。"
   # 行星自动托管
   planet_automation_irs_skycity_district: "£district£天空城区划建设"
-  planet_automation_irs_skycity_district_desc: "允许按照§Y$DESIGNATIONS_TITLE$§!自动建造区划。无空余区划可用时将建造建筑\n§G$district_irs_skyworld_admin_cap$§!对应的§Y$DESIGNATIONS_TITLE$§!为§Y$col_irs_skycity_administrative$§!\n§G$district_irs_skyworld_administrative$§!对应的§Y$DESIGNATIONS_TITLE$§!为§Y$col_bureau$§!"
+  planet_automation_irs_skycity_district_desc: "允许按照§Y$DESIGNATIONS_TITLE$§!自动建造区划。无空余区划可用时将建造建筑。"
   # 殖民地规划
   # 理事会议案
   environmental_ordinance_waivers_active: "是§Y$GALACTIC_COMMUNITY$§!成员且§Y$SENATE_FLOOR$§!通过了§Y$resolution_industry_environmental_ordinance_waivers$§!或后续§Y$RESOLUTIONS$§!"
@@ -78,6 +78,11 @@
   col_irs_skycity_research_desc: "§Y$tr_adaptability_finish$§!后将获得以下额外效果:\n$mod_planet_jobs_physics_research_produces_mult$§G+5%§!\n$mod_planet_jobs_society_research_produces_mult$§G+5%§!\n$mod_planet_jobs_engineering_research_produces_mult$§G+5%§!"
   col_irs_skycity_research_capital: "首都$col_irs_skycity_research$"
   col_irs_skycity_research_capital_desc: "§Y$tr_adaptability_finish$§!后将获得以下额外效果:\n$mod_planet_jobs_produces_mult$§G+5%§!"
+  # 行政管理
+  col_irs_skycity_admin_cap: "行政中心天空城"
+  col_irs_skycity_admin_cap_desc: "§Y$tr_adaptability_finish$§!后将获得以下额外效果:\n$mod_planet_jobs_unity_produces_mult$§G+5%§!"
+  col_irs_skycity_admin_cap_capital: "首都$col_irs_skycity_admin_cap$"
+  col_irs_skycity_admin_cap_capital_desc: "§Y$tr_adaptability_finish$§!后将获得以下额外效果:\n$mod_planet_jobs_produces_mult$§G+5%§!"
   # 行政
   col_irs_skycity_administrative: "行政天空城"
   col_irs_skycity_administrative_desc: "§Y$tr_adaptability_finish$§!后将获得以下额外效果:\n$mod_planet_jobs_unity_produces_mult$§G+5%§!"
@@ -114,10 +119,6 @@
   district_irs_skyworld_city: "居住天空城"
   district_irs_skyworld_city_plural: "居住天空城"
   district_irs_skyworld_city_desc: "区划数量达到§Y1§!个及以上时:\n$mod_planet_jobs_produces_mult$§G+10%§!"
-  # 行政中心区划
-  district_irs_skyworld_admin_cap: "行政中心天空城"
-  district_irs_skyworld_admin_cap_plural: "行政中心天空城"
-  district_irs_skyworld_admin_cap_desc: "区划数量达到§Y1§!个及以上时:\n§Y$mod_job_irs_admin_loc_add$§!§G+1§!\n\n区划数量达到§Y20§!个及以上时:\n§Y$MOD_SPECIES_EMPIRE_SIZE_MULT$§!§G-80%§!"
   # 休闲区划
   district_irs_skyland_leisure: "休闲区划"
   district_irs_skyland_leisure_plural: "休闲区划"
@@ -128,6 +129,10 @@
   district_irs_skyworld_leisure: "休闲天空城"
   district_irs_skyworld_leisure_plural: "休闲天空城"
   district_irs_skyworld_leisure_desc: "区划数量达到§Y1§!个及以上时:\n$mod_planet_jobs_upkeep_mult$§G-10%§!\n$MOD_PLANET_CRIME_MULT$§G-20%§!\n\n§Y格式塔§!帝国额外获得以下效果:\n£mod_planet_amenities_no_happiness_add£$PLANET_AMENITIES_TITLE$§G+20%§!"
+  # 行政中心区划
+  district_irs_skyworld_admin_cap: "行政中心天空城"
+  district_irs_skyworld_admin_cap_plural: "行政中心天空城"
+  district_irs_skyworld_admin_cap_desc: "区划数量达到§Y1§!个及以上时:\n§Y$mod_job_irs_admin_loc_add$§!§G+1§!\n\n区划数量达到§Y20§!个及以上时:\n§Y$MOD_SPECIES_EMPIRE_SIZE_MULT$§!§G-80%§!"
   # 研究区划
   district_irs_skyland_research: "科研区划"
   district_irs_skyland_research_plural: "科研区划"

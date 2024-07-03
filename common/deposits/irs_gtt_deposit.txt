@@ -59,7 +59,7 @@ d_skycity_produce_core = {
       }
     }
     modifier = {
-      job_irs_admin_servitor_drone_add = 1
+      job_irs_admin_trophy_add = 1
     }
   }
 

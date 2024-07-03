@@ -57,6 +57,63 @@ district_irs_skyworld_city = {
   }
 }
 
+# 休闲区划
+district_irs_skyworld_leisure = {
+  is_capped_by_modifier = no
+  icon = district_irs_skycity_leisure
+  base_buildtime = @skyworld_build_time
+
+  show_on_uncolonized = {
+    uses_district_set = irs_skyworld_set
+    exists = from
+    from = {
+      NOT = { has_civic = civic_dystopian_society }
+    }
+  }
+
+  potential = {
+    uses_district_set = irs_skyworld_set
+    exists = owner
+    owner = {
+      NOT = { has_civic = civic_dystopian_society }
+    }
+  }
+
+  allow = {
+    uses_district_set = irs_skyworld_set
+  }
+
+  conversion_ratio = 1
+  convert_to = {
+    district_irs_skycity_leisure
+    district_irs_skyland_leisure
+  }
+
+  resources = {
+    category = planet_districts
+    cost = {
+      alloys = @skyworld_city_cost
+      exotic_gases = @skyworld_sr_cost
+    }
+    upkeep = {
+      energy = @skyworld_base_upkeep
+      exotic_gases = @skyworld_sr_upkeep
+    }
+  }
+
+  planet_modifier = {
+    planet_housing_add = 10
+  }
+
+  inline_script = {
+    script = irs_gtt/jobs/district_leisure
+    ENTERTAINER = 10
+    DUELIST = 10
+    MAINTENANCE = 16
+    AMENITIES_VALUE = 40
+  }
+}
+
 # 行政管理中心区划
 district_irs_skyworld_admin_cap = {
   is_capped_by_modifier = no
@@ -155,65 +212,8 @@ district_irs_skyworld_admin_cap = {
       }
     }
     modifier = {
-      job_irs_admin_sub_trophy_add = 10
+      job_irs_admin_trophy_sub_add = 10
     }
-  }
-}
-
-# 休闲区划
-district_irs_skyworld_leisure = {
-  is_capped_by_modifier = no
-  icon = district_irs_skycity_leisure
-  base_buildtime = @skyworld_build_time
-
-  show_on_uncolonized = {
-    uses_district_set = irs_skyworld_set
-    exists = from
-    from = {
-      NOT = { has_civic = civic_dystopian_society }
-    }
-  }
-
-  potential = {
-    uses_district_set = irs_skyworld_set
-    exists = owner
-    owner = {
-      NOT = { has_civic = civic_dystopian_society }
-    }
-  }
-
-  allow = {
-    uses_district_set = irs_skyworld_set
-  }
-
-  conversion_ratio = 1
-  convert_to = {
-    district_irs_skycity_leisure
-    district_irs_skyland_leisure
-  }
-
-  resources = {
-    category = planet_districts
-    cost = {
-      alloys = @skyworld_city_cost
-      exotic_gases = @skyworld_sr_cost
-    }
-    upkeep = {
-      energy = @skyworld_base_upkeep
-      exotic_gases = @skyworld_sr_upkeep
-    }
-  }
-
-  planet_modifier = {
-    planet_housing_add = 10
-  }
-
-  inline_script = {
-    script = irs_gtt/jobs/district_leisure
-    ENTERTAINER = 10
-    DUELIST = 10
-    MAINTENANCE = 16
-    AMENITIES_VALUE = 40
   }
 }
 

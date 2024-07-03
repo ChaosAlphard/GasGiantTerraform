@@ -30,7 +30,7 @@ defined_text = {
         has_valid_civic = civic_machine_servitor
       }
     }
-    localization_key = job_irs_admin_servitor_drone
+    localization_key = job_irs_admin_trophy
   }
   default = job_irs_admin
 }
