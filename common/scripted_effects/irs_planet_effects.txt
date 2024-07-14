@@ -116,4 +116,9 @@ irs_convert_district_effect = {
     DISTRICT = district_irs_$TYPE$_sr_motes
     RATIO = $RATIO$
   }
+  every_owned_pop = {
+    limit = { is_unemployed = yes }
+    # 对已失业 pop 使用 unemploy_pop 使其立即降级
+    unemploy_pop = yes
+  }
 }
