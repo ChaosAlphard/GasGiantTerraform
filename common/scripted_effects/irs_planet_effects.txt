@@ -61,6 +61,10 @@ irs_convert_district_effect = {
     RATIO = $RATIO$
   }
   irs_skycity_district_conversion_effect = {
+    DISTRICT = district_irs_$TYPE$_admin_cap
+    RATIO = $RATIO$
+  }
+  irs_skycity_district_conversion_effect = {
     DISTRICT = district_irs_$TYPE$_research
     RATIO = $RATIO$
   }

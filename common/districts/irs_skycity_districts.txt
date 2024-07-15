@@ -114,6 +114,56 @@ district_irs_skycity_leisure = {
   }
 }
 
+# 行政管理中心区划
+district_irs_skycity_admin_cap = {
+  is_capped_by_modifier = no
+  icon = district_irs_skycity_admin_cap
+  base_buildtime = @skycity_build_time
+
+  show_on_uncolonized = {
+    uses_district_set = irs_skycity_set
+  }
+
+  potential = {
+    uses_district_set = irs_skycity_set
+  }
+
+  allow = {
+    uses_district_set = irs_skycity_set
+  }
+
+  conversion_ratio = 1
+  convert_to = {
+    district_irs_skyworld_admin_cap
+  }
+
+  resources = {
+    category = planet_districts
+    cost = {
+      minerals = @skycity_city_cost
+      exotic_gases = @skycity_sr_cost
+      rare_crystals = @skycity_sr_cost
+      volatile_motes = @skycity_sr_cost
+    }
+    upkeep = {
+      energy = @skycity_base_upkeep
+      exotic_gases = @skycity_sr_upkeep
+      rare_crystals = @skycity_sr_upkeep
+      volatile_motes = @skycity_sr_upkeep
+    }
+  }
+
+  planet_modifier = {
+    planet_housing_add = 6
+  }
+
+  inline_script = {
+    script = irs_gtt/jobs/administrator
+    HOUSE_NON_MACHINE_SERVITOR = 6
+    ADMINISTRATOR = 6
+  }
+}
+
 # 研究区划
 district_irs_skycity_research = {
   is_capped_by_modifier = no

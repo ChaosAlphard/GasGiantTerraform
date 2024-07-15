@@ -130,6 +130,9 @@
   district_irs_skyworld_leisure_plural: "休闲天空城"
   district_irs_skyworld_leisure_desc: "区划数量达到§Y1§!个及以上时:\n$mod_planet_jobs_upkeep_mult$§G-10%§!\n$MOD_PLANET_CRIME_MULT$§G-20%§!\n\n§Y格式塔§!帝国额外获得以下效果:\n£mod_planet_amenities_no_happiness_add£$PLANET_AMENITIES_TITLE$§G+20%§!"
   # 行政中心区划
+  district_irs_skycity_admin_cap: "行政中心都市"
+  district_irs_skycity_admin_cap_plural: "行政中心都市"
+  district_irs_skycity_admin_cap_desc: "成群结队的行政文员和官僚们甘做牛马，以满足一个正在扩张的官僚体系不断提出的全新要求。"
   district_irs_skyworld_admin_cap: "行政中心天空城"
   district_irs_skyworld_admin_cap_plural: "行政中心天空城"
   district_irs_skyworld_admin_cap_desc: "区划数量达到§Y1§!个及以上时:\n§Y$mod_job_irs_admin_loc_add$§!§G+1§!\n\n区划数量达到§Y20§!个及以上时:\n§Y$MOD_SPECIES_EMPIRE_SIZE_MULT$§!§G-80%§!"
@@ -146,10 +149,10 @@
   # 行政区划
   district_irs_skyland_administrative: "行政区划"
   district_irs_skyland_administrative_plural: "行政区划"
-  district_irs_skyland_administrative_desc: "成群结队的行政文员和官僚们甘做牛马，以满足一个正在扩张的官僚体系不断提出的全新要求。"
+  district_irs_skyland_administrative_desc: "一个错综复杂的政府机构，包含官僚部门，次级官僚部门，以及次次级部门。"
   district_irs_skycity_administrative: "行政都市"
   district_irs_skycity_administrative_plural: "行政都市"
-  district_irs_skycity_administrative_desc: "成群结队的行政文员和官僚们甘做牛马，以满足一个正在扩张的官僚体系不断提出的全新要求。"
+  district_irs_skycity_administrative_desc: "一个错综复杂的政府机构，包含官僚部门，次级官僚部门，以及次次级部门。"
   district_irs_skyworld_administrative: "行政天空城"
   district_irs_skyworld_administrative_plural: "行政天空城"
   district_irs_skyworld_administrative_desc: "区划数量达到§Y20§!个及以上时:\n$mod_planet_administrators_unity_produces_mult$的§G+1§!"

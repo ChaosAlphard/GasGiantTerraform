@@ -117,7 +117,7 @@ district_irs_skyworld_leisure = {
 # 行政管理中心区划
 district_irs_skyworld_admin_cap = {
   is_capped_by_modifier = no
-  icon = district_irs_skyworld_admin_cap
+  icon = district_irs_skycity_admin_cap
   base_buildtime = @skyworld_build_time
 
   show_on_uncolonized = {
@@ -134,15 +134,7 @@ district_irs_skyworld_admin_cap = {
 
   conversion_ratio = 1
   convert_to = {
-    district_irs_skyworld_administrative
-    district_irs_skycity_administrative
-    district_irs_skyland_administrative
-    district_irs_skyworld_religious
-    district_irs_skycity_religious
-    district_irs_skyland_religious
-    district_irs_skyworld_organic_housing
-    district_irs_skycity_organic_housing
-    district_irs_skyland_organic_housing
+    district_irs_skycity_admin_cap
   }
 
   resources = {
@@ -166,54 +158,10 @@ district_irs_skyworld_admin_cap = {
     planet_jobs_unity_produces_mult = 0.01
   }
 
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = {
-        NOT = { has_valid_civic = civic_machine_servitor }
-      }
-    }
-    modifier = {
-      planet_housing_add = 6
-    }
-  }
-
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = {
-        is_regular_empire = yes
-      }
-    }
-    modifier = {
-      job_irs_admin_sub_add = 6
-    }
-  }
-
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = {
-        is_gestalt = yes
-        NOT = { has_valid_civic = civic_machine_servitor }
-      }
-    }
-    modifier = {
-      job_irs_admin_sub_drone_add = 6
-    }
-  }
-
-  triggered_planet_modifier = {
-    potential = {
-      exists = owner
-      owner = {
-        is_gestalt = yes
-        has_valid_civic = civic_machine_servitor
-      }
-    }
-    modifier = {
-      job_irs_admin_trophy_sub_add = 10
-    }
+  inline_script = {
+    script = irs_gtt/jobs/administrator
+    HOUSE_NON_MACHINE_SERVITOR = 10
+    ADMINISTRATOR = 10
   }
 }
 
