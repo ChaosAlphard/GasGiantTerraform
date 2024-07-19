@@ -24,15 +24,15 @@
   decision_irs_skycity_construction_notify_desc: "决议执行完成时进行事件通知，可用于通知特定建筑建造完成或者建造队列完成"
   # 事件
   irs_skycity.name: "§H[Root.GetName]§! 已改造为 §H[Root.GetClassName]§!"
-  irs_skycity.desc: "§H[Root.GetName]§! 上的§Y改造计划§!已经完成"
+  irs_skycity.desc: "§H[Root.GetName]§!上的§Y改造计划§!已经完成"
   irs_skycity.a: "好"
   irs_skycity.10.name: "§H[Root.GetName]§! 已完成建造"
-  irs_skycity.10.desc: "§H[Root.GetName]§! 上的§Y建造队列§!已经完成"
+  irs_skycity.10.desc: "§H[Root.GetName]§!上的§Y建造队列§!已经完成"
   irs_skycity.10.a: "好"
   # 岗位
   job_irs_admin_loc: "[GetIrsAdminCapJob]"
   mod_job_irs_admin_loc_add: "$job_irs_admin_loc$岗位"
-  irs_admin_cap_modifier_desc: "大于§Y100%§!的每§G1%§!凝聚力产出加成提供§G0.01§!点§Y行政管理能力§!"
+  irs_admin_cap_modifier_desc: "大于§G100%§!的每§G1%§!凝聚力产出加成提供§G0.01§!点§Y行政管理能力§!"
   # 行政管理主任
   job_irs_admin: "行政管理主任"
   job_irs_admin_plural: "行政管理主任"
@@ -252,19 +252,18 @@
   district_irs_skycity_sr_gases_desc: "异星天然气精炼"
   district_irs_skyworld_sr_gases: "精炼天空城"
   district_irs_skyworld_sr_gases_plural: "精炼天空城"
-  district_irs_skyworld_sr_gases_desc: "区划数量达到§Y4§!个及以上时:\n£job_gas_refiner£$mod_planet_refiners_upkeep_mult$§G-20%§!\n$mod_planet_structures_exotic_gases_upkeep_mult$§G-50%§!"
+  district_irs_skyworld_sr_gases_desc: "区划数量达到§Y1§!个及以上时:\n$mod_planet_structures_exotic_gases_upkeep_mult$§G-50%§!\n人口的异星天然气维护费§G-30%§!"
   # 稀有水晶
   district_irs_skycity_sr_crystals: "透镜都市"
   district_irs_skycity_sr_crystals_plural: "透镜都市"
   district_irs_skycity_sr_crystals_desc: "稀有水晶制造"
   district_irs_skyworld_sr_crystals: "透镜天空城"
   district_irs_skyworld_sr_crystals_plural: "透镜天空城"
-  district_irs_skyworld_sr_crystals_desc: "区划数量达到§Y4§!个及以上时:\n£job_translucer£$mod_planet_translucers_upkeep_mult$§G-20%§!\n$mod_planet_structures_rare_crystals_upkeep_mult$§G-50%§!"
+  district_irs_skyworld_sr_crystals_desc: "区划数量达到§Y1§!个及以上时:\n$mod_planet_structures_rare_crystals_upkeep_mult$§G-50%§!\n人口的稀有水晶维护费§G-30%§!"
   # 易爆微粒
   district_irs_skycity_sr_motes: "化合都市"
   district_irs_skycity_sr_motes_plural: "化合都市"
   district_irs_skycity_sr_motes_desc:  "易爆微粒制造"
   district_irs_skyworld_sr_motes: "化合天空城"
   district_irs_skyworld_sr_motes_plural: "化合天空城"
-  district_irs_skyworld_sr_motes_desc:  "区划数量达到§Y4§!个及以上时:\n£job_chemist£$mod_planet_chemists_upkeep_mult$§G-20%§!\n$mod_planet_structures_volatile_motes_upkeep_mult$§G-50%§!"
-
+  district_irs_skyworld_sr_motes_desc:  "区划数量达到§Y1§!个及以上时:\n$mod_planet_structures_volatile_motes_upkeep_mult$§G-50%§!\n人口的易爆微粒维护费§G-30%§!"

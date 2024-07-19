@@ -81,7 +81,10 @@ col_irs_skycity_admin_cap = {
   icon = GFX_colony_type_bureaucratic
 
   potential = {
-    uses_district_set = irs_skyworld_set
+    OR = {
+      uses_district_set = irs_skyworld_set
+      uses_district_set = irs_skycity_set
+    }
     is_capital = no
   }
 
@@ -115,7 +118,10 @@ col_irs_skycity_admin_cap_capital = {
   icon = GFX_colony_type_bureaucratic
 
   potential = {
-    uses_district_set = irs_skyworld_set
+    OR = {
+      uses_district_set = irs_skyworld_set
+      uses_district_set = irs_skycity_set
+    }
     is_capital = yes
   }
 

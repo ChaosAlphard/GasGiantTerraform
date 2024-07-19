@@ -281,12 +281,13 @@ d_skycity_produce_core = {
     potential = {
       num_districts = {
         type = district_irs_skyworld_sr_gases
-        value >= 4
+        value >= 1
       }
     }
     modifier = {
-      planet_refiners_upkeep_mult = -0.2
       planet_structures_exotic_gases_upkeep_mult = -0.5
+      # planet_jobs_exotic_gases_upkeep_mult = -0.1
+      planet_pops_exotic_gases_upkeep_mult = -0.3
     }
   }
 
@@ -295,12 +296,13 @@ d_skycity_produce_core = {
     potential = {
       num_districts = {
         type = district_irs_skyworld_sr_crystals
-        value >= 4
+        value >= 1
       }
     }
     modifier = {
-      planet_translucers_upkeep_mult = -0.2
       planet_structures_rare_crystals_upkeep_mult = -0.5
+      # planet_jobs_rare_crystals_upkeep_mult = -0.1
+      planet_pops_rare_crystals_upkeep_mult = -0.3
     }
   }
 
@@ -309,12 +311,13 @@ d_skycity_produce_core = {
     potential = {
       num_districts = {
         type = district_irs_skyworld_sr_motes
-        value >= 4
+        value >= 1
       }
     }
     modifier = {
-      planet_chemists_upkeep_mult = -0.2
       planet_structures_volatile_motes_upkeep_mult = -0.5
+      # planet_jobs_volatile_motes_upkeep_mult = -0.1
+      planet_pops_volatile_motes_upkeep_mult = -0.3
     }
   }
 
