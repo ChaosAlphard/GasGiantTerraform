@@ -39,7 +39,7 @@ decision_irs_skycity_upgrade = {
 
   allow = {
     owner = {
-      has_technology = tech_planetary_shield_generator
+      has_technology = tech_cold_fusion_power
       has_technology = tech_planetary_infrastructure_1
       has_technology = tech_starbase_3
     }
@@ -113,7 +113,7 @@ decision_irs_skycity_upgrade_fast = {
 
   allow = {
     owner = {
-      has_technology = tech_planetary_shield_generator
+      has_technology = tech_cold_fusion_power
       has_technology = tech_planetary_infrastructure_1
       has_technology = tech_starbase_3
     }
@@ -170,6 +170,7 @@ decision_irs_skycity_fin = {
 
   allow = {
     owner = {
+      has_technology = tech_zero_point_power
       has_technology = tech_planetary_infrastructure_2
       has_technology = tech_starbase_5
     }
@@ -241,6 +242,7 @@ decision_irs_skycity_fin_fast = {
 
   allow = {
     owner = {
+      has_technology = tech_zero_point_power
       has_technology = tech_planetary_infrastructure_2
       has_technology = tech_starbase_5
     }
