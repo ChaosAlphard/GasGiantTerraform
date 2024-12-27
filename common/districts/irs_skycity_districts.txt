@@ -153,10 +153,6 @@ district_irs_skycity_admin_cap = {
     }
   }
 
-  planet_modifier = {
-    planet_housing_add = 6
-  }
-
   inline_script = {
     script = irs_gtt/jobs/administrator
     HOUSE_NON_MACHINE_SERVITOR = 6
