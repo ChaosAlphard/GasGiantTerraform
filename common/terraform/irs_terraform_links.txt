@@ -44,7 +44,6 @@ terraform_link = {
     category = terraforming
 
     cost = {
-      energy = 5000
       minerals = 5000
     }
   }
@@ -82,7 +81,6 @@ terraform_link = {
     category = terraforming
 
     cost = {
-      energy = 5000
       alloys = 2000
     }
   }

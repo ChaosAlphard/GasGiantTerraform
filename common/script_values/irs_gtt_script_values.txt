@@ -41,7 +41,7 @@ irs_count_assigned_job_num = {
 
 # 岗位凝聚力产出修正带来的帝国规模上限加成
 irs_total_admin_cap = {
-  base = -1
+  base = 0
   add = value:irs_job_total_output_modifier|JOB|$JOB$|RESOURCE|unity|
   min = 0
   multiply = value:irs_count_assigned_job_num|JOB|$JOB$|

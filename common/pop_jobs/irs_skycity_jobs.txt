@@ -76,11 +76,11 @@ irs_admin_sub = {
     }
   }
 
-  triggered_planet_modifier = {
-    potential = { always = yes }
-    planet_amenities_add = 4
-    mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
-  }
+  # triggered_planet_modifier = {
+  #   potential = { always = yes }
+  #   planet_amenities_add = 4
+  #   mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+  # }
 
   triggered_planet_modifier = {
     potential = {
@@ -226,21 +226,21 @@ irs_admin_sub_drone = {
       }
     }
     modifier = {
-      planet_stability_add = 2
+      planet_stability_add = 0.1
       planet_jobs_simple_drone_produces_mult = 0.01
     }
   }
 
   triggered_planet_modifier = {
     potential = { always = yes }
-    planet_crime_no_happiness_mult = -0.01
+    planet_crime_no_happiness_add = -2
   }
 
-  triggered_planet_modifier = {
-    potential = { always = yes }
-    planet_amenities_no_happiness_add = 4
-    mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
-  }
+  # triggered_planet_modifier = {
+  #   potential = { always = yes }
+  #   planet_amenities_no_happiness_add = 2
+  #   mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+  # }
 
   triggered_planet_modifier = {
     potential = {
@@ -260,7 +260,7 @@ irs_admin_sub_drone = {
   weight = {
     weight = @synapse_drone_job_weight
     mult = value:job_weights_modifier|JOB|irs_admin_sub_drone|RESOURCE|unity|
-    mult = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_amenities_mult|
+    # mult = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_amenities_mult|
     modifier = {
       factor = 1.5
       has_job = irs_admin_drone
@@ -306,7 +306,7 @@ irs_admin_trophy = {
   weight = {
     weight = @ruler_job_weight
     mult = value:job_weights_modifier|JOB|irs_admin_trophy|RESOURCE|unity|
-    mult = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_amenities_mult|
+    # mult = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_amenities_mult|
     modifier = {
       factor = 1.5
       has_job = irs_admin_trophy
@@ -356,7 +356,7 @@ irs_admin_trophy_sub = {
 
   triggered_planet_modifier = {
     potential = { always = yes }
-    planet_amenities_no_happiness_add = 4
+    planet_amenities_no_happiness_add = 1
     mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
   }
 

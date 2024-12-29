@@ -11,8 +11,8 @@ decision_irs_skycity_upgrade = {
   resources = {
     category = decisions
     cost = {
-      alloys = 10000
-      influence = 200
+      minerals = 20000
+      influence = 100
     }
   }
 
@@ -49,7 +49,11 @@ decision_irs_skycity_upgrade = {
       has_modifier = slave_colony
     }
     has_upgraded_capital = yes
-    free_district_slots < 1
+    # free_district_slots < 1
+    num_districts = {
+      type = any
+      value >= 20
+    }
   }
 
   ai_weight = {
@@ -82,11 +86,11 @@ decision_irs_skycity_upgrade_fast = {
   resources = {
     category = decisions
     cost = {
-      volatile_motes = 4000
-      exotic_gases = 4000
-      rare_crystals = 4000
-      alloys = 10000
-      influence = 200
+      volatile_motes = 2000
+      exotic_gases = 2000
+      rare_crystals = 2000
+      minerals = 20000
+      influence = 100
     }
   }
 
@@ -123,7 +127,11 @@ decision_irs_skycity_upgrade_fast = {
       has_modifier = slave_colony
     }
     has_upgraded_capital = yes
-    free_district_slots < 1
+    # free_district_slots < 1
+    num_districts = {
+      type = any
+      value >= 20
+    }
   }
 
   ai_weight = {
@@ -141,7 +149,7 @@ decision_irs_skycity_fin = {
     category = decisions
     cost = {
       alloys = 10000
-      influence = 100
+      influence = 200
     }
   }
 
@@ -180,7 +188,11 @@ decision_irs_skycity_fin = {
       has_modifier = slave_colony
     }
     has_major_upgraded_capital = yes
-    free_district_slots < 1
+    # free_district_slots < 1
+    num_districts = {
+      type = any
+      value >= 20
+    }
   }
 
   ai_weight = {
@@ -209,11 +221,11 @@ decision_irs_skycity_fin_fast = {
   resources = {
     category = decisions
     cost = {
-      volatile_motes = 2000
-      exotic_gases = 2000
-      rare_crystals = 2000
+      volatile_motes = 4000
+      exotic_gases = 4000
+      rare_crystals = 4000
       alloys = 10000
-      influence = 100
+      influence = 200
     }
   }
 
@@ -252,7 +264,11 @@ decision_irs_skycity_fin_fast = {
       has_modifier = slave_colony
     }
     has_major_upgraded_capital = yes
-    free_district_slots < 1
+    # free_district_slots < 1
+    num_districts = {
+      type = any
+      value >= 20
+    }
   }
 
   ai_weight = {

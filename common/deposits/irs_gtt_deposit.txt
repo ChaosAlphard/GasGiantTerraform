@@ -17,6 +17,46 @@ d_skycity_produce_core = {
     }
   }
 
+  # 休闲
+  triggered_planet_modifier = {
+    potential = {
+      num_districts = {
+        type = district_irs_skyworld_leisure
+        value >= 1
+      }
+    }
+    modifier = {
+      planet_jobs_upkeep_mult = -0.1
+    }
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      num_districts = {
+        type = district_irs_skyworld_leisure
+        value >= 1
+      }
+      owner = { is_gestalt = no }
+    }
+    modifier = {
+      planet_crime_mult = -0.2
+    }
+  }
+
+  triggered_planet_modifier = {
+    potential = {
+      num_districts = {
+        type = district_irs_skyworld_leisure
+        value >= 1
+      }
+      owner = { is_gestalt = yes }
+    }
+    modifier = {
+      planet_crime_no_happiness_mult = -0.2
+      planet_amenities_no_happiness_mult = 0.2
+    }
+  }
+
   # 管理上限
   triggered_planet_modifier = {
     potential = {
@@ -72,46 +112,6 @@ d_skycity_produce_core = {
     }
     modifier = {
       species_empire_size_mult = -0.8
-    }
-  }
-
-  # 休闲
-  triggered_planet_modifier = {
-    potential = {
-      num_districts = {
-        type = district_irs_skyworld_leisure
-        value >= 1
-      }
-    }
-    modifier = {
-      planet_jobs_upkeep_mult = -0.1
-    }
-  }
-
-  triggered_planet_modifier = {
-    potential = {
-      num_districts = {
-        type = district_irs_skyworld_leisure
-        value >= 1
-      }
-      owner = { is_gestalt = no }
-    }
-    modifier = {
-      planet_crime_mult = -0.2
-    }
-  }
-
-  triggered_planet_modifier = {
-    potential = {
-      num_districts = {
-        type = district_irs_skyworld_leisure
-        value >= 1
-      }
-      owner = { is_gestalt = yes }
-    }
-    modifier = {
-      planet_crime_no_happiness_mult = -0.2
-      planet_amenities_no_happiness_mult = 0.2
     }
   }
 
@@ -190,7 +190,7 @@ d_skycity_produce_core = {
       }
     }
     modifier = {
-      planet_artisans_consumer_goods_produces_add = 2
+      planet_artisans_consumer_goods_produces_add = 1
     }
   }
 
@@ -285,8 +285,8 @@ d_skycity_produce_core = {
       }
     }
     modifier = {
-      planet_structures_exotic_gases_upkeep_mult = -0.3
-      planet_pops_exotic_gases_upkeep_mult = -0.3
+      planet_structures_exotic_gases_upkeep_mult = -0.2
+      planet_pops_exotic_gases_upkeep_mult = -0.4
     }
   }
 
@@ -299,8 +299,8 @@ d_skycity_produce_core = {
       }
     }
     modifier = {
-      planet_structures_rare_crystals_upkeep_mult = -0.3
-      planet_pops_rare_crystals_upkeep_mult = -0.3
+      planet_structures_rare_crystals_upkeep_mult = -0.2
+      planet_pops_rare_crystals_upkeep_mult = -0.4
     }
   }
 
@@ -313,8 +313,8 @@ d_skycity_produce_core = {
       }
     }
     modifier = {
-      planet_structures_volatile_motes_upkeep_mult = -0.3
-      planet_pops_volatile_motes_upkeep_mult = -0.3
+      planet_structures_volatile_motes_upkeep_mult = -0.2
+      planet_pops_volatile_motes_upkeep_mult = -0.4
     }
   }
 
