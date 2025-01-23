@@ -154,7 +154,6 @@ district_irs_skyworld_admin_cap = {
   }
 
   planet_modifier = {
-    species_empire_size_mult = -0.01
     planet_jobs_unity_produces_mult = 0.01
   }
 
